@@ -544,6 +544,49 @@ body.dark-mode .control-icon-btn:hover {
     transition: background-color var(--transition-speed), border-color var(--transition-speed);
 }
 
+/* About Section "What I Build" Compact Grid */
+.about-build-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+.about-build-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-color);
+    background-color: var(--surface-color-dim);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    padding: 10px 14px;
+    transition: border-color var(--transition-speed), transform var(--transition-speed);
+}
+
+.about-build-item:hover {
+    border-color: var(--accent-primary);
+    transform: translateY(-1px);
+}
+
+.about-build-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-primary);
+    flex-shrink: 0;
+}
+
+@media (max-width: 576px) {
+    .about-build-list {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* Profile Image Card */
 .profile-image-card {
     position: relative;

@@ -98,12 +98,17 @@ function initLanguageToggle() {
             "hero-btn": "View Projects",
             "hero-btn-contact": "Contact Me",
             
-            "cad-title": "Interactive 3D Assembly Simulator",
+            "cad-title": "Engineering Systems Simulator",
             "cad-telemetry": "Rotation Angles: X:<span id=\"cad-x\">0°</span> Y:<span id=\"cad-y\">0°</span> Z:<span id=\"cad-z\">0°</span>",
             
-            "about-title": "About Me",
-            "about-p1": "As a Mechatronics Engineering student, my studies focus on the integration of mechanical systems, electronics, control engineering, and computer science. I am deeply interested in Industry 4.0 paradigms, where physical manufacturing processes are connected with digital networks.",
-            "about-p2": "Alongside my university coursework, I have built a solid foundation in Full-Stack web development. This enables me to design web portals, manage databases, and create API bridges that can communicate directly with automated workflows and hardware sensors in real time.",
+            "about-title": "Engineering Systems. Building Solutions.",
+            "about-p1": "I’m a Mechatronics Engineering student at Zagazig National University with hands-on experience building software systems, digital platforms, and operational solutions.",
+            "about-p2": "My work combines engineering thinking with full-stack development, backend systems, databases, automation workflows, and process optimization. I’m particularly interested in systems that connect software with real-world operations — making complex processes simpler, faster, and more reliable.",
+            "about-p3": "Alongside my engineering studies, I work on real projects involving logistics, shipping platforms, university systems, business workflows, and automation.",
+            "about-build-1": "Full-Stack Web Platforms",
+            "about-build-2": "Backend & Database Systems",
+            "about-build-3": "Workflow Automation",
+            "about-build-4": "Engineering & Operational Solutions",
             
             "skills-title": "Technical Skills",
             "skills-cat-programming": "Programming",
@@ -215,12 +220,17 @@ function initLanguageToggle() {
             "hero-btn": "عرض المشاريع",
             "hero-btn-contact": "تواصل معي",
             
-            "cad-title": "محاكي تجميع ثلاثي الأبعاد تفاعلي",
+            "cad-title": "محاكي الأنظمة الهندسية",
             "cad-telemetry": "زوايا الدوران: X:<span id=\"cad-x\">0°</span> Y:<span id=\"cad-y\">0°</span> Z:<span id=\"cad-z\">0°</span>",
             
-            "about-title": "من أنا",
-            "about-p1": "كطالب في هندسة الميكاترونكس، تركز دراستي على تكامل الأنظمة الميكانيكية والإلكترونيات وهندسة التحكم وعلوم الحاسب. أنا مهتم بعمق بنماذج الثورة الصناعية الرابعة (Industry 4.0)، حيث يتم ربط عمليات التصنيع المادية بالشبكات الرقمية.",
-            "about-p2": "إلى جانب دراستي الجامعية، قمت ببناء أساس قوي في تطوير الويب المتكامل (Full-Stack). هذا يمكنني من تصميم البوابات الإلكترونية، وإدارة قواعد البيانات، وإنشاء جسور برمجية (APIs) يمكنها الاتصال مباشرة بمسارات العمل الآلية وحساسات الأجهزة في الوقت الفعلي.",
+            "about-title": "هندسة الأنظمة. وبناء الحلول.",
+            "about-p1": "أنا طالب هندسة ميكاترونكس بجامعة الزقازيق الأهلية، ولدي خبرة عملية في بناء الأنظمة البرمجية والمنصات الرقمية والحلول التشغيلية.",
+            "about-p2": "أجمع في عملي بين التفكير الهندسي وتطوير الـFull-Stack والـBackend وقواعد البيانات وسير عمل الأتمتة وتحسين العمليات. أهتم بشكل خاص بالأنظمة التي تربط البرمجيات بالعمليات الواقعية، بهدف جعل الإجراءات المعقدة أبسط وأسرع وأكثر اعتمادية.",
+            "about-p3": "وبجانب دراستي الهندسية، أعمل على مشاريع حقيقية في مجالات الشحن واللوجستيات والمنصات الجامعية وأنظمة الأعمال والأتمتة.",
+            "about-build-1": "منصات ويب متكاملة",
+            "about-build-2": "أنظمة Backend وقواعد بيانات",
+            "about-build-3": "أتمتة سير العمل",
+            "about-build-4": "حلول هندسية وتشغيلية",
             
             "skills-title": "المهارات التقنية",
             "skills-cat-programming": "لغات البرمجة",
