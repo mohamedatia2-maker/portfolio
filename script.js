@@ -198,14 +198,16 @@ function initLanguageToggle() {
             "exp-highlight": "Focus: Turning complex operational processes into simpler, measurable, and easier-to-manage workflows.",
             
             "roadmap-title": "Current Focus & Roadmap",
-            "roadmap-label": "Mastering Advanced Automation & Hardware Bridges",
-            "roadmap-summary": "Currently building automated pipeline workflows and connecting full-stack web environments with IoT microcontroller modules during this vacation.",
-            "roadmap-step1-title": "Core Web & Backend Bridges",
-            "roadmap-step1-desc": "Created API endpoints and webhook integrations inside Django.",
-            "roadmap-step2-title": "Advanced Automation Workflows",
-            "roadmap-step2-desc": "Mapping data schemas and building workflow integrations in Make.",
-            "roadmap-step3-title": "Hardware Loop & Sensory Data",
-            "roadmap-step3-desc": "Interfacing physical sensors to the dashboard via MQTT protocols.",
+            "roadmap-label": "Building My Automation & Control Engineering Foundation",
+            "roadmap-progress-label": "Roadmap Progress",
+            "roadmap-summary": "Currently strengthening my foundations in industrial automation and control engineering, with a focus on classical control, PLC programming, and practical automation systems. I am also connecting these engineering concepts with my software and backend experience to build better digital and operational solutions.",
+            "roadmap-step1-title": "Classical Control Fundamentals",
+            "roadmap-step1-desc": "Strengthening the fundamentals of control systems, including system modeling, feedback, stability, response analysis, and PID control.",
+            "roadmap-step2-title": "PLC & Industrial Automation",
+            "roadmap-step2-desc": "Learning PLC fundamentals, ladder logic, industrial control concepts, I/O systems, and practical automation workflows.",
+            "roadmap-step3-title": "Automation Systems Integration",
+            "roadmap-step3-desc": "Connecting control systems, software, sensors, and industrial communication concepts to build integrated automation solutions.",
+            "roadmap-supporting": "Supporting Skills: Python • Backend Systems • APIs • Workflow Automation • IoT",
             
             "projects-title": "Featured Projects",
             "projects-p1-tag": "Educational Platforms",
@@ -364,15 +366,17 @@ function initLanguageToggle() {
             
             "exp-highlight": "التركيز: تحويل العمليات التشغيلية المعقدة إلى إجراءات أبسط وأسهل في القياس والإدارة.",
             
-            "roadmap-title": "التركيز الحالي وخطة العمل",
-            "roadmap-label": "إتقان الأتمتة المتقدمة وجسور العتاد (Hardware)",
-            "roadmap-summary": "أقوم حالياً ببناء مسارات عمل مؤتمتة وتوصيل بيئات الويب بالحساسات والمتحكمات الدقيقة (IoT) خلال هذه الإجازة.",
-            "roadmap-step1-title": "أساسيات الويب وجسور الـ Backend",
-            "roadmap-step1-desc": "إنشاء نقاط نهاية للـ APIs وتكاملات الويب هوكس داخل دجانغو.",
-            "roadmap-step2-title": "مسارات عمل الأتمتة المتقدمة",
-            "roadmap-step2-desc": "تخطيط مخططات البيانات وبناء تكاملات سير العمل في Make.",
-            "roadmap-step3-title": "حلقة العتاد وبيانات الحساسات",
-            "roadmap-step3-desc": "ربط الحساسات المادية بلوحة التحكم باستخدام بروتوكولات MQTT.",
+            "roadmap-title": "التركيز الحالي وخطة التطور",
+            "roadmap-label": "بناء أساس قوي في الأتمتة وهندسة التحكم",
+            "roadmap-progress-label": "تقدم خطة التطور",
+            "roadmap-summary": "أعمل حاليًا على تقوية أساسي في الأتمتة الصناعية وهندسة التحكم، مع التركيز على أنظمة التحكم الكلاسيكية وبرمجة الـPLC وتطبيقات الأتمتة العملية. كما أعمل على ربط هذه المفاهيم الهندسية بخبرتي في البرمجيات والـBackend لبناء حلول رقمية وتشغيلية أكثر تكاملًا.",
+            "roadmap-step1-title": "أساسيات التحكم الكلاسيكي",
+            "roadmap-step1-desc": "تقوية أساسيات أنظمة التحكم، بما يشمل نمذجة الأنظمة والتغذية الراجعة والاستقرار وتحليل الاستجابة والتحكم PID.",
+            "roadmap-step2-title": "الـPLC والأتمتة الصناعية",
+            "roadmap-step2-desc": "تعلم أساسيات الـPLC ولغة Ladder Logic ومفاهيم التحكم الصناعي وأنظمة الإدخال والإخراج وتطبيقات الأتمتة العملية.",
+            "roadmap-step3-title": "تكامل أنظمة الأتمتة",
+            "roadmap-step3-desc": "ربط أنظمة التحكم والبرمجيات والحساسات ومفاهيم الاتصال الصناعي لبناء حلول أتمتة متكاملة.",
+            "roadmap-supporting": "مهارات داعمة: Python • أنظمة Backend • APIs • أتمتة سير العمل • IoT",
             
             "projects-title": "المشاريع المميزة",
             "projects-p1-tag": "منصات تعليمية",
@@ -1014,7 +1018,7 @@ function initRoadmapProgress() {
     observer.observe(section);
 
     function runProgressBar() {
-        const targetPercent = 50; // Phase 1 complete, phase 2 active -> ~50%
+        const targetPercent = 40; // Step 1 complete, step 2 active -> 40% roadmap progress
         let cur = 0;
 
         const duration = 2000;
