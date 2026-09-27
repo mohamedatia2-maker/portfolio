@@ -179,22 +179,23 @@ function initLanguageToggle() {
             "experience-title": "Experience",
             "skills-role-badge": "Current Position",
             "skills-role-title": "Operations & Performance Coordinator",
-            "skills-role-company": "Saudi Logistics Operations",
-            "skills-role-desc": "Working across Saudi logistics operations, combining operational management, technical problem-solving, performance analysis, and process improvement to make branch workflows more efficient and reliable.",
+            "skills-role-company": "HappyTouch Establishment & Ideal World Establishment — Saudi Arabia",
+            "skills-role-scope": "Technical Responsibility • Performance & Workflow Supervision",
+            "skills-role-desc": "I take on technical and operational responsibility across the two organizations, supervising performance and workflows while improving systems, processes, and working methods. My role involves solving technical and operational problems, analyzing data and performance indicators, and turning day-to-day operational needs into practical solutions that make branch operations more efficient and organized.",
             
             "exp-c1-title": "Operations & Workflow",
-            "exp-c1-desc": "Improve daily branch workflows, simplify operational procedures, coordinate shipment-related processes, and develop practical methods that make branch work faster and easier.",
+            "exp-c1-desc": "Supervise daily branch workflows, simplify operational procedures, organize shipment processes, and develop practical working methods that make execution faster and more organized.",
             
             "exp-c2-title": "Performance & Data",
-            "exp-c2-desc": "Monitor operational KPIs, analyze branch performance, compare internal records with carrier data, and prepare structured reports to identify discrepancies and improvement opportunities.",
+            "exp-c2-desc": "Supervise performance indicators, analyze branch results, compare internal records with carrier data, and prepare reports to identify discrepancies and improvement opportunities.",
             
             "exp-c3-title": "Technical & Process Improvement",
-            "exp-c3-desc": "Design better workflows, solve operational and technical problems, improve internal systems and reporting methods, and connect technology with real operational needs.",
+            "exp-c3-desc": "Take responsibility for technical solutions and workflow improvements, solve operational and technical problems, improve systems and reporting methods, and connect technology with real operational needs.",
             
             "exp-c4-title": "Finance & Reconciliation",
-            "exp-c4-desc": "Handle invoice reviews, account reconciliation, payment matching, cash records, and financial discrepancies across operational activities.",
+            "exp-c4-desc": "Review invoices and accounts, perform financial reconciliations, review payments and cash records, and track discrepancies related to operations.",
             
-            "exp-highlight": "Focus: Making complex operational processes simpler, measurable, and easier to manage.",
+            "exp-highlight": "Focus: Turning complex operational processes into simpler, measurable, and easier-to-manage workflows.",
             
             "roadmap-title": "Current Focus & Roadmap",
             "roadmap-label": "Mastering Advanced Automation & Hardware Bridges",
@@ -345,20 +346,21 @@ function initLanguageToggle() {
             "experience-title": "الخبرة",
             "skills-role-badge": "المنصب الحالي",
             "skills-role-title": "منسق العمليات والأداء",
-            "skills-role-company": "عمليات لوجستية في السعودية",
-            "skills-role-desc": "أعمل ضمن عمليات لوجستية في السعودية، حيث أجمع بين إدارة العمليات وحل المشكلات التقنية وتحليل الأداء وتحسين الإجراءات لجعل سير العمل داخل الفروع أكثر كفاءة واعتمادية.",
+            "skills-role-company": "مؤسسة لمسة سعادة ومؤسسة عالم المثالية — السعودية",
+            "skills-role-scope": "المسؤول التقني والمشرف على الأداء وسير العمل",
+            "skills-role-desc": "أتولى مسؤولية تقنية وتشغيلية ضمن عمليات المؤسستين، مع الإشراف على الأداء وسير العمل وتطوير طرق العمل وتحسين الأنظمة والإجراءات. أعمل على حل المشكلات التقنية والتشغيلية، وتحليل البيانات ومؤشرات الأداء، وتحويل الاحتياجات اليومية إلى حلول عملية تجعل العمل داخل الفروع أكثر كفاءة وتنظيمًا.",
             
             "exp-c1-title": "العمليات وسير العمل",
-            "exp-c1-desc": "تحسين سير العمل اليومي داخل الفروع، وتبسيط الإجراءات التشغيلية، وتنظيم عمليات الشحن، وتطوير طرق عملية تجعل العمل أسرع وأسهل.",
+            "exp-c1-desc": "الإشراف على سير العمل اليومي داخل الفروع، وتبسيط الإجراءات التشغيلية، وتنظيم عمليات الشحن، وتطوير طرق عمل عملية تجعل التنفيذ أسرع وأسهل وأكثر تنظيمًا.",
             
             "exp-c2-title": "الأداء والبيانات",
-            "exp-c2-desc": "متابعة مؤشرات الأداء، وتحليل أداء الفروع، ومقارنة السجلات الداخلية ببيانات شركة الشحن، وإعداد تقارير منظمة لاكتشاف الفروقات وفرص التحسين.",
+            "exp-c2-desc": "الإشراف على مؤشرات الأداء وتحليل نتائج الفروع، ومقارنة السجلات الداخلية ببيانات شركة الشحن، وإعداد التقارير لاكتشاف الفروقات وفرص التحسين.",
             
             "exp-c3-title": "التطوير التقني وتحسين العمليات",
-            "exp-c3-desc": "تصميم طرق عمل أفضل، وحل المشكلات التشغيلية والتقنية، وتحسين الأنظمة وطرق إعداد التقارير، وربط التكنولوجيا بالاحتياجات التشغيلية الفعلية.",
+            "exp-c3-desc": "تحمل مسؤولية تطوير طرق العمل والحلول التقنية، وحل المشكلات التشغيلية والتقنية، وتحسين الأنظمة والتقارير، وربط التكنولوجيا بالاحتياجات التشغيلية الفعلية.",
             
             "exp-c4-title": "الحسابات والمطابقة المالية",
-            "exp-c4-desc": "مراجعة الفواتير، وإجراء المطابقات الحسابية، ومراجعة المدفوعات، ومتابعة السجلات النقدية والفروقات المالية المرتبطة بالعمليات.",
+            "exp-c4-desc": "مراجعة الفواتير والحسابات، وإجراء المطابقات المالية، ومراجعة المدفوعات والسجلات النقدية، ومتابعة الفروقات المرتبطة بالعمليات.",
             
             "exp-highlight": "التركيز: تحويل العمليات التشغيلية المعقدة إلى إجراءات أبسط وأسهل في القياس والإدارة.",
             

@@ -763,7 +763,35 @@ body.dark-mode .control-icon-btn:hover {
     font-size: 1.05rem;
     font-weight: 600;
     color: var(--accent-secondary);
-    margin-bottom: 12px;
+    margin-bottom: 8px;
+}
+
+.role-scope-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--accent-primary);
+    background-color: var(--accent-primary-light);
+    border: 1px solid rgba(27, 131, 84, 0.2);
+    border-radius: var(--border-radius-pill);
+    padding: 5px 14px;
+    margin-bottom: 16px;
+    width: fit-content;
+    line-height: 1.4;
+    transition: all var(--transition-speed);
+}
+
+body.dark-mode .role-scope-badge {
+    border-color: rgba(16, 185, 129, 0.3);
+}
+
+.role-scope-badge .scope-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
 }
 
 .role-desc {
