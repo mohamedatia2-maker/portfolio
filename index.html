@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Atia // Portfolio</title>
+    <meta name="description" content="Personal Portfolio of Mohamed Mohamed Atia Mohamed - Mechatronics Engineering & Full-Stack Development.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-mode"> <!-- default theme -->
+
+    <!-- Interactive Background Canvas -->
+    <canvas id="cyberCanvas"></canvas>
+
+    <!-- Replicated ZNUE Header Navbar -->
+    <header class="znue-header-wrapper">
+        <div class="znue-header">
+            <!-- Left: Logos & Title -->
+            <div class="header-left">
+                <!-- Custom Mechatronics-Software SVG Logo -->
+                <div class="circle-logo logo-mohamed">
+                    <svg viewBox="0 0 100 100" width="22" height="22">
+                        <!-- Outer Gear Outline -->
+                        <circle cx="50" cy="50" r="30" fill="none" stroke="var(--accent-primary)" stroke-width="6"/>
+                        <!-- Gear Teeth -->
+                        <path d="M50,10 L50,20 M50,80 L50,90 M10,50 L20,50 M80,50 L90,50 M22,22 L29,29 M71,71 L78,78 M22,78 L29,71 M71,29 L78,22" stroke="var(--accent-primary)" stroke-width="8" stroke-linecap="round"/>
+                        <!-- Code Brackets & Slash -->
+                        <path d="M42,38 L34,50 L42,62 M58,38 L66,50 L58,62 M52,36 L48,64" stroke="var(--accent-primary)" stroke-width="5" stroke-linecap="round" fill="none"/>
+                    </svg>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-main" data-translate="header-name">Mohamed</span>
+                </div>
+            </div>
+
+            <!-- Center: Pill Navigation Menu -->
+            <nav class="header-center-nav">
+                <button class="nav-mobile-toggle" aria-label="Toggle Navigation">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <div class="nav-pill-wrapper desktop-nav-only">
+                    <ul class="nav-pills">
+                        <li><a href="#hero" class="nav-pill-link active" data-translate="nav-home">Home</a></li>
+                        <li><a href="#about" class="nav-pill-link" data-translate="nav-about">About</a></li>
+                        <li><a href="#skills" class="nav-pill-link" data-translate="nav-skills">Skills</a></li>
+                        <li><a href="#experience" class="nav-pill-link" data-translate="nav-experience">Experience</a></li>
+                        <li><a href="#projects" class="nav-pill-link" data-translate="nav-projects">Projects</a></li>
+                        <li><a href="#upgrades" class="nav-pill-link" data-translate="nav-certs">Certifications</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Right: Controls & Toggles -->
+            <div class="header-right-controls">
+                <button class="control-icon-btn btn-theme-toggle" id="themeToggleBtn" aria-label="Toggle Theme">
+                    <!-- Moon Icon (Default Light Mode shows Moon) -->
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="theme-icon-moon">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                    </svg>
+                </button>
+                
+                <button class="lang-toggle-btn" id="langToggleBtn">ع</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer (placed outside header to escape backdrop-filter containing block constraint) -->
+    <div class="nav-pill-wrapper mobile-nav-drawer">
+        <button class="nav-drawer-close-btn" id="closeNavDrawer" aria-label="Close Menu">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+        <div class="nav-menu-header" data-translate="menu-header">Navigation</div>
+        <ul class="nav-pills">
+            <li><a href="#hero" class="nav-pill-link active" data-translate="nav-home">Home</a></li>
+            <li><a href="#about" class="nav-pill-link" data-translate="nav-about">About</a></li>
+            <li><a href="#skills" class="nav-pill-link" data-translate="nav-skills">Skills</a></li>
+            <li><a href="#experience" class="nav-pill-link" data-translate="nav-experience">Experience</a></li>
+            <li><a href="#projects" class="nav-pill-link" data-translate="nav-projects">Projects</a></li>
+            <li><a href="#upgrades" class="nav-pill-link" data-translate="nav-certs">Certifications</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Container -->
+    <main class="page-container">
+
+        <!-- Hero Section -->
+        <section id="hero" class="page-section hero-section active-section">
+            <div class="grid-2">
+                <!-- Left: Headline & Introduction -->
+                <div class="hero-intro">
+                    <span class="section-tag" data-translate="hero-tag">Mechatronics Engineering & Full-Stack Development</span>
+                    <div class="hero-title-area">
+                        <h1 class="main-title" data-translate="hero-title">Where Code Meets <span class="accent-color">Machines.</span></h1>
+                        <div class="mobile-avatar-container">
+                            <img src="img/WhatsApp Image 2025-04-14 at 21.14.42_10d0c13c.jpg" alt="Mohamed Atia" class="mobile-profile-pic">
+                        </div>
+                    </div>
+                    <p class="hero-desc" data-translate="hero-desc">
+                        Hi, I am Mohamed Mohamed Atia Mohamed. I am a 2nd-year Mechatronics Engineering student at Zagazig National University (ZNU). I focus on bridging the gap between complex software systems and mechanical processes, integrating Full-Stack web environments with industrial automation.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#projects" class="btn btn-primary" data-translate="hero-btn">View Projects</a>
+                    </div>
+                </div>
+
+                <!-- Right: Profile Picture Frame -->
+                <div class="about-visual desktop-only-avatar">
+                    <div class="profile-image-card">
+                        <img src="img/WhatsApp Image 2025-04-14 at 21.14.42_10d0c13c.jpg" alt="Mohamed Atia" class="profile-pic">
+                        <!-- HUD Decorative Lines -->
+                        <div class="hud-corner top-left"></div>
+                        <div class="hud-corner top-right"></div>
+                        <div class="hud-corner bottom-left"></div>
+                        <div class="hud-corner bottom-right"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="page-section about-section">
+            <div class="section-header">
+                <h2 class="section-title" data-translate="about-title">About Me</h2>
+                <div class="section-underline"></div>
+            </div>
+            <div class="grid-2">
+                <div class="about-card">
+                    <p data-translate="about-p1">
+                        As a Mechatronics Engineering student, my studies focus on the integration of mechanical systems, electronics, control engineering, and computer science. I am deeply interested in Industry 4.0 paradigms, where physical manufacturing processes are connected with digital networks.
+                    </p>
+                    <p style="margin-top: 16px;" data-translate="about-p2">
+                        Alongside my university coursework, I have built a solid foundation in Full-Stack web development. This enables me to design web portals, manage databases, and create API bridges that can communicate directly with automated workflows and hardware sensors in real time.
+                    </p>
+                </div>
+                <!-- Right: Interactive 3D Gear Model Viewport -->
+                <div class="hero-visual">
+                    <div class="canvas-card">
+                        <div class="canvas-header">
+                            <span class="canvas-title" data-translate="cad-title">Interactive 3D Assembly Simulator</span>
+                            <div class="canvas-controls">
+                                <button class="cad-btn active" data-view="iso">ISO</button>
+                                <button class="cad-btn" data-view="front">FRONT</button>
+                                <button class="cad-btn" data-view="top">TOP</button>
+                                <button class="cad-btn" data-view="side">SIDE</button>
+                            </div>
+                        </div>
+                        <div class="canvas-body">
+                            <canvas id="cadCanvas"></canvas>
+                            <div class="canvas-telemetry">
+                                <span data-translate="cad-telemetry">Rotation Angles: X:<span id="cad-x">0°</span> Y:<span id="cad-y">0°</span> Z:<span id="cad-z">0°</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Skills Section -->
+        <section id="skills" class="page-section skills-section">
+            <div class="section-header">
+                <h2 class="section-title" data-translate="skills-title">Technical Skills</h2>
+                <div class="section-underline"></div>
+            </div>
+            <div class="skills-grid">
+                <!-- Card 1: Web Development -->
+                <div class="technical-skill-card">
+                    <h3 class="skill-category-title">
+                        <span class="skill-category-icon">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="16 18 22 12 16 6"></polyline>
+                                <polyline points="8 6 2 12 8 18"></polyline>
+                            </svg>
+                        </span>
+                        <span data-translate="skills-cat-web">Web Development</span>
+                    </h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span data-translate="skill-web-dev">Full Stack Python Developer</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar-fill" data-percent="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span data-translate="skill-django">Django & Flask Frameworks</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar-fill" data-percent="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span data-translate="skill-frontend">HTML5 / CSS3 / JavaScript</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar-fill" data-percent="90"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Programming Languages -->
+                <div class="technical-skill-card">
+                    <h3 class="skill-category-title">
+                        <span class="skill-category-icon">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="16 18 22 12 16 6"></polyline>
+                                <polyline points="8 6 2 12 8 18"></polyline>
+                                <line x1="12" y1="4" x2="12" y2="20"></line>
+                            </svg>
+                        </span>
+                        <span data-translate="skills-cat-programming">Programming Languages</span>
+                    </h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span data-translate="skill-python">Python</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar-fill" data-percent="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span data-translate="skill-cpp">C++</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar-fill" data-percent="75"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span data-translate="skill-databases">PostgreSQL & Databases</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar-fill" data-percent="80"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Engineering & Automation -->
+                <div class="technical-skill-card">
+                    <h3 class="skill-category-title">
+                        <span class="skill-category-icon">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="3"></circle>
+                                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.5 1z"></path>
+                            </svg>
+                        </span>
+                        <span data-translate="skills-cat-engineering">Engineering & CAD</span>
+                    </h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span data-translate="skill-solidworks">SolidWorks (3D CAD)</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar-fill" data-percent="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span data-translate="skill-matlab">MATLAB & Simulink</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar-fill" data-percent="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span data-translate="skill-iot">IoT & Automation (MQTT, ESP32)</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar-fill" data-percent="75"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Office Productivity -->
+                <div class="technical-skill-card">
+                    <h3 class="skill-category-title">
+                        <span class="skill-category-icon">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                        </span>
+                        <span data-translate="skills-cat-office">Office Productivity</span>
+                    </h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span data-translate="skill-excel">Microsoft Excel (Advanced)</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar-fill" data-percent="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span data-translate="skill-word">Microsoft Word</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar-fill" data-percent="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span data-translate="skill-ppt">Microsoft PowerPoint</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar-fill" data-percent="80"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="page-section experience-section">
+            <div class="section-header">
+                <h2 class="section-title" data-translate="experience-title">Operational & Technical Expertise</h2>
+                <div class="section-underline"></div>
+            </div>
+
+            <!-- Operations Coordinator Role Overview Card -->
+            <div class="role-overview-card">
+                <div class="role-badge" data-translate="skills-role-badge">Current Position</div>
+                <h3 class="role-title" data-translate="skills-role-title">Operations & Performance Coordinator</h3>
+                <p class="role-company" data-translate="skills-role-company">happy touch Establishment & Ideal World Establishment (Saudi Arabia)</p>
+                <p class="role-desc" data-translate="skills-role-desc">Supporting logistics operations across 6 Aramex branches.</p>
+            </div>
+
+            <div class="grid-3">
+                <!-- Skill Card 1: Logistics -->
+                <div class="skill-card">
+                    <div class="skill-card-icon font-icon">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="16.5" y1="9.4" x2="7.5" y2="4.21" />
+                            <polygon points="12 22.08 12 12 3 6.92 3 17.08 12 22.08" />
+                            <polygon points="12 22.08 12 12 21 6.92 21 17.08 12 22.08" />
+                            <polygon points="12 2 21 6.92 12 12 3 6.92 12 2" />
+                            <line x1="12" y1="22.08" x2="12" y2="12" />
+                        </svg>
+                    </div>
+                    <h3 data-translate="skills-s1-title">Logistics & Shipment Operations</h3>
+                    <p data-translate="skills-s1-desc">Monitoring and tracking domestic and international logistics channels.</p>
+                    <ul class="comp-list">
+                        <li data-translate="skills-s1-li1"><strong>Multi-Branch Monitoring:</strong> Tracking shipments across multiple operational branches.</li>
+                        <li data-translate="skills-s1-li2"><strong>International Tracking:</strong> Overseeing shipments from dispatch to final delivery.</li>
+                        <li data-translate="skills-s1-li3"><strong>Risk Mitigation:</strong> Identifying operational risks to reduce returns and losses.</li>
+                    </ul>
+                </div>
+
+                <!-- Skill Card 2: Performance -->
+                <div class="skill-card">
+                    <div class="skill-card-icon mechanical-icon">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="20" x2="18" y2="10" />
+                            <line x1="12" y1="20" x2="12" y2="4" />
+                            <line x1="6" y1="20" x2="6" y2="14" />
+                        </svg>
+                    </div>
+                    <h3 data-translate="skills-s2-title">Performance Analytics & KPIs</h3>
+                    <p data-translate="skills-s2-desc">Creating reporting pipelines and operational dashboards for management.</p>
+                    <ul class="comp-list">
+                        <li data-translate="skills-s2-li1"><strong>KPI Dashboards:</strong> Building monthly branch performance metrics and KPIs.</li>
+                        <li data-translate="skills-s2-li2"><strong>Overdue Reporting:</strong> Generating daily lists of overdue shipments (6+ & 10+ days).</li>
+                        <li data-translate="skills-s2-li3"><strong>Operational Insights:</strong> Presenting process improvement recommendations.</li>
+                    </ul>
+                </div>
+
+                <!-- Skill Card 3: Compliance -->
+                <div class="skill-card">
+                    <div class="skill-card-icon automation-icon">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            <polyline points="9 11 11 13 15 9" />
+                        </svg>
+                    </div>
+                    <h3 data-translate="skills-s3-title">Audit & Compliance</h3>
+                    <p data-translate="skills-s3-desc">Ensuring data accuracy, financial reconciliation, and contract compliance.</p>
+                    <ul class="comp-list">
+                        <li data-translate="skills-s3-li1"><strong>Cash Reconciliation:</strong> Verifying cash collections against branch records.</li>
+                        <li data-translate="skills-s3-li2"><strong>Shipment Audits:</strong> Auditing branch reports to ensure accuracy and compliance.</li>
+                        <li data-translate="skills-s3-li3"><strong>Contract Compliance:</strong> Monitoring leases, relations, and deadlines.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Current Focus Section -->
+        <section id="roadmap" class="page-section roadmap-section">
+            <div class="section-header">
+                <h2 class="section-title" data-translate="roadmap-title">Current Focus & Roadmap</h2>
+                <div class="section-underline"></div>
+            </div>
+            <div class="roadmap-card">
+                <div class="grid-2">
+                    <!-- Progress Bar Visuals -->
+                    <div class="roadmap-progress">
+                        <div class="progress-details">
+                            <span class="progress-label" data-translate="roadmap-label">Mastering Advanced Automation & Hardware Bridges</span>
+                            <span class="progress-percent" id="progressPercentText">0%</span>
+                        </div>
+                        <div class="progress-track">
+                            <div class="progress-bar" id="progressBarFill"></div>
+                        </div>
+                        <p class="progress-summary" data-translate="roadmap-summary">
+                            Currently building automated pipeline workflows and connecting full-stack web environments with IoT microcontroller modules during this vacation.
+                        </p>
+                    </div>
+
+                    <!-- Steps List -->
+                    <div class="roadmap-steps">
+                        <div class="step completed">
+                            <div class="step-num">1</div>
+                            <div class="step-content">
+                                <h4 data-translate="roadmap-step1-title">Core Web & Backend Bridges</h4>
+                                <p data-translate="roadmap-step1-desc">Created API endpoints and webhook integrations inside Django.</p>
+                            </div>
+                        </div>
+                        <div class="step active">
+                            <div class="step-num">2</div>
+                            <div class="step-content">
+                                <h4 data-translate="roadmap-step2-title">Advanced Automation Workflows</h4>
+                                <p data-translate="roadmap-step2-desc">Mapping data schemas and building workflow integrations in Make.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">3</div>
+                            <div class="step-content">
+                                <h4 data-translate="roadmap-step3-title">Hardware Loop & Sensory Data</h4>
+                                <p data-translate="roadmap-step3-desc">Interfacing physical sensors to the dashboard via MQTT protocols.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="page-section projects-section">
+            <div class="section-header-row">
+                <div class="section-header">
+                    <h2 class="section-title" data-translate="projects-title">Featured Projects</h2>
+                    <div class="section-underline"></div>
+                </div>
+                <div class="carousel-nav-controls">
+                    <button class="carousel-nav-btn btn-prev" id="projects-prev-btn" aria-label="Previous Projects">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="15 18 9 12 15 6" />
+                        </svg>
+                    </button>
+                    <button class="carousel-nav-btn btn-next" id="projects-next-btn" aria-label="Next Projects">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="carousel-viewport" id="projects-carousel">
+                <div class="carousel-track" id="projects-track">
+                    <!-- Project 1: Portal -->
+                    <a href="https://znue-portal.me/en/" target="_blank" rel="noopener noreferrer" class="new-project-card">
+                        <div class="project-image-wrapper">
+                            <img src="img/project-portal.jpg" alt="ZNUE Portal" class="project-bg-image">
+                            <div class="project-card-overlay"></div>
+                        </div>
+                        <div class="project-card-content">
+                            <span class="new-project-tag tag-educational" data-translate="projects-p1-tag">Educational Platforms</span>
+                            <h3 class="new-project-title" data-translate="projects-p1-title">Comprehensive Academic Portal</h3>
+                            <div class="new-project-link">
+                                <span data-translate="projects-p1-link">Visit Website</span>
+                                <span class="project-arrow"></span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Project 2: Teachers Learning Platform -->
+                    <a href="https://wonderful-treacle-a97214.netlify.app/" target="_blank" rel="noopener noreferrer" class="new-project-card">
+                        <div class="project-image-wrapper">
+                            <img src="img/project-learning.jpg" alt="Teachers Learning Platform" class="project-bg-image">
+                            <div class="project-card-overlay"></div>
+                        </div>
+                        <div class="project-card-content">
+                            <span class="new-project-tag tag-educational" data-translate="projects-p4-tag">Educational Platforms</span>
+                            <h3 class="new-project-title" data-translate="projects-p4-title">Learning Platform for Teachers</h3>
+                            <div class="new-project-link">
+                                <span data-translate="projects-p4-link">Visit Website</span>
+                                <span class="project-arrow"></span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Project 3: Student Assistance -->
+                    <a href="https://znuassistant.netlify.app/#home" target="_blank" rel="noopener noreferrer" class="new-project-card">
+                        <div class="project-image-wrapper">
+                            <img src="img/project-assistance.jpg" alt="Student Assistance" class="project-bg-image">
+                            <div class="project-card-overlay"></div>
+                        </div>
+                        <div class="project-card-content">
+                            <span class="new-project-tag tag-services" data-translate="projects-p2-tag">Student Support</span>
+                            <h3 class="new-project-title" data-translate="projects-p2-title">Student Support & Assistance Website</h3>
+                            <div class="new-project-link">
+                                <span data-translate="projects-p2-link">Visit Website</span>
+                                <span class="project-arrow"></span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Project 4: HR Website -->
+                    <a href="https://deft-cheesecake-4100df.netlify.app/" target="_blank" rel="noopener noreferrer" class="new-project-card">
+                        <div class="project-image-wrapper">
+                            <img src="img/project-hr.jpg" alt="HR Website" class="project-bg-image">
+                            <div class="project-card-overlay"></div>
+                        </div>
+                        <div class="project-card-content">
+                            <span class="new-project-tag tag-corporate" data-translate="projects-p3-tag">Corporate Websites</span>
+                            <h3 class="new-project-title" data-translate="projects-p3-title">HR Company Website</h3>
+                            <div class="new-project-link">
+                                <span data-translate="projects-p3-link">Visit Website</span>
+                                <span class="project-arrow"></span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Project 5: Wedding Invitation -->
+                    <a href="https://abdullah-dina-wedding.netlify.app/" target="_blank" rel="noopener noreferrer" class="new-project-card">
+                        <div class="project-image-wrapper">
+                            <img src="img/project-wedding.png" alt="Wedding Invitation" class="project-bg-image">
+                            <div class="project-card-overlay"></div>
+                        </div>
+                        <div class="project-card-content">
+                            <span class="new-project-tag tag-services" data-translate="projects-p5-tag">Event Invitations</span>
+                            <h3 class="new-project-title" data-translate="projects-p5-title">Digital Wedding Invitation</h3>
+                            <div class="new-project-link">
+                                <span data-translate="projects-p5-link">Visit Website</span>
+                                <span class="project-arrow"></span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="upgrades" class="page-section certifications-section">
+            <div class="section-header-row">
+                <div class="section-header">
+                    <h2 class="section-title" data-translate="certs-title">Certifications & Qualifications</h2>
+                    <div class="section-underline"></div>
+                </div>
+                <div class="carousel-nav-controls">
+                    <button class="carousel-nav-btn btn-prev" id="certs-prev-btn" aria-label="Previous Certifications">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="15 18 9 12 15 6" />
+                        </svg>
+                    </button>
+                    <button class="carousel-nav-btn btn-next" id="certs-next-btn" aria-label="Next Certifications">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="carousel-viewport" id="certs-carousel">
+                <div class="carousel-track" id="certs-track">
+                    <!-- Cert 1: ITI -->
+                    <div class="new-cert-card" data-cert-id="c1">
+                        <div class="cert-card-img-wrapper">
+                            <img src="img/WhatsApp Image 2025-09-28 at 21.15.50_6680e132.jpg" alt="ITI Certificate" class="cert-card-thumbnail">
+                            <div class="cert-card-hover-overlay">
+                                <span class="zoom-icon">&#128269;</span>
+                            </div>
+                        </div>
+                        <div class="cert-card-info">
+                            <span class="cert-card-issuer">ITI</span>
+                            <h3 class="cert-card-title" data-translate="certs-c1-title">Full Stack Web Development</h3>
+                            <button class="btn btn-outline btn-small btn-view-cert" data-translate="certs-btn-view">View Details</button>
+                        </div>
+                    </div>
+
+                    <!-- Cert 2: SolidWorks Completion -->
+                    <div class="new-cert-card" data-cert-id="c2">
+                        <div class="cert-card-img-wrapper">
+                            <img src="img/1759502983617.jpg" alt="SolidWorks Certificate of Completion" class="cert-card-thumbnail">
+                            <div class="cert-card-hover-overlay">
+                                <span class="zoom-icon">&#128269;</span>
+                            </div>
+                        </div>
+                        <div class="cert-card-info">
+                            <span class="cert-card-issuer">Engovation</span>
+                            <h3 class="cert-card-title" data-translate="certs-c2-title">Solidworks Course (Completion)</h3>
+                            <button class="btn btn-outline btn-small btn-view-cert" data-translate="certs-btn-view">View Details</button>
+                        </div>
+                    </div>
+
+                    <!-- Cert 4: SolidWorks Attendance -->
+                    <div class="new-cert-card" data-cert-id="c4">
+                        <div class="cert-card-img-wrapper">
+                            <img src="img/1759502983418.jpg" alt="SolidWorks Certificate of Attendance" class="cert-card-thumbnail">
+                            <div class="cert-card-hover-overlay">
+                                <span class="zoom-icon">&#128269;</span>
+                            </div>
+                        </div>
+                        <div class="cert-card-info">
+                            <span class="cert-card-issuer">Engovation</span>
+                            <h3 class="cert-card-title" data-translate="certs-c4-title">Solidworks Course (Attendance)</h3>
+                            <button class="btn btn-outline btn-small btn-view-cert" data-translate="certs-btn-view">View Details</button>
+                        </div>
+                    </div>
+
+                    <!-- Cert 3: Advanced Excel -->
+                    <div class="new-cert-card" data-cert-id="c3">
+                        <div class="cert-card-img-wrapper">
+                            <img src="img/1750573365989.jpg" alt="Excel Certificate" class="cert-card-thumbnail">
+                            <div class="cert-card-hover-overlay">
+                                <span class="zoom-icon">&#128269;</span>
+                            </div>
+                        </div>
+                        <div class="cert-card-info">
+                            <span class="cert-card-issuer">Edraak</span>
+                            <h3 class="cert-card-title" data-translate="certs-c3-title">Advanced Excel</h3>
+                            <button class="btn btn-outline btn-small btn-view-cert" data-translate="certs-btn-view">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Certifications Detail Modal -->
+    <div class="cert-modal-backdrop" id="certModal">
+        <div class="cert-modal-dialog">
+            <button class="cert-modal-close-btn" id="closeCertModal" aria-label="Close Modal">&times;</button>
+            <div class="cert-modal-body">
+                <!-- Left: Certificate Image Visualizer -->
+                <div class="cert-modal-image-panel">
+                    <img src="" alt="Certificate Full Size" id="modalCertImg" class="cert-modal-full-img">
+                </div>
+                <!-- Right: Certificate Details Sidebar -->
+                <div class="cert-modal-details-panel">
+                    <h2 class="cert-modal-title" id="modalCertTitle">Certificate Title</h2>
+                    <span class="cert-modal-issuer" id="modalCertIssuer">Institution</span>
+                    
+                    <div class="cert-modal-meta-grid">
+                        <div class="meta-item">
+                            <span class="meta-label" data-translate="certs-modal-hours">Hours</span>
+                            <span class="meta-value" id="modalCertHours">145 Hours</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label" data-translate="certs-modal-date">Date</span>
+                            <span class="meta-value" id="modalCertDate">July 1 - Aug 15</span>
+                        </div>
+                    </div>
+                    
+                    <div class="cert-modal-description-area">
+                        <p class="cert-modal-desc" id="modalCertDesc">Intensive professional training...</p>
+                        <h4 class="cert-modal-topics-title" data-translate="certs-modal-topics">Syllabus / Focus Areas</h4>
+                        <ul class="cert-modal-topics-list" id="modalCertTopicsList">
+                            <!-- Dynamic content -->
+                        </ul>
+                        
+                        <div style="margin-top: 16px;">
+                            <a href="" target="_blank" rel="noopener noreferrer" id="modalCertLink" class="btn btn-outline btn-small open-full-img-btn" style="width: 100%; gap: 8px;">
+                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                    <polyline points="15 3 21 3 21 9" />
+                                    <line x1="10" y1="14" x2="21" y2="3" />
+                                </svg>
+                                <span data-translate="certs-modal-open-doc">Open Original Document</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <span data-translate="footer-copyright">© 2026 Mohamed Mohamed Atia Mohamed</span>
+                <span class="footer-university" data-translate="footer-subtitle">Zagazig National University // Mechatronics Engineering</span>
+            </div>
+            <div class="footer-socials">
+                <a href="https://www.linkedin.com/in/mohamed-mohamed-atia-57138b360/" target="_blank" class="footer-social-link">LinkedIn</a>
+                <a href="https://github.com/mohamedatia2-maker" target="_blank" class="footer-social-link">GitHub</a>
+                <a href="mailto:mohamedzape2@gmail.com" class="footer-social-link">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Widget -->
+    <div class="wa-widget-container" id="waWidget">
+        <!-- Chat Popup Window -->
+        <div class="wa-chat-window" id="waChatWindow">
+            <!-- Header -->
+            <div class="wa-chat-header">
+                <div class="wa-chat-avatar-group">
+                    <img src="img/WhatsApp Image 2025-04-14 at 21.14.42_10d0c13c.jpg" alt="Mohamed Atia" class="wa-chat-avatar">
+                    <span class="wa-chat-online-dot"></span>
+                </div>
+                <div class="wa-chat-header-info">
+                    <h4 class="wa-chat-name" data-translate="wa-chat-name">Mohamed Atia</h4>
+                    <span class="wa-chat-status" id="waChatStatus" data-translate="wa-chat-status">Typically replies in minutes</span>
+                </div>
+                <button class="wa-chat-close-btn" id="waCloseChat" aria-label="Close Chat">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Chat Body -->
+            <div class="wa-chat-body">
+                <!-- Typing Indicator -->
+                <div class="wa-chat-typing-bubble" id="waChatTyping">
+                    <div class="wa-typing-dots">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+                
+                <!-- Chat Message Bubble -->
+                <div class="wa-chat-message-bubble" id="waMsgBubble" style="opacity: 0; transform: translateY(10px); display: none;">
+                    <span class="wa-chat-sender-name">Mohamed Atia</span>
+                    <p class="wa-chat-message-text" data-translate="wa-chat-msg">Hello</p>
+                    <div class="wa-chat-meta">
+                        <span class="wa-chat-timestamp" id="waChatTime">12:00 AM</span>
+                        <svg class="wa-chat-checkmark" viewBox="0 0 16 15" width="16" height="15" fill="currentColor">
+                            <path d="M15.01 3.316l-.478-.372a.365.365 0 0 0-.51.063L8.666 9.879a.32.32 0 0 1-.484.033L4.992 6.776a.366.366 0 0 0-.516.012l-.423.433a.386.386 0 0 0 .012.528l3.753 3.65a.32.32 0 0 0 .48-.037l6.736-7.534a.365.365 0 0 0-.064-.512zM12.01 3.316l-.478-.372a.365.365 0 0 0-.51.063L5.666 9.879a.32.32 0 0 1-.484.033L3.3 8.01a.366.366 0 0 0-.515.012l-.423.433a.386.386 0 0 0 .012.528l2.453 2.39a.32.32 0 0 0 .48-.037l6.736-7.534a.365.365 0 0 0-.064-.512z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Footer Message Input -->
+            <div class="wa-chat-footer">
+                <div class="wa-chat-input-wrapper">
+                    <input type="text" class="wa-chat-input" id="waChatInput" placeholder="Type a message..." data-translate="wa-chat-input-placeholder">
+                    <button class="wa-chat-send-btn" id="waSendBtn" aria-label="Send Message">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating Button Trigger -->
+        <button class="wa-float-trigger" id="waFloatBtn" aria-label="Open WhatsApp Chat">
+            <svg viewBox="0 0 16 16" width="28" height="28" fill="currentColor" class="wa-trigger-icon wa-icon-whatsapp">
+                <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+            </svg>
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="wa-trigger-icon wa-icon-close">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+</body>
+</html>
