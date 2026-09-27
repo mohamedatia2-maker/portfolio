@@ -929,6 +929,102 @@ body.dark-mode .control-icon-btn:hover {
     font-weight: 600;
 }
 
+/* Experience Cards Grid (2x2 on Desktop/Tablet, 1 col on Mobile) */
+.experience-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.experience-cards-grid .skill-card {
+    display: flex;
+    flex-direction: column;
+    padding: 28px;
+    position: relative;
+    border-radius: var(--border-radius-md);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed), border-color var(--transition-speed), background-color var(--transition-speed);
+}
+
+.experience-cards-grid .skill-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--accent-primary);
+}
+
+.experience-cards-grid .skill-card:nth-child(even):hover {
+    border-color: var(--accent-secondary);
+}
+
+.experience-cards-grid .skill-card:nth-child(even) .skill-card-icon {
+    background-color: rgba(13, 110, 253, 0.1);
+    color: var(--accent-secondary);
+}
+
+.experience-cards-grid .skill-card h3 {
+    font-size: 1.18rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--text-color);
+}
+
+.experience-cards-grid .skill-card p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+    margin-bottom: 0;
+}
+
+/* Experience Highlight Banner / Small Highlight */
+.experience-highlight-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 12px;
+}
+
+.experience-highlight {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 24px;
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-pill);
+    box-shadow: var(--shadow-sm);
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed), transform var(--transition-speed);
+    text-align: center;
+}
+
+.experience-highlight:hover {
+    border-color: var(--accent-primary);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.experience-highlight .highlight-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-primary);
+    flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+    .experience-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .experience-highlight {
+        font-size: 0.85rem;
+        padding: 10px 18px;
+        text-align: start;
+    }
+}
+
 /* Roadmap Stepper */
 .roadmap-card {
     background-color: var(--surface-color);
