@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initCertModals();
     initCarousels();
     initWhatsAppWidget();
+    initHeroActions();
 });
 
 /* ==========================================
@@ -91,10 +92,11 @@ function initLanguageToggle() {
             "nav-projects": "Projects",
             "nav-certs": "Certifications",
             
-            "hero-tag": "Mechatronics Engineering & Full-Stack Development",
+            "hero-tag": "Mechatronics Engineering • Software • Automation",
             "hero-title": "Where Code Meets <span class=\"accent-color\">Machines.</span>",
-            "hero-desc": "Hi, I am Mohamed Mohamed Atia Mohamed. I am a 2nd-year Mechatronics Engineering student at Zagazig National University (ZNU). I focus on bridging the gap between complex software systems and mechanical processes, integrating Full-Stack web environments with industrial automation.",
+            "hero-desc": "I’m Mohamed Atia, a Mechatronics Engineering student at Zagazig National University building real-world software systems, automation workflows, and operational solutions. I combine engineering, backend development, data, and process optimization to turn complex workflows into practical systems.",
             "hero-btn": "View Projects",
+            "hero-btn-contact": "Contact Me",
             
             "cad-title": "Interactive 3D Assembly Simulator",
             "cad-telemetry": "Rotation Angles: X:<span id=\"cad-x\">0°</span> Y:<span id=\"cad-y\">0°</span> Z:<span id=\"cad-z\">0°</span>",
@@ -207,10 +209,11 @@ function initLanguageToggle() {
             "nav-projects": "المشاريع",
             "nav-certs": "الشهادات",
             
-            "hero-tag": "هندسة الميكاترونكس وتطوير الويب المتكامل",
-            "hero-title": "حيث تلتقي البرمجة بـ <span class=\"accent-color\">الآلات.</span>",
-            "hero-desc": "مرحباً، أنا محمد محمد عطية محمد. طالب في السنة الثانية بقسم هندسة الميكاترونكس في جامعة الزقازيق الأهلية (ZNU). أركز على سد الفجوة بين البرمجيات المعقدة والعمليات الميكانيكية، ودمج بيئات تطوير الويب المتكاملة مع الأتمتة الصناعية.",
+            "hero-tag": "هندسة ميكاترونكس • برمجيات • أتمتة",
+            "hero-title": "حيث يلتقي <span class=\"accent-color\">الكود بالآلات.</span>",
+            "hero-desc": "أنا محمد عطية، طالب هندسة ميكاترونكس بجامعة الزقازيق الأهلية، أعمل على بناء أنظمة برمجية وحلول أتمتة وأنظمة تشغيلية لمشكلات واقعية. أجمع بين الهندسة وتطوير الـBackend والبيانات وتحسين العمليات لتحويل سير العمل المعقد إلى أنظمة عملية وأكثر كفاءة.",
             "hero-btn": "عرض المشاريع",
+            "hero-btn-contact": "تواصل معي",
             
             "cad-title": "محاكي تجميع ثلاثي الأبعاد تفاعلي",
             "cad-telemetry": "زوايا الدوران: X:<span id=\"cad-x\">0°</span> Y:<span id=\"cad-y\">0°</span> Z:<span id=\"cad-z\">0°</span>",
@@ -346,6 +349,21 @@ function initLanguageToggle() {
             }
         });
     }
+}
+
+/* ==========================================
+   1C. HERO ACTIONS INTERACTION
+   ========================================== */
+function initHeroActions() {
+    const contactBtn = document.getElementById('heroContactBtn');
+    if (!contactBtn) return;
+    contactBtn.addEventListener('click', (e) => {
+        const target = document.querySelector('.page-footer') || document.querySelector('footer');
+        if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
 }
 
 /* ==========================================

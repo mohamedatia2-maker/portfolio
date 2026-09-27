@@ -404,6 +404,7 @@ body.dark-mode .control-icon-btn:hover {
 .hero-actions {
     display: flex;
     gap: 16px;
+    flex-wrap: wrap;
 }
 
 /* Standard UI Buttons */
