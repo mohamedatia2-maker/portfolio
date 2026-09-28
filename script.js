@@ -1475,8 +1475,8 @@ function initScrollSpy() {
         });
     }, {
         root: null,
-        rootMargin: '-30% 0px -30% 0px',
-        threshold: 0.1
+        rootMargin: '-10% 0px -40% 0px',
+        threshold: 0
     });
 
     sections.forEach(s => observer.observe(s));

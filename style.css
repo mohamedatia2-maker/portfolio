@@ -342,14 +342,13 @@ body.dark-mode .control-icon-btn:hover {
 
 /* Sections Standards */
 .page-section {
-    opacity: 0.4;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
+    opacity: 1;
+    transform: none;
 }
 
 .page-section.active-section {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
 }
 
 .section-header {
