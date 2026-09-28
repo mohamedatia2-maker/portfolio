@@ -907,14 +907,10 @@ body.dark-mode .role-scope-badge {
     padding-left: 4px;
 }
 
-.technical-skill-card.is-expanded {
-    height: auto;
-    min-height: 320px;
+.technical-skill-card.is-expanded .skill-chips-wrap {
+    overflow-y: auto;
 }
 
-.technical-skill-card.is-expanded .skill-chips-wrap {
-    overflow-y: visible;
-}
 
 /* Custom Sleek Scrollbar for Expanded Chips */
 .skill-chips-wrap::-webkit-scrollbar {
