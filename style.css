@@ -818,7 +818,27 @@ body.dark-mode .role-scope-badge {
     .skills-grid {
         grid-template-columns: 1fr;
     }
+
+    /* Mobile: show all chips, remove fixed height, hide toggle */
+    .technical-skill-card {
+        height: auto !important;
+        min-height: unset !important;
+    }
+
+    .skill-chip.skill-chip-extra {
+        display: inline-flex !important;
+        animation: none !important;
+    }
+
+    .technical-skill-card .skill-chips-wrap {
+        overflow-y: visible !important;
+    }
+
+    .skill-toggle-btn {
+        display: none !important;
+    }
 }
+
 
 .technical-skill-card {
     background-color: var(--surface-color);
