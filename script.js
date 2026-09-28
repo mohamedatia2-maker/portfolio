@@ -364,6 +364,8 @@ function initLanguageToggle() {
             "certs-c1-title": "Full Stack Web Development",
             "certs-c2-title": "Solidworks Course (Completion)",
             "certs-c4-title": "Solidworks Course (Attendance)",
+            "certs-c5-title": "Solar Energy Course (Completion)",
+            "certs-c6-title": "Solar Energy Course (Attendance)",
             "certs-c3-title": "Advanced Excel",
             
             "footer-copyright": "Â© 2026 Mohamed Mohamed Atia Mohamed",
@@ -656,6 +658,8 @@ function initLanguageToggle() {
             "certs-c1-title": "ØªØ·ÙˆÙŠØ± Ø§Ù„ÙˆÙŠØ¨ Ø§Ù„Ù…ØªÙƒØ§Ù…Ù„",
             "certs-c2-title": "Ø¯ÙˆØ±Ø© Ø³ÙˆÙ„ÙŠØ¯ÙˆÙˆØ±ÙƒØ³ (Ø¥ØªÙ…Ø§Ù…)",
             "certs-c4-title": "Ø¯ÙˆØ±Ø© Ø³ÙˆÙ„ÙŠØ¯ÙˆÙˆØ±ÙƒØ³ (Ø­Ø¶ÙˆØ±)",
+            "certs-c5-title": "دورة الطاقة الشمسية (إتمام)",
+            "certs-c6-title": "دورة الطاقة الشمسية (حضور)",
             "certs-c3-title": "Ù…Ø³Ø§Ù‚ Ø¥ÙƒØ³ÙŠÙ„ Ø§Ù„Ù…ØªÙ‚Ø¯Ù…",
             
             "footer-copyright": "Â© 2026 Ù…Ø­Ù…Ø¯ Ù…Ø­Ù…Ø¯ Ø¹Ø·ÙŠØ© Ù…Ø­Ù…Ø¯",
@@ -1539,6 +1543,36 @@ const certificationDetails = {
                 "Pivot Tables & Dynamic Reporting Dashboards",
                 "Advanced Data Visualization & Interactive Charts"
             ]
+        },
+        c5: {
+            title: "Solar Energy Training Course (Completion)",
+            inst: "Engovation (Certified by Egyptian Engineers Syndicate)",
+            hours: "30 Hours",
+            date: "January 15th - February 15th, 2026",
+            desc: "Comprehensive solar energy training course certified by the Egyptian Engineers Syndicate. Completed with a grade of Excellent.",
+            image: "img/solar-energy-1.jpg",
+            topics: [
+                "Solar Energy Fundamentals & Photovoltaic Principles",
+                "Solar PV System Design & Sizing",
+                "Solar Panel Installation & Wiring",
+                "Grid-Connected & Off-Grid Systems",
+                "Solar Energy Economics & Feasibility"
+            ]
+        },
+        c6: {
+            title: "Solar Energy Training Course (Attendance)",
+            inst: "Engovation (Certified by Egyptian Engineers Syndicate)",
+            hours: "30 Hours",
+            date: "January 15th - February 15th, 2026",
+            desc: "Official attendance certificate for the 30-hour Solar Energy training program by Engovation, verifying participation and coursework completion.",
+            image: "img/solar-energy-2.jpg",
+            topics: [
+                "Solar Energy Fundamentals & Photovoltaic Principles",
+                "Solar PV System Design & Sizing",
+                "Solar Panel Installation & Wiring",
+                "Grid-Connected & Off-Grid Systems",
+                "Solar Energy Economics & Feasibility"
+            ]
         }
     },
     ar: {
@@ -1865,8 +1899,39 @@ const desktopProjectDetails = {
                 { title: "Ù…Ø¹Ø§Ù„Ø¬Ø© Ù…Ù„ÙØ§Øª Excel", desc: "Ù…Ø¹Ø§Ù„Ø¬Ø© ÙˆØ¥Ø¯Ø§Ø±Ø© ÙˆØ§Ø³ØªÙŠØ±Ø§Ø¯/ØªØµØ¯ÙŠØ± Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ù„Ù…Ø¹ØªÙ…Ø¯Ø© Ø¹Ù„Ù‰ Ø¥ÙƒØ³ÙŠÙ„." },
                 { title: "Ø³ÙŠØ± Ø¹Ù…Ù„ Ù…ØªÙƒØ§Ù…Ù„", desc: "Ø±Ø¨Ø· Ø§Ù„ØªØ­Ù„ÙŠÙ„ ÙˆØ§Ù„Ù…Ø­Ø§Ø³Ø¨Ø© ÙˆØ§Ù„Ù…Ø¹Ø§Ù„Ø¬Ø© ÙˆØ§Ù„ØªÙ‚Ø§Ø±ÙŠØ± Ø¯Ø§Ø®Ù„ Ù†Ø¸Ø§Ù… ÙˆØ§Ø­Ø¯ Ù…ØªÙƒØ§Ù…Ù„." }
             ]
+        },
+        c5: {
+            title: "دورة الطاقة الشمسية (شهادة إتمام)",
+            inst: "إنجوفيشين (معتمد من نقابة المهندسين المصرية)",
+            hours: "30 ساعة تدريبية",
+            date: "15 يناير – 15 فبراير 2026",
+            desc: "دورة تدريبية شاملة في الطاقة الشمسية، معتمدة من نقابة المهندسين المصرية، حصلت على تقدير عام ممتاز.",
+            image: "img/solar-energy-1.jpg",
+            topics: [
+                "Solar Energy Fundamentals & Photovoltaic Principles",
+                "Solar PV System Design & Sizing",
+                "Solar Panel Installation & Wiring",
+                "Grid-Connected & Off-Grid Systems",
+                "Solar Energy Economics & Feasibility"
+            ]
+        },
+        c6: {
+            title: "دورة الطاقة الشمسية (شهادة حضور)",
+            inst: "إنجوفيشين (معتمد من نقابة المهندسين المصرية)",
+            hours: "30 ساعة تدريبية",
+            date: "15 يناير – 15 فبراير 2026",
+            desc: "شهادة حضور رسمية لإتمام 30 ساعة تدريبية في برنامج الطاقة الشمسية، تؤكد المشاركة الكاملة وإكمال الدورة.",
+            image: "img/solar-energy-2.jpg",
+            topics: [
+                "Solar Energy Fundamentals & Photovoltaic Principles",
+                "Solar PV System Design & Sizing",
+                "Solar Panel Installation & Wiring",
+                "Grid-Connected & Off-Grid Systems",
+                "Solar Energy Economics & Feasibility"
+            ]
         }
     }
+}; }
 };
 
 function initProjectModal() {
