@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initMobileNav();
     initScrollSpy();
     initCertModals();
+    initProjectModal();
     initCarousels();
     initWhatsAppWidget();
     initHeroActions();
@@ -210,6 +211,33 @@ function initLanguageToggle() {
             "roadmap-supporting": "Supporting Skills: Python • Backend Systems • APIs • Workflow Automation • IoT",
             
             "projects-title": "Featured Projects",
+            "badge-web-platform": "WEB PLATFORM",
+            "badge-desktop-app": "DESKTOP APPLICATION",
+            "badge-academic-platform": "ACADEMIC PLATFORM",
+            "proj-action-visit": "Visit Project",
+            "proj-action-details": "View Details",
+            "project-modal-close": "Close",
+            "project-modal-tech-heading": "Technologies & Stack",
+            "project-modal-features-heading": "Key Capabilities & Features",
+            
+            "proj-1-title": "ZNUE Portal",
+            "proj-1-desc": "A full-stack university management platform designed to connect students, doctors, administrators, student affairs, and student union workflows in one system.",
+            
+            "proj-2-title": "Ship-Gate",
+            "proj-2-desc": "A real-world shipping platform that connects merchants with multiple shipping carriers through one unified system for shipment creation, rate comparison, tracking, wallets, invoices, and shipping labels.",
+            
+            "proj-3-title": "CRM & Branch Automation System",
+            "proj-3-desc": "A desktop CRM and branch automation system built to centralize customer data, generate tax invoices, track shipments, and automatically send shipping labels and customer updates through WhatsApp.",
+            
+            "proj-4-title": "TaskFlow",
+            "proj-4-desc": "A task and project management platform that allows companies to manage employees, project managers, tasks, deadlines, and automated WhatsApp communication from one system.",
+            
+            "proj-5-title": "Integrated Data Analysis & Accounting System",
+            "proj-5-desc": "A desktop business system that combines data analysis, accounting workflows, financial records, reconciliation, reporting, and operational data management in one application.",
+            
+            "proj-6-title": "ZNU Assistant",
+            "proj-6-desc": "A digital assistant and information platform for the Mechatronics Engineering department, designed to organize academic information and make university resources easier to access.",
+            
             "projects-p1-tag": "Educational Platforms",
             "projects-p1-title": "Comprehensive Academic Portal",
             "projects-p1-link": "Visit Website",
@@ -379,6 +407,33 @@ function initLanguageToggle() {
             "roadmap-supporting": "مهارات داعمة: Python • أنظمة Backend • APIs • أتمتة سير العمل • IoT",
             
             "projects-title": "المشاريع المميزة",
+            "badge-web-platform": "منصة ويب",
+            "badge-desktop-app": "تطبيق مكتبي",
+            "badge-academic-platform": "منصة أكاديمية",
+            "proj-action-visit": "زيارة المشروع",
+            "proj-action-details": "عرض التفاصيل",
+            "project-modal-close": "إغلاق",
+            "project-modal-tech-heading": "التقنيات المستخدمة",
+            "project-modal-features-heading": "القدرات الرئيسية والمميزات",
+            
+            "proj-1-title": "بوابة جامعة الزقازيق الأهلية (ZNUE Portal)",
+            "proj-1-desc": "منصة جامعية متكاملة لإدارة العمليات الأكاديمية والطلابية، تربط بين الطلاب وأعضاء هيئة التدريس والإدارات وشؤون الطلاب واتحاد الطلاب في نظام واحد.",
+            
+            "proj-2-title": "منصة Ship-Gate اللوجستية",
+            "proj-2-desc": "منصة شحن متكاملة تربط التجار بشركات الشحن المتعددة عبر نظام موحد لإنشاء الشحنات ومقارنة الأسعار والتتبع وإدارة المحافظ والفواتير وبوالص الشحن.",
+            
+            "proj-3-title": "نظام الـCRM وأتمتة الفروع",
+            "proj-3-desc": "نظام مكتبي متكامل لإدارة علاقات العملاء وأتمتة الفروع، يقوم بمركزية بيانات العملاء وإصدار الفواتير الضريبية وتتبع الشحنات وإرسال البوالص والتحديثات تلقائياً عبر واتساب.",
+            
+            "proj-4-title": "منصة TaskFlow لإدارة المهام",
+            "proj-4-desc": "منصة لإدارة المهام والمشاريع تتيح للشركات إدارة الموظفين ومدراء المشاريع والمواعيد النهائية وتكامل التواصل المؤتمت عبر واتساب من نظام واحد.",
+            
+            "proj-5-title": "نظام تحليل البيانات والمحاسبة المتكامل",
+            "proj-5-desc": "نظام أعمال مكتبي يجمع بين تحليل البيانات والمعاملات المحاسبية والتسويات المالية والتقارير وإدارة البيانات التشغيلية في تطبيق واحد.",
+            
+            "proj-6-title": "مساعد ZNU الأكاديمي",
+            "proj-6-desc": "مساعد رقمي ومنصة معلومات لقسم هندسة الميكاترونكس، مصممة لتنظيم المعلومات الأكاديمية وتسهيل الوصول إلى الموارد الجامعية.",
+            
             "projects-p1-tag": "منصات تعليمية",
             "projects-p1-title": "منصة جامعية شاملة",
             "projects-p1-link": "زيارة الموقع",
@@ -1395,6 +1450,202 @@ function initCertModals() {
         modal.classList.remove('active');
         document.body.style.overflow = ''; // Restore page scrolling
         activeCertId = null;
+    }
+}
+
+
+/* ==========================================
+   8B. DESKTOP APPLICATION DETAILS MODAL LOGIC
+   ========================================== */
+
+// Preserved archive of previous projects metadata
+const archivedProjects = [
+    { id: 'archived-portal', name: 'Comprehensive Academic Portal', url: 'https://znue-portal.me/en/', img: 'img/project-portal.jpg', tag: 'Educational Platforms' },
+    { id: 'archived-learning', name: 'Learning Platform for Teachers', url: 'https://wonderful-treacle-a97214.netlify.app/', img: 'img/project-learning.jpg', tag: 'Educational Platforms' },
+    { id: 'archived-assistance', name: 'Student Support & Assistance Website', url: 'https://znuassistant.netlify.app/#home', img: 'img/project-assistance.jpg', tag: 'Student Support' },
+    { id: 'archived-hr', name: 'HR Company Website', url: 'https://deft-cheesecake-4100df.netlify.app/', img: 'img/project-hr.jpg', tag: 'Corporate Websites' },
+    { id: 'archived-wedding', name: 'Digital Wedding Invitation', url: 'https://abdullah-dina-wedding.netlify.app/', img: 'img/project-wedding.png', tag: 'Event Invitations' }
+];
+
+const desktopProjectDetails = {
+    en: {
+        crm: {
+            title: "CRM & Branch Automation System",
+            type: "DESKTOP APPLICATION",
+            image: "img/crm-branch-automation.png",
+            desc: "A desktop CRM and branch automation system built to centralize customer data, generate tax invoices, track shipments, and automatically send shipping labels and customer updates through WhatsApp.",
+            technologies: ["Python", "Desktop Application", "Database", "CRM", "WhatsApp Automation", "Invoice Automation", "Shipping Integration"],
+            features: [
+                { title: "Customer Management", desc: "Centralized customer registration and customer data management." },
+                { title: "Tax Invoices", desc: "Creating and managing tax invoices." },
+                { title: "Shipment Tracking", desc: "Tracking shipments and their current status." },
+                { title: "Shipping Labels", desc: "Managing and preparing shipping labels." },
+                { title: "WhatsApp Automation", desc: "Automatically sending shipping labels and customer messages through WhatsApp." },
+                { title: "One-Click Workflow", desc: "Executing multiple repetitive operational actions through a simplified one-click workflow." }
+            ]
+        },
+        accounting: {
+            title: "Integrated Data Analysis & Accounting System",
+            type: "DESKTOP APPLICATION",
+            image: "img/data-accounting-system.png",
+            desc: "A desktop business system that combines data analysis, accounting workflows, financial records, reconciliation, reporting, and operational data management in one application.",
+            technologies: ["Python", "Desktop Application", "Data Analysis", "Accounting", "Excel", "Database", "Reporting"],
+            features: [
+                { title: "Data Analysis", desc: "Analyzing operational and financial data." },
+                { title: "Accounting", desc: "Managing accounting operations and financial records." },
+                { title: "Reconciliation", desc: "Matching financial and operational records and identifying differences." },
+                { title: "Reporting", desc: "Generating financial and operational reports." },
+                { title: "Excel & Data Processing", desc: "Processing and managing Excel-based data." },
+                { title: "Integrated Workflow", desc: "Connecting analysis, accounting, data processing, and reporting inside one system." }
+            ]
+        }
+    },
+    ar: {
+        crm: {
+            title: "نظام الـCRM وأتمتة الفروع",
+            type: "تطبيق مكتبي",
+            image: "img/crm-branch-automation.png",
+            desc: "نظام مكتبي متكامل لإدارة علاقات العملاء وأتمتة الفروع، يقوم بمركزية بيانات العملاء وإصدار الفواتير الضريبية وتتبع الشحنات وإرسال البوالص والتحديثات تلقائياً عبر واتساب.",
+            technologies: ["Python", "تطبيق مكتبي", "قواعد بيانات", "CRM", "أتمتة واتساب", "أتمتة الفواتير", "تكامل الشحن"],
+            features: [
+                { title: "إدارة العملاء", desc: "تسجيل العملاء وإدارة بياناتهم مركزيًا وبسهولة." },
+                { title: "الفواتير الضريبية", desc: "إنشاء وإدارة الفواتير الضريبية المعتمدة." },
+                { title: "تتبع الشحنات", desc: "تتبع الشحنات ومتابعة حالتها التشغيلية أولاً بأول." },
+                { title: "بوالص الشحن", desc: "إدارة وتجهيز وطباعة بوالص الشحن." },
+                { title: "أتمتة واتساب", desc: "إرسال البوالص ورسائل التحديث للعملاء تلقائيًا عبر واتساب." },
+                { title: "سير عمل بنقرة واحدة", desc: "تنفيذ المهام التشغيلية المتكررة بنقرة واحدة لتسريع العمل." }
+            ]
+        },
+        accounting: {
+            title: "نظام تحليل البيانات والمحاسبة المتكامل",
+            type: "تطبيق مكتبي",
+            image: "img/data-accounting-system.png",
+            desc: "نظام أعمال مكتبي يجمع بين تحليل البيانات والمعاملات المحاسبية والتسويات المالية والتقارير وإدارة البيانات التشغيلية في تطبيق واحد.",
+            technologies: ["Python", "تطبيق مكتبي", "تحليل البيانات", "محاسبة مالية", "Excel", "قواعد بيانات", "تقارير"],
+            features: [
+                { title: "تحليل البيانات", desc: "تحليل البيانات التشغيلية والمالية واستخراج المؤشرات." },
+                { title: "المحاسبة المالية", desc: "إدارة العمليات المحاسبية والسجلات المالية بدقة." },
+                { title: "المطابقة والتسوية", desc: "مطابقة السجلات المالية والتشغيلية واكتشاف الفروقات." },
+                { title: "إعداد التقارير", desc: "إعداد التقارير المالية والتشغيلية التفصيلية للإدارة." },
+                { title: "معالجة ملفات Excel", desc: "معالجة وإدارة واستيراد/تصدير البيانات المعتمدة على إكسيل." },
+                { title: "سير عمل متكامل", desc: "ربط التحليل والمحاسبة والمعالجة والتقارير داخل نظام واحد متكامل." }
+            ]
+        }
+    }
+};
+
+function initProjectModal() {
+    const modal = document.getElementById('projectModal');
+    const closeBtn = document.getElementById('closeProjectModal');
+    const closeActionBtn = document.getElementById('modalCloseActionBtn');
+    
+    if (!modal) return;
+    
+    const mImg = document.getElementById('modalProjectImg');
+    const mType = document.getElementById('modalProjectType');
+    const mTitle = document.getElementById('modalProjectTitle');
+    const mDesc = document.getElementById('modalProjectDesc');
+    const mTech = document.getElementById('modalProjectTech');
+    const mFeatures = document.getElementById('modalProjectFeatures');
+    
+    let activeProjectId = null;
+    
+    // Attach click listeners to cards and trigger buttons with data-project-modal
+    document.querySelectorAll('[data-project-modal]').forEach(trigger => {
+        trigger.addEventListener('click', (e) => {
+            // Avoid conflict if clicking inner links
+            if (e.target.tagName.toLowerCase() === 'a') return;
+            const projectId = trigger.getAttribute('data-project-modal');
+            if (projectId) {
+                openProjectModal(projectId);
+            }
+        });
+    });
+    
+    function populateProjectModal(projectId) {
+        const lang = document.documentElement.getAttribute('lang') || 'en';
+        const data = (desktopProjectDetails[lang] && desktopProjectDetails[lang][projectId]) 
+                     ? desktopProjectDetails[lang][projectId] 
+                     : desktopProjectDetails['en'][projectId];
+        if (!data) return;
+        
+        activeProjectId = projectId;
+        mImg.src = data.image;
+        mImg.alt = data.title;
+        mType.innerText = data.type;
+        mTitle.innerText = data.title;
+        mDesc.innerText = data.desc;
+        
+        // Populate Technologies tags
+        mTech.innerHTML = '';
+        data.technologies.forEach(tech => {
+            const span = document.createElement('span');
+            span.className = 'project-modal-tag-item';
+            span.innerText = tech;
+            mTech.appendChild(span);
+        });
+        
+        // Populate Features grid
+        mFeatures.innerHTML = '';
+        data.features.forEach(f => {
+            const item = document.createElement('div');
+            item.className = 'project-modal-feature-item';
+            
+            const fTitle = document.createElement('div');
+            fTitle.className = 'project-modal-feature-title';
+            fTitle.innerText = f.title;
+            
+            const fDesc = document.createElement('div');
+            fDesc.className = 'project-modal-feature-desc';
+            fDesc.innerText = f.desc;
+            
+            item.appendChild(fTitle);
+            item.appendChild(fDesc);
+            mFeatures.appendChild(item);
+        });
+    }
+    
+    function openProjectModal(projectId) {
+        populateProjectModal(projectId);
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function closeProjectModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+        activeProjectId = null;
+    }
+    
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeProjectModal);
+    }
+    
+    if (closeActionBtn) {
+        closeActionBtn.addEventListener('click', closeProjectModal);
+    }
+    
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeProjectModal();
+        }
+    });
+    
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeProjectModal();
+        }
+    });
+    
+    const langBtn = document.getElementById('langToggleBtn');
+    if (langBtn) {
+        langBtn.addEventListener('click', () => {
+            if (modal.classList.contains('active') && activeProjectId) {
+                setTimeout(() => {
+                    populateProjectModal(activeProjectId);
+                }, 50);
+            }
+        });
     }
 }
 
