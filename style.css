@@ -137,21 +137,38 @@ body.dark-mode .znue-header {
 }
 
 .circle-logo {
-    width: 34px;
-    height: 34px;
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
-    background-color: #ffffff;
+    background-color: #0b1320;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: var(--shadow-sm);
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    transition: background-color var(--transition-speed), border-color var(--transition-speed);
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.25), var(--shadow-sm);
+    border: 1.5px solid rgba(16, 185, 129, 0.45);
+    overflow: hidden;
+    flex-shrink: 0;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed), border-color var(--transition-speed);
+}
+
+.circle-logo:hover {
+    transform: scale(1.08);
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 16px rgba(16, 185, 129, 0.5), var(--shadow-md);
 }
 
 body.dark-mode .circle-logo {
-    background-color: var(--surface-color);
-    border-color: var(--border-color);
+    background-color: #060d17;
+    border-color: rgba(16, 185, 129, 0.55);
+    box-shadow: 0 0 12px rgba(16, 185, 129, 0.35), var(--shadow-sm);
+}
+
+.header-logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 50%;
 }
 
 .logo-text {
