@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Mohamed Mohamed Atia Mohamed - Portfolio ZNUE Style Interactions
  */
 
@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initCADVisualizer();
     initRoadmapProgress();
     initTechnicalSkillsAnimation();
+    initSkillCardsExpand();
     initProjectSchematics();
     initMobileNav();
     initScrollSpy();
@@ -93,18 +94,18 @@ function initLanguageToggle() {
             "nav-projects": "Projects",
             "nav-certs": "Certifications",
             
-            "hero-tag": "Mechatronics Engineering • Software • Automation",
+            "hero-tag": "Mechatronics Engineering â€¢ Software â€¢ Automation",
             "hero-title": "Where Code Meets <span class=\"accent-color\">Machines.</span>",
-            "hero-desc": "I’m Mohamed Atia, a Mechatronics Engineering student at Zagazig National University building real-world software systems, automation workflows, and operational solutions. I combine engineering, backend development, data, and process optimization to turn complex workflows into practical systems.",
+            "hero-desc": "Iâ€™m Mohamed Atia, a Mechatronics Engineering student at Zagazig National University building real-world software systems, automation workflows, and operational solutions. I combine engineering, backend development, data, and process optimization to turn complex workflows into practical systems.",
             "hero-btn": "View Projects",
             "hero-btn-contact": "Contact Me",
             
             "cad-title": "Engineering Systems Simulator",
-            "cad-telemetry": "Rotation Angles: X:<span id=\"cad-x\">0°</span> Y:<span id=\"cad-y\">0°</span> Z:<span id=\"cad-z\">0°</span>",
+            "cad-telemetry": "Rotation Angles: X:<span id=\"cad-x\">0Â°</span> Y:<span id=\"cad-y\">0Â°</span> Z:<span id=\"cad-z\">0Â°</span>",
             
             "about-title": "Engineering Systems. Building Solutions.",
-            "about-p1": "I’m a Mechatronics Engineering student at Zagazig National University with hands-on experience building software systems, digital platforms, and operational solutions.",
-            "about-p2": "My work combines engineering thinking with full-stack development, backend systems, databases, automation workflows, and process optimization. I’m particularly interested in systems that connect software with real-world operations — making complex processes simpler, faster, and more reliable.",
+            "about-p1": "Iâ€™m a Mechatronics Engineering student at Zagazig National University with hands-on experience building software systems, digital platforms, and operational solutions.",
+            "about-p2": "My work combines engineering thinking with full-stack development, backend systems, databases, automation workflows, and process optimization. Iâ€™m particularly interested in systems that connect software with real-world operations â€” making complex processes simpler, faster, and more reliable.",
             "about-p3": "Alongside my engineering studies, I work on real projects involving logistics, shipping platforms, university systems, business workflows, and automation.",
             "about-build-1": "Full-Stack Web Platforms",
             "about-build-2": "Backend & Database Systems",
@@ -113,75 +114,164 @@ function initLanguageToggle() {
             
             "skills-title": "Technical Skills",
             "skills-intro": "My technical background combines software development, backend systems, databases, engineering tools, automation, and digital platforms.",
-            "skills-cat-programming": "Programming",
+            "skills-cat-programming": "Programming & Engineering Languages",
             "skills-cat-fullstack": "Full-Stack Development",
-            "skills-cat-backend-db": "Backend & Databases",
-            "skills-cat-cloud": "Cloud & Backend Services",
-            "skills-cat-engineering": "Engineering & Control",
-            "skills-cat-automation-iot": "Automation & IoT",
+            "skills-cat-backend-db": "Backend, Databases & APIs",
+            "skills-cat-cloud-services": "Cloud & Backend Services",
+            "skills-cat-cloud-security": "Cloud, Infrastructure & Security",
+            "skills-cat-seo-perf": "SEO & Web Performance",
+            "skills-cat-deployment": "Deployment & Hosting",
             "skills-cat-dev-tools": "Development Tools",
-            "skills-cat-business-data": "Business & Data Tools",
+            "skills-cat-automation-bots": "Automation & Bots",
+            "skills-cat-engineering-control": "Engineering & Control",
+            "skills-cat-renewable-energy": "Renewable Energy",
+            "skills-cat-business-data-accounting": "Business, Data & Accounting",
+            "skills-show-more": "Show More",
+            "skills-show-less": "Show Less",
             
+            // 1. Programming & Engineering Languages
             "skill-python": "Python",
             "skill-cpp": "C++",
             "skill-js": "JavaScript",
+            "skill-ts": "TypeScript",
             "skill-html": "HTML5",
             "skill-css": "CSS3",
+            
+            // 2. Full-Stack Development
             "skill-django": "Django",
             "skill-flask": "Flask",
             "skill-react": "React",
-            "skill-rest-apis": "REST APIs",
             "skill-nodejs": "Node.js",
             "skill-express": "Express.js",
+            "skill-rest-apis": "REST APIs",
+            "skill-frontend-dev": "Frontend Development",
+            "skill-backend-dev": "Backend Development",
+            "skill-responsive-web": "Responsive Web Development",
+            
+            // 3. Backend, Databases & APIs
             "skill-py-backend": "Python Backend",
             "skill-node-backend": "Node.js Backend",
             "skill-postgres": "PostgreSQL",
             "skill-mysql": "MySQL",
+            "skill-sqlite": "SQLite",
             "skill-prisma": "Prisma ORM",
             "skill-db-design": "Database Design",
+            "skill-db-mgmt": "Database Management",
             "skill-sql": "SQL",
+            "skill-api-dev": "API Development",
             "skill-api-integration": "API Integration",
             "skill-auth": "Authentication",
+            "skill-authorization": "Authorization",
+            
+            // 4. Cloud & Backend Services
             "skill-firebase": "Firebase",
             "skill-firebase-auth": "Firebase Authentication",
             "skill-firebase-admin": "Firebase Admin SDK",
+            "skill-firebase-storage": "Firebase Storage",
             "skill-webhooks": "Webhooks",
             "skill-third-party-api": "Third-Party API Integration",
             "skill-file-storage": "File Storage",
             "skill-notifications": "Notifications",
-            "skill-matlab": "MATLAB",
-            "skill-simulink": "Simulink",
-            "skill-control-systems": "Control Systems",
-            "skill-mechatronics": "Mechatronics",
-            "skill-solidworks": "SolidWorks",
-            "skill-cad": "CAD",
-            "skill-eng-analysis": "Engineering Analysis",
-            "skill-workflow-auto": "Workflow Automation",
-            "skill-iot": "IoT",
-            "skill-mqtt": "MQTT",
-            "skill-esp32": "ESP32",
-            "skill-sensor-integration": "Sensor Integration",
-            "skill-hw-sw-integration": "Hardware–Software Integration",
-            "skill-process-auto": "Process Automation",
+            "skill-backend-services": "Backend Services",
+            
+            // 5. Cloud, Infrastructure & Security
+            "skill-cloudflare": "Cloudflare",
+            "skill-cdn": "CDN",
+            "skill-dns-mgmt": "DNS Management",
+            "skill-caching": "Caching",
+            "skill-web-infra": "Web Infrastructure",
+            "skill-perf-opt": "Performance Optimization",
+            "skill-web-security": "Web Security",
+            "skill-security-hardening": "Security Hardening",
+            "skill-rbac": "Role-Based Access Control",
+            "skill-csrf-protection": "CSRF Protection",
+            "skill-rate-limiting": "Rate Limiting",
+            "skill-secure-file-access": "Secure File Access",
+            "skill-api-security": "API Security",
+            
+            // 6. SEO & Web Performance
+            "skill-tech-seo": "Technical SEO",
+            "skill-onpage-seo": "On-Page SEO",
+            "skill-metadata-opt": "Metadata Optimization",
+            "skill-seo": "Search Engine Optimization",
+            "skill-image-opt": "Image Optimization",
+            "skill-cdn-opt": "CDN Optimization",
+            "skill-browser-caching": "Browser Caching",
+            "skill-pagespeed-opt": "Page Speed Optimization",
+            "skill-lazy-loading": "Lazy Loading",
+            "skill-seo-architecture": "SEO-Friendly Web Architecture",
+            
+            // 7. Deployment & Hosting
+            "skill-hostinger": "Hostinger",
+            "skill-vercel": "Vercel",
+            "skill-netlify": "Netlify",
+            "skill-railway": "Railway",
+            "skill-render": "Render",
+            "skill-deployment-hosting": "Deployment & Hosting",
+            "skill-web-deployment": "Web Deployment",
+            "skill-hosting-mgmt": "Hosting Management",
+            
+            // 8. Development Tools
             "skill-git": "Git",
             "skill-github": "GitHub",
             "skill-vscode": "VS Code",
             "skill-powershell": "PowerShell",
             "skill-postman": "Postman",
             "skill-chrome-devtools": "Chrome DevTools",
+            "skill-npm": "npm",
+            "skill-api-testing": "REST API Testing",
+            "skill-debugging": "Debugging",
+            "skill-version-control": "Version Control",
+            
+            // 9. Automation & Bots
+            "skill-workflow-auto": "Workflow Automation",
+            "skill-process-auto": "Process Automation",
+            "skill-api-auto": "API Automation",
+            "skill-wa-bots": "WhatsApp Bots",
+            "skill-tg-bots": "Telegram Bots",
+            "skill-wa-auto": "WhatsApp Automation",
+            "skill-tg-auto": "Telegram Automation",
+            "skill-auto-notifications": "Automated Notifications",
+            "skill-auto-messaging": "Automated Messaging",
+            "skill-bpa": "Business Process Automation",
+            
+            // 10. Engineering & Control
+            "skill-mechatronics-eng": "Mechatronics Engineering",
+            "skill-control-systems": "Control Systems",
+            "skill-classical-control": "Classical Control",
+            "skill-control-modeling": "Control System Modeling",
+            "skill-matlab": "MATLAB",
+            "skill-simulink": "Simulink",
+            "skill-solidworks": "SolidWorks",
+            "skill-cad": "CAD",
+            "skill-eng-analysis": "Engineering Analysis",
+            "skill-system-modeling": "System Modeling",
+            
+            // 11. Renewable Energy
+            "skill-solar-energy": "Solar Energy",
+            "skill-solar-pv": "Solar PV Systems",
+            "skill-solar-fundamentals": "Solar Energy Fundamentals",
+            "skill-renewable-systems": "Renewable Energy Systems",
+            "skill-basic-energy-analysis": "Basic Energy Analysis",
+            
+            // 12. Business, Data & Accounting
             "skill-excel": "Microsoft Excel",
             "skill-word": "Microsoft Word",
             "skill-ppt": "Microsoft PowerPoint",
             "skill-data-analysis": "Data Analysis",
+            "skill-data-processing": "Data Processing",
             "skill-reporting": "Reporting",
             "skill-dashboard-dev": "Dashboard Development",
-            "skill-data-processing": "Data Processing",
+            "skill-business-reporting": "Business Reporting",
+            "skill-financial-data": "Financial Data Processing",
+            "skill-accounting-systems": "Accounting Systems",
+            "skill-data-reconciliation": "Data Reconciliation",
             
             "experience-title": "Experience",
             "skills-role-badge": "Current Position",
             "skills-role-title": "Operations & Performance Coordinator",
-            "skills-role-company": "HappyTouch Establishment & Ideal World Establishment — Saudi Arabia",
-            "skills-role-scope": "Technical Responsibility • Performance & Workflow Supervision",
+            "skills-role-company": "HappyTouch Establishment & Ideal World Establishment â€” Saudi Arabia",
+            "skills-role-scope": "Technical Responsibility â€¢ Performance & Workflow Supervision",
             "skills-role-desc": "I take on technical and operational responsibility across the two organizations, supervising performance and workflows while improving systems, processes, and working methods. My role involves solving technical and operational problems, analyzing data and performance indicators, and turning day-to-day operational needs into practical solutions that make branch operations more efficient and organized.",
             
             "exp-c1-title": "Operations & Workflow",
@@ -208,7 +298,7 @@ function initLanguageToggle() {
             "roadmap-step2-desc": "Learning PLC fundamentals, ladder logic, industrial control concepts, I/O systems, and practical automation workflows.",
             "roadmap-step3-title": "Automation Systems Integration",
             "roadmap-step3-desc": "Connecting control systems, software, sensors, and industrial communication concepts to build integrated automation solutions.",
-            "roadmap-supporting": "Supporting Skills: Python • Backend Systems • APIs • Workflow Automation • IoT",
+            "roadmap-supporting": "Supporting Skills: Python â€¢ Backend Systems â€¢ APIs â€¢ Workflow Automation â€¢ IoT",
             
             "projects-title": "Featured Projects",
             "badge-web-platform": "WEB PLATFORM",
@@ -276,7 +366,7 @@ function initLanguageToggle() {
             "certs-c4-title": "Solidworks Course (Attendance)",
             "certs-c3-title": "Advanced Excel",
             
-            "footer-copyright": "© 2026 Mohamed Mohamed Atia Mohamed",
+            "footer-copyright": "Â© 2026 Mohamed Mohamed Atia Mohamed",
             "footer-subtitle": "Zagazig National University // Mechatronics Engineering",
             
             "wa-chat-name": "Mohamed Atia",
@@ -286,207 +376,296 @@ function initLanguageToggle() {
             "wa-chat-input-placeholder": "Type a message..."
         },
         ar: {
-            "title": "محمد عطية // معرض الأعمال",
-            "header-name": "محمد",
-            "menu-header": "التنقل",
-            "nav-home": "الرئيسية",
-            "nav-about": "من أنا",
-            "nav-skills": "المهارات",
-            "nav-experience": "الخبرة",
-            "nav-projects": "المشاريع",
-            "nav-certs": "الشهادات",
+            "title": "Ù…Ø­Ù…Ø¯ Ø¹Ø·ÙŠØ© // Ù…Ø¹Ø±Ø¶ Ø§Ù„Ø£Ø¹Ù…Ø§Ù„",
+            "header-name": "Ù…Ø­Ù…Ø¯",
+            "menu-header": "Ø§Ù„ØªÙ†Ù‚Ù„",
+            "nav-home": "Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠØ©",
+            "nav-about": "Ù…Ù† Ø£Ù†Ø§",
+            "nav-skills": "Ø§Ù„Ù…Ù‡Ø§Ø±Ø§Øª",
+            "nav-experience": "Ø§Ù„Ø®Ø¨Ø±Ø©",
+            "nav-projects": "Ø§Ù„Ù…Ø´Ø§Ø±ÙŠØ¹",
+            "nav-certs": "Ø§Ù„Ø´Ù‡Ø§Ø¯Ø§Øª",
             
-            "hero-tag": "هندسة ميكاترونكس • برمجيات • أتمتة",
-            "hero-title": "حيث يلتقي <span class=\"accent-color\">الكود بالآلات.</span>",
-            "hero-desc": "أنا محمد عطية، طالب هندسة ميكاترونكس بجامعة الزقازيق الأهلية، أعمل على بناء أنظمة برمجية وحلول أتمتة وأنظمة تشغيلية لمشكلات واقعية. أجمع بين الهندسة وتطوير الـBackend والبيانات وتحسين العمليات لتحويل سير العمل المعقد إلى أنظمة عملية وأكثر كفاءة.",
-            "hero-btn": "عرض المشاريع",
-            "hero-btn-contact": "تواصل معي",
+            "hero-tag": "Ù‡Ù†Ø¯Ø³Ø© Ù…ÙŠÙƒØ§ØªØ±ÙˆÙ†ÙƒØ³ â€¢ Ø¨Ø±Ù…Ø¬ÙŠØ§Øª â€¢ Ø£ØªÙ…ØªØ©",
+            "hero-title": "Ø­ÙŠØ« ÙŠÙ„ØªÙ‚ÙŠ <span class=\"accent-color\">Ø§Ù„ÙƒÙˆØ¯ Ø¨Ø§Ù„Ø¢Ù„Ø§Øª.</span>",
+            "hero-desc": "Ø£Ù†Ø§ Ù…Ø­Ù…Ø¯ Ø¹Ø·ÙŠØ©ØŒ Ø·Ø§Ù„Ø¨ Ù‡Ù†Ø¯Ø³Ø© Ù…ÙŠÙƒØ§ØªØ±ÙˆÙ†ÙƒØ³ Ø¨Ø¬Ø§Ù…Ø¹Ø© Ø§Ù„Ø²Ù‚Ø§Ø²ÙŠÙ‚ Ø§Ù„Ø£Ù‡Ù„ÙŠØ©ØŒ Ø£Ø¹Ù…Ù„ Ø¹Ù„Ù‰ Ø¨Ù†Ø§Ø¡ Ø£Ù†Ø¸Ù…Ø© Ø¨Ø±Ù…Ø¬ÙŠØ© ÙˆØ­Ù„ÙˆÙ„ Ø£ØªÙ…ØªØ© ÙˆØ£Ù†Ø¸Ù…Ø© ØªØ´ØºÙŠÙ„ÙŠØ© Ù„Ù…Ø´ÙƒÙ„Ø§Øª ÙˆØ§Ù‚Ø¹ÙŠØ©. Ø£Ø¬Ù…Ø¹ Ø¨ÙŠÙ† Ø§Ù„Ù‡Ù†Ø¯Ø³Ø© ÙˆØªØ·ÙˆÙŠØ± Ø§Ù„Ù€Backend ÙˆØ§Ù„Ø¨ÙŠØ§Ù†Ø§Øª ÙˆØªØ­Ø³ÙŠÙ† Ø§Ù„Ø¹Ù…Ù„ÙŠØ§Øª Ù„ØªØ­ÙˆÙŠÙ„ Ø³ÙŠØ± Ø§Ù„Ø¹Ù…Ù„ Ø§Ù„Ù…Ø¹Ù‚Ø¯ Ø¥Ù„Ù‰ Ø£Ù†Ø¸Ù…Ø© Ø¹Ù…Ù„ÙŠØ© ÙˆØ£ÙƒØ«Ø± ÙƒÙØ§Ø¡Ø©.",
+            "hero-btn": "Ø¹Ø±Ø¶ Ø§Ù„Ù…Ø´Ø§Ø±ÙŠØ¹",
+            "hero-btn-contact": "ØªÙˆØ§ØµÙ„ Ù…Ø¹ÙŠ",
             
-            "cad-title": "محاكي الأنظمة الهندسية",
-            "cad-telemetry": "زوايا الدوران: X:<span id=\"cad-x\">0°</span> Y:<span id=\"cad-y\">0°</span> Z:<span id=\"cad-z\">0°</span>",
+            "cad-title": "Ù…Ø­Ø§ÙƒÙŠ Ø§Ù„Ø£Ù†Ø¸Ù…Ø© Ø§Ù„Ù‡Ù†Ø¯Ø³ÙŠØ©",
+            "cad-telemetry": "Ø²ÙˆØ§ÙŠØ§ Ø§Ù„Ø¯ÙˆØ±Ø§Ù†: X:<span id=\"cad-x\">0Â°</span> Y:<span id=\"cad-y\">0Â°</span> Z:<span id=\"cad-z\">0Â°</span>",
             
-            "about-title": "هندسة الأنظمة. وبناء الحلول.",
-            "about-p1": "أنا طالب هندسة ميكاترونكس بجامعة الزقازيق الأهلية، ولدي خبرة عملية في بناء الأنظمة البرمجية والمنصات الرقمية والحلول التشغيلية.",
-            "about-p2": "أجمع في عملي بين التفكير الهندسي وتطوير الـFull-Stack والـBackend وقواعد البيانات وسير عمل الأتمتة وتحسين العمليات. أهتم بشكل خاص بالأنظمة التي تربط البرمجيات بالعمليات الواقعية، بهدف جعل الإجراءات المعقدة أبسط وأسرع وأكثر اعتمادية.",
-            "about-p3": "وبجانب دراستي الهندسية، أعمل على مشاريع حقيقية في مجالات الشحن واللوجستيات والمنصات الجامعية وأنظمة الأعمال والأتمتة.",
-            "about-build-1": "منصات ويب متكاملة",
-            "about-build-2": "أنظمة Backend وقواعد بيانات",
-            "about-build-3": "أتمتة سير العمل",
-            "about-build-4": "حلول هندسية وتشغيلية",
+            "about-title": "Ù‡Ù†Ø¯Ø³Ø© Ø§Ù„Ø£Ù†Ø¸Ù…Ø©. ÙˆØ¨Ù†Ø§Ø¡ Ø§Ù„Ø­Ù„ÙˆÙ„.",
+            "about-p1": "Ø£Ù†Ø§ Ø·Ø§Ù„Ø¨ Ù‡Ù†Ø¯Ø³Ø© Ù…ÙŠÙƒØ§ØªØ±ÙˆÙ†ÙƒØ³ Ø¨Ø¬Ø§Ù…Ø¹Ø© Ø§Ù„Ø²Ù‚Ø§Ø²ÙŠÙ‚ Ø§Ù„Ø£Ù‡Ù„ÙŠØ©ØŒ ÙˆÙ„Ø¯ÙŠ Ø®Ø¨Ø±Ø© Ø¹Ù…Ù„ÙŠØ© ÙÙŠ Ø¨Ù†Ø§Ø¡ Ø§Ù„Ø£Ù†Ø¸Ù…Ø© Ø§Ù„Ø¨Ø±Ù…Ø¬ÙŠØ© ÙˆØ§Ù„Ù…Ù†ØµØ§Øª Ø§Ù„Ø±Ù‚Ù…ÙŠØ© ÙˆØ§Ù„Ø­Ù„ÙˆÙ„ Ø§Ù„ØªØ´ØºÙŠÙ„ÙŠØ©.",
+            "about-p2": "Ø£Ø¬Ù…Ø¹ ÙÙŠ Ø¹Ù…Ù„ÙŠ Ø¨ÙŠÙ† Ø§Ù„ØªÙÙƒÙŠØ± Ø§Ù„Ù‡Ù†Ø¯Ø³ÙŠ ÙˆØªØ·ÙˆÙŠØ± Ø§Ù„Ù€Full-Stack ÙˆØ§Ù„Ù€Backend ÙˆÙ‚ÙˆØ§Ø¹Ø¯ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª ÙˆØ³ÙŠØ± Ø¹Ù…Ù„ Ø§Ù„Ø£ØªÙ…ØªØ© ÙˆØªØ­Ø³ÙŠÙ† Ø§Ù„Ø¹Ù…Ù„ÙŠØ§Øª. Ø£Ù‡ØªÙ… Ø¨Ø´ÙƒÙ„ Ø®Ø§Øµ Ø¨Ø§Ù„Ø£Ù†Ø¸Ù…Ø© Ø§Ù„ØªÙŠ ØªØ±Ø¨Ø· Ø§Ù„Ø¨Ø±Ù…Ø¬ÙŠØ§Øª Ø¨Ø§Ù„Ø¹Ù…Ù„ÙŠØ§Øª Ø§Ù„ÙˆØ§Ù‚Ø¹ÙŠØ©ØŒ Ø¨Ù‡Ø¯Ù Ø¬Ø¹Ù„ Ø§Ù„Ø¥Ø¬Ø±Ø§Ø¡Ø§Øª Ø§Ù„Ù…Ø¹Ù‚Ø¯Ø© Ø£Ø¨Ø³Ø· ÙˆØ£Ø³Ø±Ø¹ ÙˆØ£ÙƒØ«Ø± Ø§Ø¹ØªÙ…Ø§Ø¯ÙŠØ©.",
+            "about-p3": "ÙˆØ¨Ø¬Ø§Ù†Ø¨ Ø¯Ø±Ø§Ø³ØªÙŠ Ø§Ù„Ù‡Ù†Ø¯Ø³ÙŠØ©ØŒ Ø£Ø¹Ù…Ù„ Ø¹Ù„Ù‰ Ù…Ø´Ø§Ø±ÙŠØ¹ Ø­Ù‚ÙŠÙ‚ÙŠØ© ÙÙŠ Ù…Ø¬Ø§Ù„Ø§Øª Ø§Ù„Ø´Ø­Ù† ÙˆØ§Ù„Ù„ÙˆØ¬Ø³ØªÙŠØ§Øª ÙˆØ§Ù„Ù…Ù†ØµØ§Øª Ø§Ù„Ø¬Ø§Ù…Ø¹ÙŠØ© ÙˆØ£Ù†Ø¸Ù…Ø© Ø§Ù„Ø£Ø¹Ù…Ø§Ù„ ÙˆØ§Ù„Ø£ØªÙ…ØªØ©.",
+            "about-build-1": "Ù…Ù†ØµØ§Øª ÙˆÙŠØ¨ Ù…ØªÙƒØ§Ù…Ù„Ø©",
+            "about-build-2": "Ø£Ù†Ø¸Ù…Ø© Backend ÙˆÙ‚ÙˆØ§Ø¹Ø¯ Ø¨ÙŠØ§Ù†Ø§Øª",
+            "about-build-3": "Ø£ØªÙ…ØªØ© Ø³ÙŠØ± Ø§Ù„Ø¹Ù…Ù„",
+            "about-build-4": "Ø­Ù„ÙˆÙ„ Ù‡Ù†Ø¯Ø³ÙŠØ© ÙˆØªØ´ØºÙŠÙ„ÙŠØ©",
             
-            "skills-title": "المهارات التقنية",
-            "skills-intro": "يجمع خلفيتي التقنية بين تطوير البرمجيات وأنظمة الـBackend وقواعد البيانات والأدوات الهندسية والأتمتة والمنصات الرقمية.",
-            "skills-cat-programming": "البرمجة",
-            "skills-cat-fullstack": "تطوير Full-Stack",
-            "skills-cat-backend-db": "الـBackend وقواعد البيانات",
-            "skills-cat-cloud": "الخدمات السحابية وخدمات الـBackend",
-            "skills-cat-engineering": "الهندسة وأنظمة التحكم",
-            "skills-cat-automation-iot": "الأتمتة وإنترنت الأشياء",
-            "skills-cat-dev-tools": "أدوات التطوير",
-            "skills-cat-business-data": "أدوات الأعمال والبيانات",
+            "skills-title": "Ø§Ù„Ù…Ù‡Ø§Ø±Ø§Øª Ø§Ù„ØªÙ‚Ù†ÙŠØ©",
+            "skills-intro": "ÙŠØ¬Ù…Ø¹ Ø®Ù„ÙÙŠØªÙŠ Ø§Ù„ØªÙ‚Ù†ÙŠØ© Ø¨ÙŠÙ† ØªØ·ÙˆÙŠØ± Ø§Ù„Ø¨Ø±Ù…Ø¬ÙŠØ§Øª ÙˆØ£Ù†Ø¸Ù…Ø© Ø§Ù„Ù€Backend ÙˆÙ‚ÙˆØ§Ø¹Ø¯ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª ÙˆØ§Ù„Ø£Ø¯ÙˆØ§Øª Ø§Ù„Ù‡Ù†Ø¯Ø³ÙŠØ© ÙˆØ§Ù„Ø£ØªÙ…ØªØ© ÙˆØ§Ù„Ù…Ù†ØµØ§Øª Ø§Ù„Ø±Ù‚Ù…ÙŠØ©.",
+            "skills-cat-programming": "Ø§Ù„Ø¨Ø±Ù…Ø¬Ø© ÙˆÙ„ØºØ§Øª Ø§Ù„Ù‡Ù†Ø¯Ø³Ø©",
+            "skills-cat-fullstack": "ØªØ·ÙˆÙŠØ± Full-Stack",
+            "skills-cat-backend-db": "Backend ÙˆÙ‚ÙˆØ§Ø¹Ø¯ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª ÙˆÙˆØ§Ø¬Ù‡Ø§Øª API",
+            "skills-cat-cloud-services": "Ø§Ù„Ø®Ø¯Ù…Ø§Øª Ø§Ù„Ø³Ø­Ø§Ø¨ÙŠØ© ÙˆØ®Ø¯Ù…Ø§Øª Backend",
+            "skills-cat-cloud-security": "Ø§Ù„Ø³Ø­Ø§Ø¨Ø© ÙˆØ§Ù„Ø¨Ù†ÙŠØ© Ø§Ù„ØªØ­ØªÙŠØ© ÙˆØ§Ù„Ø£Ù…Ø§Ù†",
+            "skills-cat-seo-perf": "SEO ÙˆØ£Ø¯Ø§Ø¡ Ø§Ù„Ù…ÙˆØ§Ù‚Ø¹",
+            "skills-cat-deployment": "Ø§Ù„Ù†Ø´Ø± ÙˆØ§Ù„Ø§Ø³ØªØ¶Ø§ÙØ©",
+            "skills-cat-dev-tools": "Ø£Ø¯ÙˆØ§Øª Ø§Ù„ØªØ·ÙˆÙŠØ±",
+            "skills-cat-automation-bots": "Ø§Ù„Ø£ØªÙ…ØªØ© ÙˆØ§Ù„Ù€ Bots",
+            "skills-cat-engineering-control": "Ø§Ù„Ù‡Ù†Ø¯Ø³Ø© ÙˆØ§Ù„ØªØ­ÙƒÙ…",
+            "skills-cat-renewable-energy": "Ø§Ù„Ø·Ø§Ù‚Ø© Ø§Ù„Ù…ØªØ¬Ø¯Ø¯Ø©",
+            "skills-cat-business-data-accounting": "Ø§Ù„Ø£Ø¹Ù…Ø§Ù„ ÙˆØ§Ù„Ø¨ÙŠØ§Ù†Ø§Øª ÙˆØ§Ù„Ù…Ø­Ø§Ø³Ø¨Ø©",
+            "skills-show-more": "Ø¹Ø±Ø¶ Ø§Ù„Ù…Ø²ÙŠØ¯",
+            "skills-show-less": "Ø¹Ø±Ø¶ Ø£Ù‚Ù„",
             
+            // 1. Programming & Engineering Languages
             "skill-python": "Python",
             "skill-cpp": "C++",
             "skill-js": "JavaScript",
+            "skill-ts": "TypeScript",
             "skill-html": "HTML5",
             "skill-css": "CSS3",
+            
+            // 2. Full-Stack Development
             "skill-django": "Django",
             "skill-flask": "Flask",
             "skill-react": "React",
-            "skill-rest-apis": "REST APIs",
             "skill-nodejs": "Node.js",
             "skill-express": "Express.js",
+            "skill-rest-apis": "REST APIs",
+            "skill-frontend-dev": "ØªØ·ÙˆÙŠØ± Frontend",
+            "skill-backend-dev": "ØªØ·ÙˆÙŠØ± Backend",
+            "skill-responsive-web": "ØªØ·ÙˆÙŠØ± Ù…ÙˆØ§Ù‚Ø¹ Ù…ØªØ¬Ø§ÙˆØ¨Ø©",
+            
+            // 3. Backend, Databases & APIs
             "skill-py-backend": "Python Backend",
             "skill-node-backend": "Node.js Backend",
             "skill-postgres": "PostgreSQL",
             "skill-mysql": "MySQL",
+            "skill-sqlite": "SQLite",
             "skill-prisma": "Prisma ORM",
-            "skill-db-design": "تصميم قواعد البيانات",
+            "skill-db-design": "ØªØµÙ…ÙŠÙ… Ù‚ÙˆØ§Ø¹Ø¯ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª",
+            "skill-db-mgmt": "Ø¥Ø¯Ø§Ø±Ø© Ù‚ÙˆØ§Ø¹Ø¯ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª",
             "skill-sql": "SQL",
-            "skill-api-integration": "تكامل الـAPIs",
-            "skill-auth": "المصادقة والأمان",
+            "skill-api-dev": "ØªØ·ÙˆÙŠØ± ÙˆØ§Ø¬Ù‡Ø§Øª API",
+            "skill-api-integration": "ØªÙƒØ§Ù…Ù„ ÙˆØ§Ø¬Ù‡Ø§Øª API",
+            "skill-auth": "Ø§Ù„Ù…ØµØ§Ø¯Ù‚Ø© (Authentication)",
+            "skill-authorization": "Ø§Ù„ØµÙ„Ø§Ø­ÙŠØ§Øª (Authorization)",
+            
+            // 4. Cloud & Backend Services
             "skill-firebase": "Firebase",
             "skill-firebase-auth": "Firebase Authentication",
             "skill-firebase-admin": "Firebase Admin SDK",
+            "skill-firebase-storage": "Firebase Storage",
             "skill-webhooks": "Webhooks",
-            "skill-third-party-api": "تكامل واجهات خارجية",
-            "skill-file-storage": "تخزين الملفات",
-            "skill-notifications": "الإشعارات",
-            "skill-matlab": "MATLAB",
-            "skill-simulink": "Simulink",
-            "skill-control-systems": "أنظمة التحكم",
-            "skill-mechatronics": "ميكاترونكس",
-            "skill-solidworks": "SolidWorks",
-            "skill-cad": "CAD",
-            "skill-eng-analysis": "التحليل الهندسي",
-            "skill-workflow-auto": "أتمتة سير العمل",
-            "skill-iot": "IoT",
-            "skill-mqtt": "MQTT",
-            "skill-esp32": "ESP32",
-            "skill-sensor-integration": "ربط الحساسات",
-            "skill-hw-sw-integration": "الربط بين الهاردوير والسوفتوير",
-            "skill-process-auto": "أتمتة العمليات",
+            "skill-third-party-api": "ØªÙƒØ§Ù…Ù„ ÙˆØ§Ø¬Ù‡Ø§Øª Ø®Ø§Ø±Ø¬ÙŠØ©",
+            "skill-file-storage": "ØªØ®Ø²ÙŠÙ† Ø§Ù„Ù…Ù„ÙØ§Øª",
+            "skill-notifications": "Ø§Ù„Ø¥Ø´Ø¹Ø§Ø±Ø§Øª",
+            "skill-backend-services": "Ø®Ø¯Ù…Ø§Øª Backend",
+            
+            // 5. Cloud, Infrastructure & Security
+            "skill-cloudflare": "Cloudflare",
+            "skill-cdn": "CDN",
+            "skill-dns-mgmt": "Ø¥Ø¯Ø§Ø±Ø© DNS",
+            "skill-caching": "Ø§Ù„ØªØ®Ø²ÙŠÙ† Ø§Ù„Ù…Ø¤Ù‚Øª (Caching)",
+            "skill-web-infra": "Ø§Ù„Ø¨Ù†ÙŠØ© Ø§Ù„ØªØ­ØªÙŠØ© Ù„Ù„ÙˆÙŠØ¨",
+            "skill-perf-opt": "ØªØ­Ø³ÙŠÙ† Ø§Ù„Ø£Ø¯Ø§Ø¡",
+            "skill-web-security": "Ø£Ù…Ø§Ù† Ø§Ù„ÙˆÙŠØ¨",
+            "skill-security-hardening": "ØªØ¹Ø²ÙŠØ² Ø§Ù„Ø£Ù…Ø§Ù† ÙˆØ§Ù„ØªØ£Ù…ÙŠÙ†",
+            "skill-rbac": "Ø§Ù„ØªØ­ÙƒÙ… Ø¨Ø§Ù„ÙˆØµÙˆÙ„ Ø­Ø³Ø¨ Ø§Ù„Ø£Ø¯ÙˆØ§Ø± (RBAC)",
+            "skill-csrf-protection": "Ø§Ù„Ø­Ù…Ø§ÙŠØ© Ù…Ù† Ù‡Ø¬Ù…Ø§Øª CSRF",
+            "skill-rate-limiting": "ØªØ­Ø¯ÙŠØ¯ Ù…Ø¹Ø¯Ù„ Ø§Ù„Ø·Ù„Ø¨Ø§Øª (Rate Limiting)",
+            "skill-secure-file-access": "Ø§Ù„ÙˆØµÙˆÙ„ Ø§Ù„Ø¢Ù…Ù† Ù„Ù„Ù…Ù„ÙØ§Øª",
+            "skill-api-security": "Ø£Ù…Ø§Ù† ÙˆØ§Ø¬Ù‡Ø§Øª API",
+            
+            // 6. SEO & Web Performance
+            "skill-tech-seo": "SEO ØªÙ‚Ù†ÙŠ",
+            "skill-onpage-seo": "SEO Ø¯Ø§Ø®Ù„ÙŠ Ù„Ù„ØµÙØ­Ø§Øª (On-Page)",
+            "skill-metadata-opt": "ØªØ­Ø³ÙŠÙ† Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ù„ÙˆØµÙÙŠØ© (Metadata)",
+            "skill-seo": "ØªØ­Ø³ÙŠÙ† Ù…Ø­Ø±ÙƒØ§Øª Ø§Ù„Ø¨Ø­Ø« (SEO)",
+            "skill-image-opt": "ØªØ­Ø³ÙŠÙ† ÙˆØ¶ØºØ· Ø§Ù„ØµÙˆØ±",
+            "skill-cdn-opt": "ØªØ­Ø³ÙŠÙ† Ø§Ù„ØªÙˆØ²ÙŠØ¹ Ø¹Ø¨Ø± CDN",
+            "skill-browser-caching": "Ø§Ù„ØªØ®Ø²ÙŠÙ† Ø§Ù„Ù…Ø¤Ù‚Øª Ø¨Ø§Ù„Ù…ØªØµÙØ­",
+            "skill-pagespeed-opt": "ØªØ­Ø³ÙŠÙ† Ø³Ø±Ø¹Ø© Ø§Ù„ØµÙØ­Ø§Øª",
+            "skill-lazy-loading": "Ø§Ù„ØªØ­Ù…ÙŠÙ„ Ø§Ù„ÙƒØ³ÙˆÙ„ (Lazy Loading)",
+            "skill-seo-architecture": "Ø¨Ù†ÙŠØ© Ù…Ø¹Ù…Ø§Ø±ÙŠØ© ØµØ¯ÙŠÙ‚Ø© Ù„Ù…Ø­Ø±ÙƒØ§Øª Ø§Ù„Ø¨Ø­Ø«",
+            
+            // 7. Deployment & Hosting
+            "skill-hostinger": "Hostinger",
+            "skill-vercel": "Vercel",
+            "skill-netlify": "Netlify",
+            "skill-railway": "Railway",
+            "skill-render": "Render",
+            "skill-deployment-hosting": "Ø§Ù„Ù†Ø´Ø± ÙˆØ§Ù„Ø§Ø³ØªØ¶Ø§ÙØ©",
+            "skill-web-deployment": "Ù†Ø´Ø± ØªØ·Ø¨ÙŠÙ‚Ø§Øª Ø§Ù„ÙˆÙŠØ¨",
+            "skill-hosting-mgmt": "Ø¥Ø¯Ø§Ø±Ø© Ø§Ù„Ø§Ø³ØªØ¶Ø§ÙØ©",
+            
+            // 8. Development Tools
             "skill-git": "Git",
             "skill-github": "GitHub",
             "skill-vscode": "VS Code",
             "skill-powershell": "PowerShell",
             "skill-postman": "Postman",
             "skill-chrome-devtools": "Chrome DevTools",
+            "skill-npm": "npm",
+            "skill-api-testing": "Ø§Ø®ØªØ¨Ø§Ø± ÙˆØ§Ø¬Ù‡Ø§Øª API",
+            "skill-debugging": "ØªØµØ­ÙŠØ­ Ø§Ù„Ø£Ø®Ø·Ø§Ø¡ (Debugging)",
+            "skill-version-control": "Ø¥Ø¯Ø§Ø±Ø© Ø§Ù„Ø¥ØµØ¯Ø§Ø±Ø§Øª",
+            
+            // 9. Automation & Bots
+            "skill-workflow-auto": "Ø£ØªÙ…ØªØ© Ø³ÙŠØ± Ø§Ù„Ø¹Ù…Ù„",
+            "skill-process-auto": "Ø£ØªÙ…ØªØ© Ø§Ù„Ø¹Ù…Ù„ÙŠØ§Øª",
+            "skill-api-auto": "Ø£ØªÙ…ØªØ© ÙˆØ§Ø¬Ù‡Ø§Øª API",
+            "skill-wa-bots": "Ø¨ÙˆØªØ§Øª ÙˆØ§ØªØ³Ø§Ø¨",
+            "skill-tg-bots": "Ø¨ÙˆØªØ§Øª ØªÙŠÙ„ÙŠØ¬Ø±Ø§Ù…",
+            "skill-wa-auto": "Ø£ØªÙ…ØªØ© ÙˆØ§ØªØ³Ø§Ø¨",
+            "skill-tg-auto": "Ø£ØªÙ…ØªØ© ØªÙŠÙ„ÙŠØ¬Ø±Ø§Ù…",
+            "skill-auto-notifications": "Ø¥Ø´Ø¹Ø§Ø±Ø§Øª Ù…Ø¤ØªÙ…ØªØ©",
+            "skill-auto-messaging": "Ù…Ø±Ø§Ø³Ù„Ø§Øª Ù…Ø¤ØªÙ…ØªØ©",
+            "skill-bpa": "Ø£ØªÙ…ØªØ© Ø§Ù„Ø¹Ù…Ù„ÙŠØ§Øª Ø§Ù„ØªØ¬Ø§Ø±ÙŠØ©",
+            
+            // 10. Engineering & Control
+            "skill-mechatronics-eng": "Ù‡Ù†Ø¯Ø³Ø© Ø§Ù„Ù…ÙŠÙƒØ§ØªØ±ÙˆÙ†ÙƒØ³",
+            "skill-control-systems": "Ø£Ù†Ø¸Ù…Ø© Ø§Ù„ØªØ­ÙƒÙ…",
+            "skill-classical-control": "Ø§Ù„ØªØ­ÙƒÙ… Ø§Ù„ÙƒÙ„Ø§Ø³ÙŠÙƒÙŠ",
+            "skill-control-modeling": "Ù†Ù…Ø°Ø¬Ø© Ø£Ù†Ø¸Ù…Ø© Ø§Ù„ØªØ­ÙƒÙ…",
+            "skill-matlab": "MATLAB",
+            "skill-simulink": "Simulink",
+            "skill-solidworks": "SolidWorks",
+            "skill-cad": "Ø§Ù„ØªØµÙ…ÙŠÙ… Ø§Ù„Ù‡Ù†Ø¯Ø³ÙŠ CAD",
+            "skill-eng-analysis": "Ø§Ù„ØªØ­Ù„ÙŠÙ„ Ø§Ù„Ù‡Ù†Ø¯Ø³ÙŠ",
+            "skill-system-modeling": "Ù†Ù…Ø°Ø¬Ø© Ø§Ù„Ø£Ù†Ø¸Ù…Ø©",
+            
+            // 11. Renewable Energy
+            "skill-solar-energy": "Ø§Ù„Ø·Ø§Ù‚Ø© Ø§Ù„Ø´Ù…Ø³ÙŠØ©",
+            "skill-solar-pv": "Ø§Ù„Ø£Ù†Ø¸Ù…Ø© Ø§Ù„ÙƒÙ‡Ø±ÙˆØ¶ÙˆØ¦ÙŠØ© (PV)",
+            "skill-solar-fundamentals": "Ø£Ø³Ø§Ø³ÙŠØ§Øª Ø§Ù„Ø·Ø§Ù‚Ø© Ø§Ù„Ø´Ù…Ø³ÙŠØ©",
+            "skill-renewable-systems": "Ø£Ù†Ø¸Ù…Ø© Ø§Ù„Ø·Ø§Ù‚Ø© Ø§Ù„Ù…ØªØ¬Ø¯Ø¯Ø©",
+            "skill-basic-energy-analysis": "Ø§Ù„ØªØ­Ù„ÙŠÙ„ Ø§Ù„Ø£Ø³Ø§Ø³ÙŠ Ù„Ù„Ø·Ø§Ù‚Ø©",
+            
+            // 12. Business, Data & Accounting
             "skill-excel": "Microsoft Excel",
             "skill-word": "Microsoft Word",
             "skill-ppt": "Microsoft PowerPoint",
-            "skill-data-analysis": "تحليل البيانات",
-            "skill-reporting": "إعداد التقارير",
-            "skill-dashboard-dev": "تطوير لوحات التحكم",
-            "skill-data-processing": "معالجة البيانات",
+            "skill-data-analysis": "ØªØ­Ù„ÙŠÙ„ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª",
+            "skill-data-processing": "Ù…Ø¹Ø§Ù„Ø¬Ø© Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª",
+            "skill-reporting": "Ø¥Ø¹Ø¯Ø§Ø¯ Ø§Ù„ØªÙ‚Ø§Ø±ÙŠØ±",
+            "skill-dashboard-dev": "ØªØ·ÙˆÙŠØ± Ù„ÙˆØ­Ø§Øª Ø§Ù„ØªØ­ÙƒÙ…",
+            "skill-business-reporting": "ØªÙ‚Ø§Ø±ÙŠØ± Ø§Ù„Ø£Ø¹Ù…Ø§Ù„",
+            "skill-financial-data": "Ù…Ø¹Ø§Ù„Ø¬Ø© Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ù„Ù…Ø§Ù„ÙŠØ©",
+            "skill-accounting-systems": "Ø§Ù„Ø£Ù†Ø¸Ù…Ø© Ø§Ù„Ù…Ø­Ø§Ø³Ø¨ÙŠØ©",
+            "skill-data-reconciliation": "ØªØ³ÙˆÙŠØ© ÙˆÙ…Ø·Ø§Ø¨Ù‚Ø© Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª",
             
-            "experience-title": "الخبرة",
-            "skills-role-badge": "المنصب الحالي",
-            "skills-role-title": "منسق العمليات والأداء",
-            "skills-role-company": "مؤسسة لمسة سعادة ومؤسسة عالم المثالية — السعودية",
-            "skills-role-scope": "المسؤول التقني والمشرف على الأداء وسير العمل",
-            "skills-role-desc": "أتولى مسؤولية تقنية وتشغيلية ضمن عمليات المؤسستين، مع الإشراف على الأداء وسير العمل وتطوير طرق العمل وتحسين الأنظمة والإجراءات. أعمل على حل المشكلات التقنية والتشغيلية، وتحليل البيانات ومؤشرات الأداء، وتحويل الاحتياجات اليومية إلى حلول عملية تجعل العمل داخل الفروع أكثر كفاءة وتنظيمًا.",
+            "experience-title": "Ø§Ù„Ø®Ø¨Ø±Ø©",
+            "skills-role-badge": "Ø§Ù„Ù…Ù†ØµØ¨ Ø§Ù„Ø­Ø§Ù„ÙŠ",
+            "skills-role-title": "Ù…Ù†Ø³Ù‚ Ø§Ù„Ø¹Ù…Ù„ÙŠØ§Øª ÙˆØ§Ù„Ø£Ø¯Ø§Ø¡",
+            "skills-role-company": "Ù…Ø¤Ø³Ø³Ø© Ù„Ù…Ø³Ø© Ø³Ø¹Ø§Ø¯Ø© ÙˆÙ…Ø¤Ø³Ø³Ø© Ø¹Ø§Ù„Ù… Ø§Ù„Ù…Ø«Ø§Ù„ÙŠØ© â€” Ø§Ù„Ø³Ø¹ÙˆØ¯ÙŠØ©",
+            "skills-role-scope": "Ø§Ù„Ù…Ø³Ø¤ÙˆÙ„ Ø§Ù„ØªÙ‚Ù†ÙŠ ÙˆØ§Ù„Ù…Ø´Ø±Ù Ø¹Ù„Ù‰ Ø§Ù„Ø£Ø¯Ø§Ø¡ ÙˆØ³ÙŠØ± Ø§Ù„Ø¹Ù…Ù„",
+            "skills-role-desc": "Ø£ØªÙˆÙ„Ù‰ Ù…Ø³Ø¤ÙˆÙ„ÙŠØ© ØªÙ‚Ù†ÙŠØ© ÙˆØªØ´ØºÙŠÙ„ÙŠØ© Ø¶Ù…Ù† Ø¹Ù…Ù„ÙŠØ§Øª Ø§Ù„Ù…Ø¤Ø³Ø³ØªÙŠÙ†ØŒ Ù…Ø¹ Ø§Ù„Ø¥Ø´Ø±Ø§Ù Ø¹Ù„Ù‰ Ø§Ù„Ø£Ø¯Ø§Ø¡ ÙˆØ³ÙŠØ± Ø§Ù„Ø¹Ù…Ù„ ÙˆØªØ·ÙˆÙŠØ± Ø·Ø±Ù‚ Ø§Ù„Ø¹Ù…Ù„ ÙˆØªØ­Ø³ÙŠÙ† Ø§Ù„Ø£Ù†Ø¸Ù…Ø© ÙˆØ§Ù„Ø¥Ø¬Ø±Ø§Ø¡Ø§Øª. Ø£Ø¹Ù…Ù„ Ø¹Ù„Ù‰ Ø­Ù„ Ø§Ù„Ù…Ø´ÙƒÙ„Ø§Øª Ø§Ù„ØªÙ‚Ù†ÙŠØ© ÙˆØ§Ù„ØªØ´ØºÙŠÙ„ÙŠØ©ØŒ ÙˆØªØ­Ù„ÙŠÙ„ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª ÙˆÙ…Ø¤Ø´Ø±Ø§Øª Ø§Ù„Ø£Ø¯Ø§Ø¡ØŒ ÙˆØªØ­ÙˆÙŠÙ„ Ø§Ù„Ø§Ø­ØªÙŠØ§Ø¬Ø§Øª Ø§Ù„ÙŠÙˆÙ…ÙŠØ© Ø¥Ù„Ù‰ Ø­Ù„ÙˆÙ„ Ø¹Ù…Ù„ÙŠØ© ØªØ¬Ø¹Ù„ Ø§Ù„Ø¹Ù…Ù„ Ø¯Ø§Ø®Ù„ Ø§Ù„ÙØ±ÙˆØ¹ Ø£ÙƒØ«Ø± ÙƒÙØ§Ø¡Ø© ÙˆØªÙ†Ø¸ÙŠÙ…Ù‹Ø§.",
             
-            "exp-c1-title": "العمليات وسير العمل",
-            "exp-c1-desc": "الإشراف على سير العمل اليومي داخل الفروع، وتبسيط الإجراءات التشغيلية، وتنظيم عمليات الشحن، وتطوير طرق عمل عملية تجعل التنفيذ أسرع وأسهل وأكثر تنظيمًا.",
+            "exp-c1-title": "Ø§Ù„Ø¹Ù…Ù„ÙŠØ§Øª ÙˆØ³ÙŠØ± Ø§Ù„Ø¹Ù…Ù„",
+            "exp-c1-desc": "Ø§Ù„Ø¥Ø´Ø±Ø§Ù Ø¹Ù„Ù‰ Ø³ÙŠØ± Ø§Ù„Ø¹Ù…Ù„ Ø§Ù„ÙŠÙˆÙ…ÙŠ Ø¯Ø§Ø®Ù„ Ø§Ù„ÙØ±ÙˆØ¹ØŒ ÙˆØªØ¨Ø³ÙŠØ· Ø§Ù„Ø¥Ø¬Ø±Ø§Ø¡Ø§Øª Ø§Ù„ØªØ´ØºÙŠÙ„ÙŠØ©ØŒ ÙˆØªÙ†Ø¸ÙŠÙ… Ø¹Ù…Ù„ÙŠØ§Øª Ø§Ù„Ø´Ø­Ù†ØŒ ÙˆØªØ·ÙˆÙŠØ± Ø·Ø±Ù‚ Ø¹Ù…Ù„ Ø¹Ù…Ù„ÙŠØ© ØªØ¬Ø¹Ù„ Ø§Ù„ØªÙ†ÙÙŠØ° Ø£Ø³Ø±Ø¹ ÙˆØ£Ø³Ù‡Ù„ ÙˆØ£ÙƒØ«Ø± ØªÙ†Ø¸ÙŠÙ…Ù‹Ø§.",
             
-            "exp-c2-title": "الأداء والبيانات",
-            "exp-c2-desc": "الإشراف على مؤشرات الأداء وتحليل نتائج الفروع، ومقارنة السجلات الداخلية ببيانات شركة الشحن، وإعداد التقارير لاكتشاف الفروقات وفرص التحسين.",
+            "exp-c2-title": "Ø§Ù„Ø£Ø¯Ø§Ø¡ ÙˆØ§Ù„Ø¨ÙŠØ§Ù†Ø§Øª",
+            "exp-c2-desc": "Ø§Ù„Ø¥Ø´Ø±Ø§Ù Ø¹Ù„Ù‰ Ù…Ø¤Ø´Ø±Ø§Øª Ø§Ù„Ø£Ø¯Ø§Ø¡ ÙˆØªØ­Ù„ÙŠÙ„ Ù†ØªØ§Ø¦Ø¬ Ø§Ù„ÙØ±ÙˆØ¹ØŒ ÙˆÙ…Ù‚Ø§Ø±Ù†Ø© Ø§Ù„Ø³Ø¬Ù„Ø§Øª Ø§Ù„Ø¯Ø§Ø®Ù„ÙŠØ© Ø¨Ø¨ÙŠØ§Ù†Ø§Øª Ø´Ø±ÙƒØ© Ø§Ù„Ø´Ø­Ù†ØŒ ÙˆØ¥Ø¹Ø¯Ø§Ø¯ Ø§Ù„ØªÙ‚Ø§Ø±ÙŠØ± Ù„Ø§ÙƒØªØ´Ø§Ù Ø§Ù„ÙØ±ÙˆÙ‚Ø§Øª ÙˆÙØ±Øµ Ø§Ù„ØªØ­Ø³ÙŠÙ†.",
             
-            "exp-c3-title": "التطوير التقني وتحسين العمليات",
-            "exp-c3-desc": "تحمل مسؤولية تطوير طرق العمل والحلول التقنية، وحل المشكلات التشغيلية والتقنية، وتحسين الأنظمة والتقارير، وربط التكنولوجيا بالاحتياجات التشغيلية الفعلية.",
+            "exp-c3-title": "Ø§Ù„ØªØ·ÙˆÙŠØ± Ø§Ù„ØªÙ‚Ù†ÙŠ ÙˆØªØ­Ø³ÙŠÙ† Ø§Ù„Ø¹Ù…Ù„ÙŠØ§Øª",
+            "exp-c3-desc": "ØªØ­Ù…Ù„ Ù…Ø³Ø¤ÙˆÙ„ÙŠØ© ØªØ·ÙˆÙŠØ± Ø·Ø±Ù‚ Ø§Ù„Ø¹Ù…Ù„ ÙˆØ§Ù„Ø­Ù„ÙˆÙ„ Ø§Ù„ØªÙ‚Ù†ÙŠØ©ØŒ ÙˆØ­Ù„ Ø§Ù„Ù…Ø´ÙƒÙ„Ø§Øª Ø§Ù„ØªØ´ØºÙŠÙ„ÙŠØ© ÙˆØ§Ù„ØªÙ‚Ù†ÙŠØ©ØŒ ÙˆØªØ­Ø³ÙŠÙ† Ø§Ù„Ø£Ù†Ø¸Ù…Ø© ÙˆØ§Ù„ØªÙ‚Ø§Ø±ÙŠØ±ØŒ ÙˆØ±Ø¨Ø· Ø§Ù„ØªÙƒÙ†ÙˆÙ„ÙˆØ¬ÙŠØ§ Ø¨Ø§Ù„Ø§Ø­ØªÙŠØ§Ø¬Ø§Øª Ø§Ù„ØªØ´ØºÙŠÙ„ÙŠØ© Ø§Ù„ÙØ¹Ù„ÙŠØ©.",
             
-            "exp-c4-title": "الحسابات والمطابقة المالية",
-            "exp-c4-desc": "مراجعة الفواتير والحسابات، وإجراء المطابقات المالية، ومراجعة المدفوعات والسجلات النقدية، ومتابعة الفروقات المرتبطة بالعمليات.",
+            "exp-c4-title": "Ø§Ù„Ø­Ø³Ø§Ø¨Ø§Øª ÙˆØ§Ù„Ù…Ø·Ø§Ø¨Ù‚Ø© Ø§Ù„Ù…Ø§Ù„ÙŠØ©",
+            "exp-c4-desc": "Ù…Ø±Ø§Ø¬Ø¹Ø© Ø§Ù„ÙÙˆØ§ØªÙŠØ± ÙˆØ§Ù„Ø­Ø³Ø§Ø¨Ø§ØªØŒ ÙˆØ¥Ø¬Ø±Ø§Ø¡ Ø§Ù„Ù…Ø·Ø§Ø¨Ù‚Ø§Øª Ø§Ù„Ù…Ø§Ù„ÙŠØ©ØŒ ÙˆÙ…Ø±Ø§Ø¬Ø¹Ø© Ø§Ù„Ù…Ø¯ÙÙˆØ¹Ø§Øª ÙˆØ§Ù„Ø³Ø¬Ù„Ø§Øª Ø§Ù„Ù†Ù‚Ø¯ÙŠØ©ØŒ ÙˆÙ…ØªØ§Ø¨Ø¹Ø© Ø§Ù„ÙØ±ÙˆÙ‚Ø§Øª Ø§Ù„Ù…Ø±ØªØ¨Ø·Ø© Ø¨Ø§Ù„Ø¹Ù…Ù„ÙŠØ§Øª.",
             
-            "exp-highlight": "التركيز: تحويل العمليات التشغيلية المعقدة إلى إجراءات أبسط وأسهل في القياس والإدارة.",
+            "exp-highlight": "Ø§Ù„ØªØ±ÙƒÙŠØ²: ØªØ­ÙˆÙŠÙ„ Ø§Ù„Ø¹Ù…Ù„ÙŠØ§Øª Ø§Ù„ØªØ´ØºÙŠÙ„ÙŠØ© Ø§Ù„Ù…Ø¹Ù‚Ø¯Ø© Ø¥Ù„Ù‰ Ø¥Ø¬Ø±Ø§Ø¡Ø§Øª Ø£Ø¨Ø³Ø· ÙˆØ£Ø³Ù‡Ù„ ÙÙŠ Ø§Ù„Ù‚ÙŠØ§Ø³ ÙˆØ§Ù„Ø¥Ø¯Ø§Ø±Ø©.",
             
-            "roadmap-title": "التركيز الحالي وخطة التطور",
-            "roadmap-label": "بناء أساس قوي في الأتمتة وهندسة التحكم",
-            "roadmap-progress-label": "تقدم خطة التطور",
-            "roadmap-summary": "أعمل حاليًا على تقوية أساسي في الأتمتة الصناعية وهندسة التحكم، مع التركيز على أنظمة التحكم الكلاسيكية وبرمجة الـPLC وتطبيقات الأتمتة العملية. كما أعمل على ربط هذه المفاهيم الهندسية بخبرتي في البرمجيات والـBackend لبناء حلول رقمية وتشغيلية أكثر تكاملًا.",
-            "roadmap-step1-title": "أساسيات التحكم الكلاسيكي",
-            "roadmap-step1-desc": "تقوية أساسيات أنظمة التحكم، بما يشمل نمذجة الأنظمة والتغذية الراجعة والاستقرار وتحليل الاستجابة والتحكم PID.",
-            "roadmap-step2-title": "الـPLC والأتمتة الصناعية",
-            "roadmap-step2-desc": "تعلم أساسيات الـPLC ولغة Ladder Logic ومفاهيم التحكم الصناعي وأنظمة الإدخال والإخراج وتطبيقات الأتمتة العملية.",
-            "roadmap-step3-title": "تكامل أنظمة الأتمتة",
-            "roadmap-step3-desc": "ربط أنظمة التحكم والبرمجيات والحساسات ومفاهيم الاتصال الصناعي لبناء حلول أتمتة متكاملة.",
-            "roadmap-supporting": "مهارات داعمة: Python • أنظمة Backend • APIs • أتمتة سير العمل • IoT",
+            "roadmap-title": "Ø§Ù„ØªØ±ÙƒÙŠØ² Ø§Ù„Ø­Ø§Ù„ÙŠ ÙˆØ®Ø·Ø© Ø§Ù„ØªØ·ÙˆØ±",
+            "roadmap-label": "Ø¨Ù†Ø§Ø¡ Ø£Ø³Ø§Ø³ Ù‚ÙˆÙŠ ÙÙŠ Ø§Ù„Ø£ØªÙ…ØªØ© ÙˆÙ‡Ù†Ø¯Ø³Ø© Ø§Ù„ØªØ­ÙƒÙ…",
+            "roadmap-progress-label": "ØªÙ‚Ø¯Ù… Ø®Ø·Ø© Ø§Ù„ØªØ·ÙˆØ±",
+            "roadmap-summary": "Ø£Ø¹Ù…Ù„ Ø­Ø§Ù„ÙŠÙ‹Ø§ Ø¹Ù„Ù‰ ØªÙ‚ÙˆÙŠØ© Ø£Ø³Ø§Ø³ÙŠ ÙÙŠ Ø§Ù„Ø£ØªÙ…ØªØ© Ø§Ù„ØµÙ†Ø§Ø¹ÙŠØ© ÙˆÙ‡Ù†Ø¯Ø³Ø© Ø§Ù„ØªØ­ÙƒÙ…ØŒ Ù…Ø¹ Ø§Ù„ØªØ±ÙƒÙŠØ² Ø¹Ù„Ù‰ Ø£Ù†Ø¸Ù…Ø© Ø§Ù„ØªØ­ÙƒÙ… Ø§Ù„ÙƒÙ„Ø§Ø³ÙŠÙƒÙŠØ© ÙˆØ¨Ø±Ù…Ø¬Ø© Ø§Ù„Ù€PLC ÙˆØªØ·Ø¨ÙŠÙ‚Ø§Øª Ø§Ù„Ø£ØªÙ…ØªØ© Ø§Ù„Ø¹Ù…Ù„ÙŠØ©. ÙƒÙ…Ø§ Ø£Ø¹Ù…Ù„ Ø¹Ù„Ù‰ Ø±Ø¨Ø· Ù‡Ø°Ù‡ Ø§Ù„Ù…ÙØ§Ù‡ÙŠÙ… Ø§Ù„Ù‡Ù†Ø¯Ø³ÙŠØ© Ø¨Ø®Ø¨Ø±ØªÙŠ ÙÙŠ Ø§Ù„Ø¨Ø±Ù…Ø¬ÙŠØ§Øª ÙˆØ§Ù„Ù€Backend Ù„Ø¨Ù†Ø§Ø¡ Ø­Ù„ÙˆÙ„ Ø±Ù‚Ù…ÙŠØ© ÙˆØªØ´ØºÙŠÙ„ÙŠØ© Ø£ÙƒØ«Ø± ØªÙƒØ§Ù…Ù„Ù‹Ø§.",
+            "roadmap-step1-title": "Ø£Ø³Ø§Ø³ÙŠØ§Øª Ø§Ù„ØªØ­ÙƒÙ… Ø§Ù„ÙƒÙ„Ø§Ø³ÙŠÙƒÙŠ",
+            "roadmap-step1-desc": "ØªÙ‚ÙˆÙŠØ© Ø£Ø³Ø§Ø³ÙŠØ§Øª Ø£Ù†Ø¸Ù…Ø© Ø§Ù„ØªØ­ÙƒÙ…ØŒ Ø¨Ù…Ø§ ÙŠØ´Ù…Ù„ Ù†Ù…Ø°Ø¬Ø© Ø§Ù„Ø£Ù†Ø¸Ù…Ø© ÙˆØ§Ù„ØªØºØ°ÙŠØ© Ø§Ù„Ø±Ø§Ø¬Ø¹Ø© ÙˆØ§Ù„Ø§Ø³ØªÙ‚Ø±Ø§Ø± ÙˆØªØ­Ù„ÙŠÙ„ Ø§Ù„Ø§Ø³ØªØ¬Ø§Ø¨Ø© ÙˆØ§Ù„ØªØ­ÙƒÙ… PID.",
+            "roadmap-step2-title": "Ø§Ù„Ù€PLC ÙˆØ§Ù„Ø£ØªÙ…ØªØ© Ø§Ù„ØµÙ†Ø§Ø¹ÙŠØ©",
+            "roadmap-step2-desc": "ØªØ¹Ù„Ù… Ø£Ø³Ø§Ø³ÙŠØ§Øª Ø§Ù„Ù€PLC ÙˆÙ„ØºØ© Ladder Logic ÙˆÙ…ÙØ§Ù‡ÙŠÙ… Ø§Ù„ØªØ­ÙƒÙ… Ø§Ù„ØµÙ†Ø§Ø¹ÙŠ ÙˆØ£Ù†Ø¸Ù…Ø© Ø§Ù„Ø¥Ø¯Ø®Ø§Ù„ ÙˆØ§Ù„Ø¥Ø®Ø±Ø§Ø¬ ÙˆØªØ·Ø¨ÙŠÙ‚Ø§Øª Ø§Ù„Ø£ØªÙ…ØªØ© Ø§Ù„Ø¹Ù…Ù„ÙŠØ©.",
+            "roadmap-step3-title": "ØªÙƒØ§Ù…Ù„ Ø£Ù†Ø¸Ù…Ø© Ø§Ù„Ø£ØªÙ…ØªØ©",
+            "roadmap-step3-desc": "Ø±Ø¨Ø· Ø£Ù†Ø¸Ù…Ø© Ø§Ù„ØªØ­ÙƒÙ… ÙˆØ§Ù„Ø¨Ø±Ù…Ø¬ÙŠØ§Øª ÙˆØ§Ù„Ø­Ø³Ø§Ø³Ø§Øª ÙˆÙ…ÙØ§Ù‡ÙŠÙ… Ø§Ù„Ø§ØªØµØ§Ù„ Ø§Ù„ØµÙ†Ø§Ø¹ÙŠ Ù„Ø¨Ù†Ø§Ø¡ Ø­Ù„ÙˆÙ„ Ø£ØªÙ…ØªØ© Ù…ØªÙƒØ§Ù…Ù„Ø©.",
+            "roadmap-supporting": "Ù…Ù‡Ø§Ø±Ø§Øª Ø¯Ø§Ø¹Ù…Ø©: Python â€¢ Ø£Ù†Ø¸Ù…Ø© Backend â€¢ APIs â€¢ Ø£ØªÙ…ØªØ© Ø³ÙŠØ± Ø§Ù„Ø¹Ù…Ù„ â€¢ IoT",
             
-            "projects-title": "المشاريع المميزة",
-            "badge-web-platform": "منصة ويب",
-            "badge-desktop-app": "تطبيق مكتبي",
-            "badge-academic-platform": "منصة أكاديمية",
-            "badge-interactive-exp": "تجربة ويب تفاعلية",
-            "proj-action-visit": "زيارة المشروع",
-            "proj-action-details": "عرض التفاصيل",
-            "project-modal-close": "إغلاق",
-            "project-modal-tech-heading": "التقنيات المستخدمة",
-            "project-modal-features-heading": "القدرات الرئيسية والمميزات",
+            "projects-title": "Ø§Ù„Ù…Ø´Ø§Ø±ÙŠØ¹ Ø§Ù„Ù…Ù…ÙŠØ²Ø©",
+            "badge-web-platform": "Ù…Ù†ØµØ© ÙˆÙŠØ¨",
+            "badge-desktop-app": "ØªØ·Ø¨ÙŠÙ‚ Ù…ÙƒØªØ¨ÙŠ",
+            "badge-academic-platform": "Ù…Ù†ØµØ© Ø£ÙƒØ§Ø¯ÙŠÙ…ÙŠØ©",
+            "badge-interactive-exp": "ØªØ¬Ø±Ø¨Ø© ÙˆÙŠØ¨ ØªÙØ§Ø¹Ù„ÙŠØ©",
+            "proj-action-visit": "Ø²ÙŠØ§Ø±Ø© Ø§Ù„Ù…Ø´Ø±ÙˆØ¹",
+            "proj-action-details": "Ø¹Ø±Ø¶ Ø§Ù„ØªÙØ§ØµÙŠÙ„",
+            "project-modal-close": "Ø¥ØºÙ„Ø§Ù‚",
+            "project-modal-tech-heading": "Ø§Ù„ØªÙ‚Ù†ÙŠØ§Øª Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù…Ø©",
+            "project-modal-features-heading": "Ø§Ù„Ù‚Ø¯Ø±Ø§Øª Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠØ© ÙˆØ§Ù„Ù…Ù…ÙŠØ²Ø§Øª",
             
-            "proj-1-title": "بوابة جامعة الزقازيق الأهلية (ZNUE Portal)",
-            "proj-1-desc": "منصة جامعية متكاملة لإدارة العمليات الأكاديمية والطلابية، تربط بين الطلاب وأعضاء هيئة التدريس والإدارات وشؤون الطلاب واتحاد الطلاب في نظام واحد.",
+            "proj-1-title": "Ø¨ÙˆØ§Ø¨Ø© Ø¬Ø§Ù…Ø¹Ø© Ø§Ù„Ø²Ù‚Ø§Ø²ÙŠÙ‚ Ø§Ù„Ø£Ù‡Ù„ÙŠØ© (ZNUE Portal)",
+            "proj-1-desc": "Ù…Ù†ØµØ© Ø¬Ø§Ù…Ø¹ÙŠØ© Ù…ØªÙƒØ§Ù…Ù„Ø© Ù„Ø¥Ø¯Ø§Ø±Ø© Ø§Ù„Ø¹Ù…Ù„ÙŠØ§Øª Ø§Ù„Ø£ÙƒØ§Ø¯ÙŠÙ…ÙŠØ© ÙˆØ§Ù„Ø·Ù„Ø§Ø¨ÙŠØ©ØŒ ØªØ±Ø¨Ø· Ø¨ÙŠÙ† Ø§Ù„Ø·Ù„Ø§Ø¨ ÙˆØ£Ø¹Ø¶Ø§Ø¡ Ù‡ÙŠØ¦Ø© Ø§Ù„ØªØ¯Ø±ÙŠØ³ ÙˆØ§Ù„Ø¥Ø¯Ø§Ø±Ø§Øª ÙˆØ´Ø¤ÙˆÙ† Ø§Ù„Ø·Ù„Ø§Ø¨ ÙˆØ§ØªØ­Ø§Ø¯ Ø§Ù„Ø·Ù„Ø§Ø¨ ÙÙŠ Ù†Ø¸Ø§Ù… ÙˆØ§Ø­Ø¯.",
             
-            "proj-2-title": "منصة Ship-Gate اللوجستية",
-            "proj-2-desc": "منصة شحن متكاملة تربط التجار بشركات الشحن المتعددة عبر نظام موحد لإنشاء الشحنات ومقارنة الأسعار والتتبع وإدارة المحافظ والفواتير وبوالص الشحن.",
+            "proj-2-title": "Ù…Ù†ØµØ© Ship-Gate Ø§Ù„Ù„ÙˆØ¬Ø³ØªÙŠØ©",
+            "proj-2-desc": "Ù…Ù†ØµØ© Ø´Ø­Ù† Ù…ØªÙƒØ§Ù…Ù„Ø© ØªØ±Ø¨Ø· Ø§Ù„ØªØ¬Ø§Ø± Ø¨Ø´Ø±ÙƒØ§Øª Ø§Ù„Ø´Ø­Ù† Ø§Ù„Ù…ØªØ¹Ø¯Ø¯Ø© Ø¹Ø¨Ø± Ù†Ø¸Ø§Ù… Ù…ÙˆØ­Ø¯ Ù„Ø¥Ù†Ø´Ø§Ø¡ Ø§Ù„Ø´Ø­Ù†Ø§Øª ÙˆÙ…Ù‚Ø§Ø±Ù†Ø© Ø§Ù„Ø£Ø³Ø¹Ø§Ø± ÙˆØ§Ù„ØªØªØ¨Ø¹ ÙˆØ¥Ø¯Ø§Ø±Ø© Ø§Ù„Ù…Ø­Ø§ÙØ¸ ÙˆØ§Ù„ÙÙˆØ§ØªÙŠØ± ÙˆØ¨ÙˆØ§Ù„Øµ Ø§Ù„Ø´Ø­Ù†.",
             
-            "proj-3-title": "نظام الـCRM وأتمتة الفروع",
-            "proj-3-desc": "نظام مكتبي متكامل لإدارة علاقات العملاء وأتمتة الفروع، يقوم بمركزية بيانات العملاء وإصدار الفواتير الضريبية وتتبع الشحنات وإرسال البوالص والتحديثات تلقائياً عبر واتساب.",
+            "proj-3-title": "Ù†Ø¸Ø§Ù… Ø§Ù„Ù€CRM ÙˆØ£ØªÙ…ØªØ© Ø§Ù„ÙØ±ÙˆØ¹",
+            "proj-3-desc": "Ù†Ø¸Ø§Ù… Ù…ÙƒØªØ¨ÙŠ Ù…ØªÙƒØ§Ù…Ù„ Ù„Ø¥Ø¯Ø§Ø±Ø© Ø¹Ù„Ø§Ù‚Ø§Øª Ø§Ù„Ø¹Ù…Ù„Ø§Ø¡ ÙˆØ£ØªÙ…ØªØ© Ø§Ù„ÙØ±ÙˆØ¹ØŒ ÙŠÙ‚ÙˆÙ… Ø¨Ù…Ø±ÙƒØ²ÙŠØ© Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ù„Ø¹Ù…Ù„Ø§Ø¡ ÙˆØ¥ØµØ¯Ø§Ø± Ø§Ù„ÙÙˆØ§ØªÙŠØ± Ø§Ù„Ø¶Ø±ÙŠØ¨ÙŠØ© ÙˆØªØªØ¨Ø¹ Ø§Ù„Ø´Ø­Ù†Ø§Øª ÙˆØ¥Ø±Ø³Ø§Ù„ Ø§Ù„Ø¨ÙˆØ§Ù„Øµ ÙˆØ§Ù„ØªØ­Ø¯ÙŠØ«Ø§Øª ØªÙ„Ù‚Ø§Ø¦ÙŠØ§Ù‹ Ø¹Ø¨Ø± ÙˆØ§ØªØ³Ø§Ø¨.",
             
-            "proj-4-title": "منصة TaskFlow لإدارة المهام",
-            "proj-4-desc": "منصة لإدارة المهام والمشاريع تتيح للشركات إدارة الموظفين ومدراء المشاريع والمواعيد النهائية وتكامل التواصل المؤتمت عبر واتساب من نظام واحد.",
+            "proj-4-title": "Ù…Ù†ØµØ© TaskFlow Ù„Ø¥Ø¯Ø§Ø±Ø© Ø§Ù„Ù…Ù‡Ø§Ù…",
+            "proj-4-desc": "Ù…Ù†ØµØ© Ù„Ø¥Ø¯Ø§Ø±Ø© Ø§Ù„Ù…Ù‡Ø§Ù… ÙˆØ§Ù„Ù…Ø´Ø§Ø±ÙŠØ¹ ØªØªÙŠØ­ Ù„Ù„Ø´Ø±ÙƒØ§Øª Ø¥Ø¯Ø§Ø±Ø© Ø§Ù„Ù…ÙˆØ¸ÙÙŠÙ† ÙˆÙ…Ø¯Ø±Ø§Ø¡ Ø§Ù„Ù…Ø´Ø§Ø±ÙŠØ¹ ÙˆØ§Ù„Ù…ÙˆØ§Ø¹ÙŠØ¯ Ø§Ù„Ù†Ù‡Ø§Ø¦ÙŠØ© ÙˆØªÙƒØ§Ù…Ù„ Ø§Ù„ØªÙˆØ§ØµÙ„ Ø§Ù„Ù…Ø¤ØªÙ…Øª Ø¹Ø¨Ø± ÙˆØ§ØªØ³Ø§Ø¨ Ù…Ù† Ù†Ø¸Ø§Ù… ÙˆØ§Ø­Ø¯.",
             
-            "proj-5-title": "نظام تحليل البيانات والمحاسبة المتكامل",
-            "proj-5-desc": "نظام أعمال مكتبي يجمع بين تحليل البيانات والمعاملات المحاسبية والتسويات المالية والتقارير وإدارة البيانات التشغيلية في تطبيق واحد.",
+            "proj-5-title": "Ù†Ø¸Ø§Ù… ØªØ­Ù„ÙŠÙ„ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª ÙˆØ§Ù„Ù…Ø­Ø§Ø³Ø¨Ø© Ø§Ù„Ù…ØªÙƒØ§Ù…Ù„",
+            "proj-5-desc": "Ù†Ø¸Ø§Ù… Ø£Ø¹Ù…Ø§Ù„ Ù…ÙƒØªØ¨ÙŠ ÙŠØ¬Ù…Ø¹ Ø¨ÙŠÙ† ØªØ­Ù„ÙŠÙ„ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª ÙˆØ§Ù„Ù…Ø¹Ø§Ù…Ù„Ø§Øª Ø§Ù„Ù…Ø­Ø§Ø³Ø¨ÙŠØ© ÙˆØ§Ù„ØªØ³ÙˆÙŠØ§Øª Ø§Ù„Ù…Ø§Ù„ÙŠØ© ÙˆØ§Ù„ØªÙ‚Ø§Ø±ÙŠØ± ÙˆØ¥Ø¯Ø§Ø±Ø© Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ù„ØªØ´ØºÙŠÙ„ÙŠØ© ÙÙŠ ØªØ·Ø¨ÙŠÙ‚ ÙˆØ§Ø­Ø¯.",
             
-            "proj-6-title": "مساعد ZNU الأكاديمي",
-            "proj-6-desc": "مساعد رقمي ومنصة معلومات لقسم هندسة الميكاترونكس، مصممة لتنظيم المعلومات الأكاديمية وتسهيل الوصول إلى الموارد الجامعية.",
+            "proj-6-title": "Ù…Ø³Ø§Ø¹Ø¯ ZNU Ø§Ù„Ø£ÙƒØ§Ø¯ÙŠÙ…ÙŠ",
+            "proj-6-desc": "Ù…Ø³Ø§Ø¹Ø¯ Ø±Ù‚Ù…ÙŠ ÙˆÙ…Ù†ØµØ© Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ù„Ù‚Ø³Ù… Ù‡Ù†Ø¯Ø³Ø© Ø§Ù„Ù…ÙŠÙƒØ§ØªØ±ÙˆÙ†ÙƒØ³ØŒ Ù…ØµÙ…Ù…Ø© Ù„ØªÙ†Ø¸ÙŠÙ… Ø§Ù„Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ø§Ù„Ø£ÙƒØ§Ø¯ÙŠÙ…ÙŠØ© ÙˆØªØ³Ù‡ÙŠÙ„ Ø§Ù„ÙˆØµÙˆÙ„ Ø¥Ù„Ù‰ Ø§Ù„Ù…ÙˆØ§Ø±Ø¯ Ø§Ù„Ø¬Ø§Ù…Ø¹ÙŠØ©.",
             
-            "proj-7-title": "موقع شركة Motivera للموارد البشرية",
-            "proj-7-desc": "موقع تعريفي احترافي لشركة توظيف وموارد بشرية، صُمم لعرض خدمات الشركة وقدراتها وهويتها الرقمية من خلال تجربة ويب عصرية وتفاعلية متجاوبة.",
+            "proj-7-title": "Ù…ÙˆÙ‚Ø¹ Ø´Ø±ÙƒØ© Motivera Ù„Ù„Ù…ÙˆØ§Ø±Ø¯ Ø§Ù„Ø¨Ø´Ø±ÙŠØ©",
+            "proj-7-desc": "Ù…ÙˆÙ‚Ø¹ ØªØ¹Ø±ÙŠÙÙŠ Ø§Ø­ØªØ±Ø§ÙÙŠ Ù„Ø´Ø±ÙƒØ© ØªÙˆØ¸ÙŠÙ ÙˆÙ…ÙˆØ§Ø±Ø¯ Ø¨Ø´Ø±ÙŠØ©ØŒ ØµÙÙ…Ù… Ù„Ø¹Ø±Ø¶ Ø®Ø¯Ù…Ø§Øª Ø§Ù„Ø´Ø±ÙƒØ© ÙˆÙ‚Ø¯Ø±Ø§ØªÙ‡Ø§ ÙˆÙ‡ÙˆÙŠØªÙ‡Ø§ Ø§Ù„Ø±Ù‚Ù…ÙŠØ© Ù…Ù† Ø®Ù„Ø§Ù„ ØªØ¬Ø±Ø¨Ø© ÙˆÙŠØ¨ Ø¹ØµØ±ÙŠØ© ÙˆØªÙØ§Ø¹Ù„ÙŠØ© Ù…ØªØ¬Ø§ÙˆØ¨Ø©.",
             
-            "proj-8-title": "موقع دعوة الزفاف التفاعلية (Wedding Invitation)",
-            "proj-8-desc": "دعوة زفاف رقمية تفاعلية مصممة كتجربة ويب متكاملة، تجمع بين التصميم الجمالي الأنيق والمؤثرات الحركية ومعلومات الحفل وتجربة دعوة شخصية فريدة.",
+            "proj-8-title": "Ù…ÙˆÙ‚Ø¹ Ø¯Ø¹ÙˆØ© Ø§Ù„Ø²ÙØ§Ù Ø§Ù„ØªÙØ§Ø¹Ù„ÙŠØ© (Wedding Invitation)",
+            "proj-8-desc": "Ø¯Ø¹ÙˆØ© Ø²ÙØ§Ù Ø±Ù‚Ù…ÙŠØ© ØªÙØ§Ø¹Ù„ÙŠØ© Ù…ØµÙ…Ù…Ø© ÙƒØªØ¬Ø±Ø¨Ø© ÙˆÙŠØ¨ Ù…ØªÙƒØ§Ù…Ù„Ø©ØŒ ØªØ¬Ù…Ø¹ Ø¨ÙŠÙ† Ø§Ù„ØªØµÙ…ÙŠÙ… Ø§Ù„Ø¬Ù…Ø§Ù„ÙŠ Ø§Ù„Ø£Ù†ÙŠÙ‚ ÙˆØ§Ù„Ù…Ø¤Ø«Ø±Ø§Øª Ø§Ù„Ø­Ø±ÙƒÙŠØ© ÙˆÙ…Ø¹Ù„ÙˆÙ…Ø§Øª Ø§Ù„Ø­ÙÙ„ ÙˆØªØ¬Ø±Ø¨Ø© Ø¯Ø¹ÙˆØ© Ø´Ø®ØµÙŠØ© ÙØ±ÙŠØ¯Ø©.",
             
-            "projects-p1-tag": "منصات تعليمية",
-            "projects-p1-title": "منصة جامعية شاملة",
-            "projects-p1-link": "زيارة الموقع",
+            "projects-p1-tag": "Ù…Ù†ØµØ§Øª ØªØ¹Ù„ÙŠÙ…ÙŠØ©",
+            "projects-p1-title": "Ù…Ù†ØµØ© Ø¬Ø§Ù…Ø¹ÙŠØ© Ø´Ø§Ù…Ù„Ø©",
+            "projects-p1-link": "Ø²ÙŠØ§Ø±Ø© Ø§Ù„Ù…ÙˆÙ‚Ø¹",
             
-            "projects-p2-tag": "خدمات طلابية",
-            "projects-p2-title": "موقع دعم الطلاب والمساعدة",
-            "projects-p2-link": "زيارة الموقع",
+            "projects-p2-tag": "Ø®Ø¯Ù…Ø§Øª Ø·Ù„Ø§Ø¨ÙŠØ©",
+            "projects-p2-title": "Ù…ÙˆÙ‚Ø¹ Ø¯Ø¹Ù… Ø§Ù„Ø·Ù„Ø§Ø¨ ÙˆØ§Ù„Ù…Ø³Ø§Ø¹Ø¯Ø©",
+            "projects-p2-link": "Ø²ÙŠØ§Ø±Ø© Ø§Ù„Ù…ÙˆÙ‚Ø¹",
             
-            "projects-p3-tag": "مواقع شركات",
-            "projects-p3-title": "موقع شركة موارد بشرية",
-            "projects-p3-link": "زيارة الموقع",
+            "projects-p3-tag": "Ù…ÙˆØ§Ù‚Ø¹ Ø´Ø±ÙƒØ§Øª",
+            "projects-p3-title": "Ù…ÙˆÙ‚Ø¹ Ø´Ø±ÙƒØ© Ù…ÙˆØ§Ø±Ø¯ Ø¨Ø´Ø±ÙŠØ©",
+            "projects-p3-link": "Ø²ÙŠØ§Ø±Ø© Ø§Ù„Ù…ÙˆÙ‚Ø¹",
             
-            "projects-p4-tag": "منصات تعليمية",
-            "projects-p4-title": "منصة تعليمية للمعلمين",
-            "projects-p4-link": "زيارة الموقع",
+            "projects-p4-tag": "Ù…Ù†ØµØ§Øª ØªØ¹Ù„ÙŠÙ…ÙŠØ©",
+            "projects-p4-title": "Ù…Ù†ØµØ© ØªØ¹Ù„ÙŠÙ…ÙŠØ© Ù„Ù„Ù…Ø¹Ù„Ù…ÙŠÙ†",
+            "projects-p4-link": "Ø²ÙŠØ§Ø±Ø© Ø§Ù„Ù…ÙˆÙ‚Ø¹",
             
-            "projects-p5-tag": "دعوات المناسبات",
-            "projects-p5-title": "دعوة زفاف إلكترونية (عبدالله ودينا)",
-            "projects-p5-link": "زيارة الموقع",
+            "projects-p5-tag": "Ø¯Ø¹ÙˆØ§Øª Ø§Ù„Ù…Ù†Ø§Ø³Ø¨Ø§Øª",
+            "projects-p5-title": "Ø¯Ø¹ÙˆØ© Ø²ÙØ§Ù Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠØ© (Ø¹Ø¨Ø¯Ø§Ù„Ù„Ù‡ ÙˆØ¯ÙŠÙ†Ø§)",
+            "projects-p5-link": "Ø²ÙŠØ§Ø±Ø© Ø§Ù„Ù…ÙˆÙ‚Ø¹",
             
-            "certs-title": "الشهادات والمؤهلات",
-            "certs-btn-view": "عرض التفاصيل",
-            "certs-modal-hours": "الساعات",
-            "certs-modal-date": "الفترة",
-            "certs-modal-topics": "المحاور الرئيسية",
-            "certs-modal-open-doc": "فتح المستند الأصلي",
-            "certs-c1-title": "تطوير الويب المتكامل",
-            "certs-c2-title": "دورة سوليدووركس (إتمام)",
-            "certs-c4-title": "دورة سوليدووركس (حضور)",
-            "certs-c3-title": "مساق إكسيل المتقدم",
+            "certs-title": "Ø§Ù„Ø´Ù‡Ø§Ø¯Ø§Øª ÙˆØ§Ù„Ù…Ø¤Ù‡Ù„Ø§Øª",
+            "certs-btn-view": "Ø¹Ø±Ø¶ Ø§Ù„ØªÙØ§ØµÙŠÙ„",
+            "certs-modal-hours": "Ø§Ù„Ø³Ø§Ø¹Ø§Øª",
+            "certs-modal-date": "Ø§Ù„ÙØªØ±Ø©",
+            "certs-modal-topics": "Ø§Ù„Ù…Ø­Ø§ÙˆØ± Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠØ©",
+            "certs-modal-open-doc": "ÙØªØ­ Ø§Ù„Ù…Ø³ØªÙ†Ø¯ Ø§Ù„Ø£ØµÙ„ÙŠ",
+            "certs-c1-title": "ØªØ·ÙˆÙŠØ± Ø§Ù„ÙˆÙŠØ¨ Ø§Ù„Ù…ØªÙƒØ§Ù…Ù„",
+            "certs-c2-title": "Ø¯ÙˆØ±Ø© Ø³ÙˆÙ„ÙŠØ¯ÙˆÙˆØ±ÙƒØ³ (Ø¥ØªÙ…Ø§Ù…)",
+            "certs-c4-title": "Ø¯ÙˆØ±Ø© Ø³ÙˆÙ„ÙŠØ¯ÙˆÙˆØ±ÙƒØ³ (Ø­Ø¶ÙˆØ±)",
+            "certs-c3-title": "Ù…Ø³Ø§Ù‚ Ø¥ÙƒØ³ÙŠÙ„ Ø§Ù„Ù…ØªÙ‚Ø¯Ù…",
             
-            "footer-copyright": "© 2026 محمد محمد عطية محمد",
-            "footer-subtitle": "جامعة الزقازيق الأهلية // هندسة الميكاترونكس",
+            "footer-copyright": "Â© 2026 Ù…Ø­Ù…Ø¯ Ù…Ø­Ù…Ø¯ Ø¹Ø·ÙŠØ© Ù…Ø­Ù…Ø¯",
+            "footer-subtitle": "Ø¬Ø§Ù…Ø¹Ø© Ø§Ù„Ø²Ù‚Ø§Ø²ÙŠÙ‚ Ø§Ù„Ø£Ù‡Ù„ÙŠØ© // Ù‡Ù†Ø¯Ø³Ø© Ø§Ù„Ù…ÙŠÙƒØ§ØªØ±ÙˆÙ†ÙƒØ³",
             
-            "wa-chat-name": "محمد عطية",
-            "wa-chat-status": "يرد عادةً خلال دقائق",
-            "wa-chat-status-typing": "يكتب الآن...",
-            "wa-chat-msg": "مرحباً",
-            "wa-chat-input-placeholder": "اكتب رسالة..."
+            "wa-chat-name": "Ù…Ø­Ù…Ø¯ Ø¹Ø·ÙŠØ©",
+            "wa-chat-status": "ÙŠØ±Ø¯ Ø¹Ø§Ø¯Ø©Ù‹ Ø®Ù„Ø§Ù„ Ø¯Ù‚Ø§Ø¦Ù‚",
+            "wa-chat-status-typing": "ÙŠÙƒØªØ¨ Ø§Ù„Ø¢Ù†...",
+            "wa-chat-msg": "Ù…Ø±Ø­Ø¨Ø§Ù‹",
+            "wa-chat-input-placeholder": "Ø§ÙƒØªØ¨ Ø±Ø³Ø§Ù„Ø©..."
         }
     };
 
@@ -504,7 +683,7 @@ function initLanguageToggle() {
         document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
         
         // Update language toggle button label
-        langBtn.innerText = lang === 'ar' ? 'EN' : 'ع';
+        langBtn.innerText = lang === 'ar' ? 'EN' : 'Ø¹';
 
         // Translate document titles
         document.title = translations[lang]["title"];
@@ -599,7 +778,7 @@ function initCanvasBackground() {
     let tick = 0;
 
     // Floating technical glyphs (brackets, math, gears)
-    const glyphs = ['{ }', '∫', 'd/dt', 'θ', '∑', 'λ', 'F=ma', '101', '010', 'ZNU', '⚙'];
+    const glyphs = ['{ }', 'âˆ«', 'd/dt', 'Î¸', 'âˆ‘', 'Î»', 'F=ma', '101', '010', 'ZNU', 'âš™'];
     const floatingGlyphs = [];
     const glyphCount = 8;
     for (let i = 0; i < glyphCount; i++) {
@@ -1042,13 +1221,13 @@ function initCADVisualizer() {
             ctx.moveTo(centerX - outerRadius, dimY - 4); ctx.lineTo(centerX - outerRadius, dimY + 4);
             ctx.moveTo(centerX + outerRadius, dimY - 4); ctx.lineTo(centerX + outerRadius, dimY + 4);
             ctx.stroke();
-            ctx.fillText('Ø 120.00 mm', centerX - 28, dimY - 4);
+            ctx.fillText('Ã˜ 120.00 mm', centerX - 28, dimY - 4);
         }
 
         // Update telemetry numbers
-        document.getElementById('cad-x').innerText = `${Math.round(angleX * 180 / Math.PI)}°`;
-        document.getElementById('cad-y').innerText = `${Math.round(angleY * 180 / Math.PI)}°`;
-        document.getElementById('cad-z').innerText = `${Math.round(angleZ * 180 / Math.PI)}°`;
+        document.getElementById('cad-x').innerText = `${Math.round(angleX * 180 / Math.PI)}Â°`;
+        document.getElementById('cad-y').innerText = `${Math.round(angleY * 180 / Math.PI)}Â°`;
+        document.getElementById('cad-z').innerText = `${Math.round(angleZ * 180 / Math.PI)}Â°`;
     }
 
     function animate() {
@@ -1113,6 +1292,59 @@ function initTechnicalSkillsAnimation() {
 }
 
 /* ==========================================
+   4C. TECHNICAL SKILLS SHOW MORE / SHOW LESS
+   ========================================== */
+function initSkillCardsExpand() {
+    var LABELS = {
+        en: { more: 'Show More', less: 'Show Less' },
+        ar: { more: 'عرض المزيد', less: 'عرض أقل' }
+    };
+    function getLang() {
+        return document.documentElement.getAttribute('lang') || 'en';
+    }
+    function setLabel(textSpan, isExpanded) {
+        var lang = getLang();
+        var l = LABELS[lang] || LABELS.en;
+        if (textSpan) {
+            textSpan.textContent = isExpanded ? l.less : l.more;
+            textSpan.setAttribute('data-translate', isExpanded ? 'skills-show-less' : 'skills-show-more');
+        }
+    }
+    var toggleBtns = document.querySelectorAll('.skill-toggle-btn');
+    toggleBtns.forEach(function(btn) {
+        var card = btn.closest('.technical-skill-card');
+        if (!card) return;
+        var extraChips = card.querySelectorAll('.skill-chip-extra');
+        if (extraChips.length === 0) {
+            btn.style.display = 'none';
+            return;
+        }
+        var textSpan = btn.querySelector('.skill-toggle-text');
+        setLabel(textSpan, false);
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            var isExpanded = card.classList.toggle('is-expanded');
+            btn.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+            setLabel(textSpan, isExpanded);
+        });
+    });
+    var langBtn = document.getElementById('langToggleBtn');
+    if (langBtn) {
+        langBtn.addEventListener('click', function() {
+            setTimeout(function() {
+                toggleBtns.forEach(function(btn) {
+                    if (btn.style.display === 'none') return;
+                    var card = btn.closest('.technical-skill-card');
+                    if (!card) return;
+                    var textSpan = btn.querySelector('.skill-toggle-text');
+                    var isExpanded = card.classList.contains('is-expanded');
+                    setLabel(textSpan, isExpanded);
+                });
+            }, 0);
+        });
+    }
+}
+/* ==========================================
    5. PROJECT SCHEMATIC TOGGLES
    ========================================== */
 function initProjectSchematics() {
@@ -1132,9 +1364,9 @@ function initProjectSchematics() {
                 panel.classList.remove('active');
                 if (btnText) {
                     if (targetId.includes('znue')) {
-                        btnText.innerText = isAr ? 'عرض مخطط الهيكل البرمجي' : 'View Architecture Diagram';
+                        btnText.innerText = isAr ? 'Ø¹Ø±Ø¶ Ù…Ø®Ø·Ø· Ø§Ù„Ù‡ÙŠÙƒÙ„ Ø§Ù„Ø¨Ø±Ù…Ø¬ÙŠ' : 'View Architecture Diagram';
                     } else {
-                        btnText.innerText = isAr ? 'عرض مخطط خط تدفق البيانات' : 'View Data Pipeline Diagram';
+                        btnText.innerText = isAr ? 'Ø¹Ø±Ø¶ Ù…Ø®Ø·Ø· Ø®Ø· ØªØ¯ÙÙ‚ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª' : 'View Data Pipeline Diagram';
                     }
                 }
             } else {
@@ -1145,15 +1377,15 @@ function initProjectSchematics() {
                     const otherBtnText = parent.querySelector('.view-schematic-btn .btn-text');
                     if (otherBtnText) {
                         if (openPanel.id.includes('znue')) {
-                            otherBtnText.innerText = isAr ? 'عرض مخطط الهيكل البرمجي' : 'View Architecture Diagram';
+                            otherBtnText.innerText = isAr ? 'Ø¹Ø±Ø¶ Ù…Ø®Ø·Ø· Ø§Ù„Ù‡ÙŠÙƒÙ„ Ø§Ù„Ø¨Ø±Ù…Ø¬ÙŠ' : 'View Architecture Diagram';
                         } else {
-                            otherBtnText.innerText = isAr ? 'عرض مخطط خط تدفق البيانات' : 'View Data Pipeline Diagram';
+                            otherBtnText.innerText = isAr ? 'Ø¹Ø±Ø¶ Ù…Ø®Ø·Ø· Ø®Ø· ØªØ¯ÙÙ‚ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª' : 'View Data Pipeline Diagram';
                         }
                     }
                 });
 
                 panel.classList.add('active');
-                if (btnText) btnText.innerText = isAr ? 'إخفاء المخطط' : 'Hide Diagram';
+                if (btnText) btnText.innerText = isAr ? 'Ø¥Ø®ÙØ§Ø¡ Ø§Ù„Ù…Ø®Ø·Ø·' : 'Hide Diagram';
 
                 setTimeout(() => {
                     panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -1174,9 +1406,9 @@ function initProjectSchematics() {
             const isAr = document.documentElement.getAttribute('lang') === 'ar';
             if (btnText) {
                 if (panel.id.includes('znue')) {
-                    btnText.innerText = isAr ? 'عرض مخطط الهيكل البرمجي' : 'View Architecture Diagram';
+                    btnText.innerText = isAr ? 'Ø¹Ø±Ø¶ Ù…Ø®Ø·Ø· Ø§Ù„Ù‡ÙŠÙƒÙ„ Ø§Ù„Ø¨Ø±Ù…Ø¬ÙŠ' : 'View Architecture Diagram';
                 } else {
-                    btnText.innerText = isAr ? 'عرض مخطط خط تدفق البيانات' : 'View Data Pipeline Diagram';
+                    btnText.innerText = isAr ? 'Ø¹Ø±Ø¶ Ù…Ø®Ø·Ø· Ø®Ø· ØªØ¯ÙÙ‚ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª' : 'View Data Pipeline Diagram';
                 }
             }
         });
@@ -1255,7 +1487,7 @@ const certificationDetails = {
             title: "Full Stack Web Development Using Python",
             inst: "Information Technology Institute (ITI)",
             hours: "145 Hours",
-            date: "July 1st – August 15th, 2025",
+            date: "July 1st â€“ August 15th, 2025",
             desc: "Intensive professional training program focusing on software architecture, backend databases, and web engineering. Highly structured curriculum covering:",
             image: "img/WhatsApp Image 2025-09-28 at 21.15.50_6680e132.jpg",
             topics: [
@@ -1270,7 +1502,7 @@ const certificationDetails = {
             title: "Solidworks Training Course (Completion)",
             inst: "Engovation (Certified by Egyptian Engineers Syndicate)",
             hours: "30 Hours",
-            date: "April 1st – May 1st, 2025",
+            date: "April 1st â€“ May 1st, 2025",
             desc: "Comprehensive course in mechanical computer-aided design (CAD). Certified by the Egyptian Engineers Syndicate. Earned with a grade of Excellent.",
             image: "img/1759502983617.jpg",
             topics: [
@@ -1284,7 +1516,7 @@ const certificationDetails = {
             title: "Solidworks Training Course (Attendance)",
             inst: "Engovation (Certified by Egyptian Engineers Syndicate)",
             hours: "30 Hours",
-            date: "April 1st – May 1st, 2025",
+            date: "April 1st â€“ May 1st, 2025",
             desc: "Official attendance certificate for the 30-hour Solidworks training program, verifying participation and standard coursework completion.",
             image: "img/1759502983418.jpg",
             topics: [
@@ -1296,7 +1528,7 @@ const certificationDetails = {
         },
         c3: {
             title: "Advanced Excel",
-            inst: "Edraak Platform (إدراك)",
+            inst: "Edraak Platform (Ø¥Ø¯Ø±Ø§Ùƒ)",
             hours: "3 Hours",
             date: "June 21st, 2025",
             desc: "Interactive training course covering high-level spreadsheet modeling and reporting tools:",
@@ -1311,60 +1543,60 @@ const certificationDetails = {
     },
     ar: {
         c1: {
-            title: "تطوير الويب المتكامل باستخدام بايثون",
-            inst: "معهد تكنولوجيا المعلومات (ITI)",
-            hours: "145 ساعة تدريبية",
-            date: "1 يوليو – 15 أغسطس 2025",
-            desc: "برنامج تدريبي مكثف يركز على بنية البرمجيات، قواعد البيانات، وتطوير الويب المتكامل. منهج منظم للغاية يغطي المواضيع التالية:",
+            title: "ØªØ·ÙˆÙŠØ± Ø§Ù„ÙˆÙŠØ¨ Ø§Ù„Ù…ØªÙƒØ§Ù…Ù„ Ø¨Ø§Ø³ØªØ®Ø¯Ø§Ù… Ø¨Ø§ÙŠØ«ÙˆÙ†",
+            inst: "Ù…Ø¹Ù‡Ø¯ ØªÙƒÙ†ÙˆÙ„ÙˆØ¬ÙŠØ§ Ø§Ù„Ù…Ø¹Ù„ÙˆÙ…Ø§Øª (ITI)",
+            hours: "145 Ø³Ø§Ø¹Ø© ØªØ¯Ø±ÙŠØ¨ÙŠØ©",
+            date: "1 ÙŠÙˆÙ„ÙŠÙˆ â€“ 15 Ø£ØºØ³Ø·Ø³ 2025",
+            desc: "Ø¨Ø±Ù†Ø§Ù…Ø¬ ØªØ¯Ø±ÙŠØ¨ÙŠ Ù…ÙƒØ«Ù ÙŠØ±ÙƒØ² Ø¹Ù„Ù‰ Ø¨Ù†ÙŠØ© Ø§Ù„Ø¨Ø±Ù…Ø¬ÙŠØ§ØªØŒ Ù‚ÙˆØ§Ø¹Ø¯ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§ØªØŒ ÙˆØªØ·ÙˆÙŠØ± Ø§Ù„ÙˆÙŠØ¨ Ø§Ù„Ù…ØªÙƒØ§Ù…Ù„. Ù…Ù†Ù‡Ø¬ Ù…Ù†Ø¸Ù… Ù„Ù„ØºØ§ÙŠØ© ÙŠØºØ·ÙŠ Ø§Ù„Ù…ÙˆØ§Ø¶ÙŠØ¹ Ø§Ù„ØªØ§Ù„ÙŠØ©:",
             image: "img/WhatsApp Image 2025-09-28 at 21.15.50_6680e132.jpg",
             topics: [
-                "البرمجة كائنية التوجه بلغة بايثون (24 ساعة)",
-                "إطارات عمل ويب بايثون (فلاسك، دجانغو) (30 ساعة)",
-                "تقنيات الويب للمستعرض (HTML5, CSS3, JS) (48 ساعة)",
-                "مقدمة في قواعد بيانات PostgreSQL (18 ساعة)",
-                "مشروع التخرج النهائي (25 ساعة)"
+                "Ø§Ù„Ø¨Ø±Ù…Ø¬Ø© ÙƒØ§Ø¦Ù†ÙŠØ© Ø§Ù„ØªÙˆØ¬Ù‡ Ø¨Ù„ØºØ© Ø¨Ø§ÙŠØ«ÙˆÙ† (24 Ø³Ø§Ø¹Ø©)",
+                "Ø¥Ø·Ø§Ø±Ø§Øª Ø¹Ù…Ù„ ÙˆÙŠØ¨ Ø¨Ø§ÙŠØ«ÙˆÙ† (ÙÙ„Ø§Ø³ÙƒØŒ Ø¯Ø¬Ø§Ù†ØºÙˆ) (30 Ø³Ø§Ø¹Ø©)",
+                "ØªÙ‚Ù†ÙŠØ§Øª Ø§Ù„ÙˆÙŠØ¨ Ù„Ù„Ù…Ø³ØªØ¹Ø±Ø¶ (HTML5, CSS3, JS) (48 Ø³Ø§Ø¹Ø©)",
+                "Ù…Ù‚Ø¯Ù…Ø© ÙÙŠ Ù‚ÙˆØ§Ø¹Ø¯ Ø¨ÙŠØ§Ù†Ø§Øª PostgreSQL (18 Ø³Ø§Ø¹Ø©)",
+                "Ù…Ø´Ø±ÙˆØ¹ Ø§Ù„ØªØ®Ø±Ø¬ Ø§Ù„Ù†Ù‡Ø§Ø¦ÙŠ (25 Ø³Ø§Ø¹Ø©)"
             ]
         },
         c2: {
-            title: "دورة سوليدووركس (شهادة إتمام)",
-            inst: "إنجوفيشين (معتمد من نقابة المهندسين المصرية)",
-            hours: "30 ساعة تدريبية",
-            date: "1 أبريل – 1 مايو 2025",
-            desc: "دورة شاملة في التصميم الميكانيكي بمساعدة الحاسوب (CAD)، معتمدة من نقابة المهندسين المصرية وحصلت على تقدير عام ممتاز.",
+            title: "Ø¯ÙˆØ±Ø© Ø³ÙˆÙ„ÙŠØ¯ÙˆÙˆØ±ÙƒØ³ (Ø´Ù‡Ø§Ø¯Ø© Ø¥ØªÙ…Ø§Ù…)",
+            inst: "Ø¥Ù†Ø¬ÙˆÙÙŠØ´ÙŠÙ† (Ù…Ø¹ØªÙ…Ø¯ Ù…Ù† Ù†Ù‚Ø§Ø¨Ø© Ø§Ù„Ù…Ù‡Ù†Ø¯Ø³ÙŠÙ† Ø§Ù„Ù…ØµØ±ÙŠØ©)",
+            hours: "30 Ø³Ø§Ø¹Ø© ØªØ¯Ø±ÙŠØ¨ÙŠØ©",
+            date: "1 Ø£Ø¨Ø±ÙŠÙ„ â€“ 1 Ù…Ø§ÙŠÙˆ 2025",
+            desc: "Ø¯ÙˆØ±Ø© Ø´Ø§Ù…Ù„Ø© ÙÙŠ Ø§Ù„ØªØµÙ…ÙŠÙ… Ø§Ù„Ù…ÙŠÙƒØ§Ù†ÙŠÙƒÙŠ Ø¨Ù…Ø³Ø§Ø¹Ø¯Ø© Ø§Ù„Ø­Ø§Ø³ÙˆØ¨ (CAD)ØŒ Ù…Ø¹ØªÙ…Ø¯Ø© Ù…Ù† Ù†Ù‚Ø§Ø¨Ø© Ø§Ù„Ù…Ù‡Ù†Ø¯Ø³ÙŠÙ† Ø§Ù„Ù…ØµØ±ÙŠØ© ÙˆØ­ØµÙ„Øª Ø¹Ù„Ù‰ ØªÙ‚Ø¯ÙŠØ± Ø¹Ø§Ù… Ù…Ù…ØªØ§Ø².",
             image: "img/1759502983617.jpg",
             topics: [
-                "النمذجة ثلاثية الأبعاد والرسم الهندسي (10 ساعات)",
-                "التجميعات الميكانيكية والعلاقات (8 ساعات)",
-                "المساقط الهندسية والرسومات الفنية ثنائية الأبعاد (6 ساعات)",
-                "أتمتة التصميم ومحاكاة الحركة (6 ساعات)"
+                "Ø§Ù„Ù†Ù…Ø°Ø¬Ø© Ø«Ù„Ø§Ø«ÙŠØ© Ø§Ù„Ø£Ø¨Ø¹Ø§Ø¯ ÙˆØ§Ù„Ø±Ø³Ù… Ø§Ù„Ù‡Ù†Ø¯Ø³ÙŠ (10 Ø³Ø§Ø¹Ø§Øª)",
+                "Ø§Ù„ØªØ¬Ù…ÙŠØ¹Ø§Øª Ø§Ù„Ù…ÙŠÙƒØ§Ù†ÙŠÙƒÙŠØ© ÙˆØ§Ù„Ø¹Ù„Ø§Ù‚Ø§Øª (8 Ø³Ø§Ø¹Ø§Øª)",
+                "Ø§Ù„Ù…Ø³Ø§Ù‚Ø· Ø§Ù„Ù‡Ù†Ø¯Ø³ÙŠØ© ÙˆØ§Ù„Ø±Ø³ÙˆÙ…Ø§Øª Ø§Ù„ÙÙ†ÙŠØ© Ø«Ù†Ø§Ø¦ÙŠØ© Ø§Ù„Ø£Ø¨Ø¹Ø§Ø¯ (6 Ø³Ø§Ø¹Ø§Øª)",
+                "Ø£ØªÙ…ØªØ© Ø§Ù„ØªØµÙ…ÙŠÙ… ÙˆÙ…Ø­Ø§ÙƒØ§Ø© Ø§Ù„Ø­Ø±ÙƒØ© (6 Ø³Ø§Ø¹Ø§Øª)"
             ]
         },
         c4: {
-            title: "دورة سوليدووركس (شهادة حضور)",
-            inst: "إنجوفيشين (معتمد من نقابة المهندسين المصرية)",
-            hours: "30 ساعة تدريبية",
-            date: "1 أبريل – 1 مايو 2025",
-            desc: "شهادة حضور رسمية لإتمام 30 ساعة تدريبية في برنامج سوليدووركس (Solidworks)، تؤكد المشاركة الكاملة وإكمال الدورة.",
+            title: "Ø¯ÙˆØ±Ø© Ø³ÙˆÙ„ÙŠØ¯ÙˆÙˆØ±ÙƒØ³ (Ø´Ù‡Ø§Ø¯Ø© Ø­Ø¶ÙˆØ±)",
+            inst: "Ø¥Ù†Ø¬ÙˆÙÙŠØ´ÙŠÙ† (Ù…Ø¹ØªÙ…Ø¯ Ù…Ù† Ù†Ù‚Ø§Ø¨Ø© Ø§Ù„Ù…Ù‡Ù†Ø¯Ø³ÙŠÙ† Ø§Ù„Ù…ØµØ±ÙŠØ©)",
+            hours: "30 Ø³Ø§Ø¹Ø© ØªØ¯Ø±ÙŠØ¨ÙŠØ©",
+            date: "1 Ø£Ø¨Ø±ÙŠÙ„ â€“ 1 Ù…Ø§ÙŠÙˆ 2025",
+            desc: "Ø´Ù‡Ø§Ø¯Ø© Ø­Ø¶ÙˆØ± Ø±Ø³Ù…ÙŠØ© Ù„Ø¥ØªÙ…Ø§Ù… 30 Ø³Ø§Ø¹Ø© ØªØ¯Ø±ÙŠØ¨ÙŠØ© ÙÙŠ Ø¨Ø±Ù†Ø§Ù…Ø¬ Ø³ÙˆÙ„ÙŠØ¯ÙˆÙˆØ±ÙƒØ³ (Solidworks)ØŒ ØªØ¤ÙƒØ¯ Ø§Ù„Ù…Ø´Ø§Ø±ÙƒØ© Ø§Ù„ÙƒØ§Ù…Ù„Ø© ÙˆØ¥ÙƒÙ…Ø§Ù„ Ø§Ù„Ø¯ÙˆØ±Ø©.",
             image: "img/1759502983418.jpg",
             topics: [
-                "النمذجة ثلاثية الأبعاد والرسم الهندسي (10 ساعات)",
-                "التجميعات الميكانيكية والعلاقات (8 ساعات)",
-                "المساقط الهندسية والرسومات الفنية ثنائية الأبعاد (6 ساعات)",
-                "أتمتة التصميم ومحاكاة الحركة (6 ساعات)"
+                "Ø§Ù„Ù†Ù…Ø°Ø¬Ø© Ø«Ù„Ø§Ø«ÙŠØ© Ø§Ù„Ø£Ø¨Ø¹Ø§Ø¯ ÙˆØ§Ù„Ø±Ø³Ù… Ø§Ù„Ù‡Ù†Ø¯Ø³ÙŠ (10 Ø³Ø§Ø¹Ø§Øª)",
+                "Ø§Ù„ØªØ¬Ù…ÙŠØ¹Ø§Øª Ø§Ù„Ù…ÙŠÙƒØ§Ù†ÙŠÙƒÙŠØ© ÙˆØ§Ù„Ø¹Ù„Ø§Ù‚Ø§Øª (8 Ø³Ø§Ø¹Ø§Øª)",
+                "Ø§Ù„Ù…Ø³Ø§Ù‚Ø· Ø§Ù„Ù‡Ù†Ø¯Ø³ÙŠØ© ÙˆØ§Ù„Ø±Ø³ÙˆÙ…Ø§Øª Ø§Ù„ÙÙ†ÙŠØ© Ø«Ù†Ø§Ø¦ÙŠØ© Ø§Ù„Ø£Ø¨Ø¹Ø§Ø¯ (6 Ø³Ø§Ø¹Ø§Øª)",
+                "Ø£ØªÙ…ØªØ© Ø§Ù„ØªØµÙ…ÙŠÙ… ÙˆÙ…Ø­Ø§ÙƒØ§Ø© Ø§Ù„Ø­Ø±ÙƒØ© (6 Ø³Ø§Ø¹Ø§Øª)"
             ]
         },
         c3: {
-            title: "مساق إكسيل المتقدم (Advanced Excel)",
-            inst: "منصة إدراك (Edraak)",
-            hours: "3 ساعات تدريبية",
-            date: "21 يونيو 2025",
-            desc: "دورة تدريبية تفاعلية تغطي النمذجة المتقدمة لجداول البيانات وأدوات التقارير:",
+            title: "Ù…Ø³Ø§Ù‚ Ø¥ÙƒØ³ÙŠÙ„ Ø§Ù„Ù…ØªÙ‚Ø¯Ù… (Advanced Excel)",
+            inst: "Ù…Ù†ØµØ© Ø¥Ø¯Ø±Ø§Ùƒ (Edraak)",
+            hours: "3 Ø³Ø§Ø¹Ø§Øª ØªØ¯Ø±ÙŠØ¨ÙŠØ©",
+            date: "21 ÙŠÙˆÙ†ÙŠÙˆ 2025",
+            desc: "Ø¯ÙˆØ±Ø© ØªØ¯Ø±ÙŠØ¨ÙŠØ© ØªÙØ§Ø¹Ù„ÙŠØ© ØªØºØ·ÙŠ Ø§Ù„Ù†Ù…Ø°Ø¬Ø© Ø§Ù„Ù…ØªÙ‚Ø¯Ù…Ø© Ù„Ø¬Ø¯Ø§ÙˆÙ„ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª ÙˆØ£Ø¯ÙˆØ§Øª Ø§Ù„ØªÙ‚Ø§Ø±ÙŠØ±:",
             image: "img/1750573365989.jpg",
             topics: [
-                "التنسيق الشرطي والمخصص للبرمجة",
-                "الدوال المنطقية والرياضية والنصية المتقدمة",
-                "الجداول المحورية والتقارير التفاعلية (Dashboards)",
-                "تمثيل البيانات المتقدم والرسومات البيانية التفاعلية"
+                "Ø§Ù„ØªÙ†Ø³ÙŠÙ‚ Ø§Ù„Ø´Ø±Ø·ÙŠ ÙˆØ§Ù„Ù…Ø®ØµØµ Ù„Ù„Ø¨Ø±Ù…Ø¬Ø©",
+                "Ø§Ù„Ø¯ÙˆØ§Ù„ Ø§Ù„Ù…Ù†Ø·Ù‚ÙŠØ© ÙˆØ§Ù„Ø±ÙŠØ§Ø¶ÙŠØ© ÙˆØ§Ù„Ù†ØµÙŠØ© Ø§Ù„Ù…ØªÙ‚Ø¯Ù…Ø©",
+                "Ø§Ù„Ø¬Ø¯Ø§ÙˆÙ„ Ø§Ù„Ù…Ø­ÙˆØ±ÙŠØ© ÙˆØ§Ù„ØªÙ‚Ø§Ø±ÙŠØ± Ø§Ù„ØªÙØ§Ø¹Ù„ÙŠØ© (Dashboards)",
+                "ØªÙ…Ø«ÙŠÙ„ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ù„Ù…ØªÙ‚Ø¯Ù… ÙˆØ§Ù„Ø±Ø³ÙˆÙ…Ø§Øª Ø§Ù„Ø¨ÙŠØ§Ù†ÙŠØ© Ø§Ù„ØªÙØ§Ø¹Ù„ÙŠØ©"
             ]
         }
     }
@@ -1536,7 +1768,7 @@ const portfolioProjectsMetadata = [
         type: "WEB PLATFORM",
         url: "https://motivera-hr.vercel.app/",
         image: "img/motivera-hr.png",
-        technologies: "Web Development • Responsive UI • Frontend Development • Modern Web Design",
+        technologies: "Web Development â€¢ Responsive UI â€¢ Frontend Development â€¢ Modern Web Design",
         features: [
             "Professional Company Website",
             "HR / Recruitment Presentation",
@@ -1555,7 +1787,7 @@ const portfolioProjectsMetadata = [
         type: "INTERACTIVE WEB EXPERIENCE",
         url: "https://wedding-invitation-mohamed-atia.vercel.app/",
         image: "img/wedding-invitation.png",
-        technologies: "HTML/CSS/JavaScript • Responsive Web Design • Interactive UI • Animations",
+        technologies: "HTML/CSS/JavaScript â€¢ Responsive Web Design â€¢ Interactive UI â€¢ Animations",
         features: [
             "Interactive Wedding Invitation",
             "Modern Visual Design",
@@ -1605,33 +1837,33 @@ const desktopProjectDetails = {
     },
     ar: {
         crm: {
-            title: "نظام الـCRM وأتمتة الفروع",
-            type: "تطبيق مكتبي",
+            title: "Ù†Ø¸Ø§Ù… Ø§Ù„Ù€CRM ÙˆØ£ØªÙ…ØªØ© Ø§Ù„ÙØ±ÙˆØ¹",
+            type: "ØªØ·Ø¨ÙŠÙ‚ Ù…ÙƒØªØ¨ÙŠ",
             image: "img/crm-branch-automation.png",
-            desc: "نظام مكتبي متكامل لإدارة علاقات العملاء وأتمتة الفروع، يقوم بمركزية بيانات العملاء وإصدار الفواتير الضريبية وتتبع الشحنات وإرسال البوالص والتحديثات تلقائياً عبر واتساب.",
-            technologies: ["Python", "تطبيق مكتبي", "قواعد بيانات", "CRM", "أتمتة واتساب", "أتمتة الفواتير", "تكامل الشحن"],
+            desc: "Ù†Ø¸Ø§Ù… Ù…ÙƒØªØ¨ÙŠ Ù…ØªÙƒØ§Ù…Ù„ Ù„Ø¥Ø¯Ø§Ø±Ø© Ø¹Ù„Ø§Ù‚Ø§Øª Ø§Ù„Ø¹Ù…Ù„Ø§Ø¡ ÙˆØ£ØªÙ…ØªØ© Ø§Ù„ÙØ±ÙˆØ¹ØŒ ÙŠÙ‚ÙˆÙ… Ø¨Ù…Ø±ÙƒØ²ÙŠØ© Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ù„Ø¹Ù…Ù„Ø§Ø¡ ÙˆØ¥ØµØ¯Ø§Ø± Ø§Ù„ÙÙˆØ§ØªÙŠØ± Ø§Ù„Ø¶Ø±ÙŠØ¨ÙŠØ© ÙˆØªØªØ¨Ø¹ Ø§Ù„Ø´Ø­Ù†Ø§Øª ÙˆØ¥Ø±Ø³Ø§Ù„ Ø§Ù„Ø¨ÙˆØ§Ù„Øµ ÙˆØ§Ù„ØªØ­Ø¯ÙŠØ«Ø§Øª ØªÙ„Ù‚Ø§Ø¦ÙŠØ§Ù‹ Ø¹Ø¨Ø± ÙˆØ§ØªØ³Ø§Ø¨.",
+            technologies: ["Python", "ØªØ·Ø¨ÙŠÙ‚ Ù…ÙƒØªØ¨ÙŠ", "Ù‚ÙˆØ§Ø¹Ø¯ Ø¨ÙŠØ§Ù†Ø§Øª", "CRM", "Ø£ØªÙ…ØªØ© ÙˆØ§ØªØ³Ø§Ø¨", "Ø£ØªÙ…ØªØ© Ø§Ù„ÙÙˆØ§ØªÙŠØ±", "ØªÙƒØ§Ù…Ù„ Ø§Ù„Ø´Ø­Ù†"],
             features: [
-                { title: "إدارة العملاء", desc: "تسجيل العملاء وإدارة بياناتهم مركزيًا وبسهولة." },
-                { title: "الفواتير الضريبية", desc: "إنشاء وإدارة الفواتير الضريبية المعتمدة." },
-                { title: "تتبع الشحنات", desc: "تتبع الشحنات ومتابعة حالتها التشغيلية أولاً بأول." },
-                { title: "بوالص الشحن", desc: "إدارة وتجهيز وطباعة بوالص الشحن." },
-                { title: "أتمتة واتساب", desc: "إرسال البوالص ورسائل التحديث للعملاء تلقائيًا عبر واتساب." },
-                { title: "سير عمل بنقرة واحدة", desc: "تنفيذ المهام التشغيلية المتكررة بنقرة واحدة لتسريع العمل." }
+                { title: "Ø¥Ø¯Ø§Ø±Ø© Ø§Ù„Ø¹Ù…Ù„Ø§Ø¡", desc: "ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø¹Ù…Ù„Ø§Ø¡ ÙˆØ¥Ø¯Ø§Ø±Ø© Ø¨ÙŠØ§Ù†Ø§ØªÙ‡Ù… Ù…Ø±ÙƒØ²ÙŠÙ‹Ø§ ÙˆØ¨Ø³Ù‡ÙˆÙ„Ø©." },
+                { title: "Ø§Ù„ÙÙˆØ§ØªÙŠØ± Ø§Ù„Ø¶Ø±ÙŠØ¨ÙŠØ©", desc: "Ø¥Ù†Ø´Ø§Ø¡ ÙˆØ¥Ø¯Ø§Ø±Ø© Ø§Ù„ÙÙˆØ§ØªÙŠØ± Ø§Ù„Ø¶Ø±ÙŠØ¨ÙŠØ© Ø§Ù„Ù…Ø¹ØªÙ…Ø¯Ø©." },
+                { title: "ØªØªØ¨Ø¹ Ø§Ù„Ø´Ø­Ù†Ø§Øª", desc: "ØªØªØ¨Ø¹ Ø§Ù„Ø´Ø­Ù†Ø§Øª ÙˆÙ…ØªØ§Ø¨Ø¹Ø© Ø­Ø§Ù„ØªÙ‡Ø§ Ø§Ù„ØªØ´ØºÙŠÙ„ÙŠØ© Ø£ÙˆÙ„Ø§Ù‹ Ø¨Ø£ÙˆÙ„." },
+                { title: "Ø¨ÙˆØ§Ù„Øµ Ø§Ù„Ø´Ø­Ù†", desc: "Ø¥Ø¯Ø§Ø±Ø© ÙˆØªØ¬Ù‡ÙŠØ² ÙˆØ·Ø¨Ø§Ø¹Ø© Ø¨ÙˆØ§Ù„Øµ Ø§Ù„Ø´Ø­Ù†." },
+                { title: "Ø£ØªÙ…ØªØ© ÙˆØ§ØªØ³Ø§Ø¨", desc: "Ø¥Ø±Ø³Ø§Ù„ Ø§Ù„Ø¨ÙˆØ§Ù„Øµ ÙˆØ±Ø³Ø§Ø¦Ù„ Ø§Ù„ØªØ­Ø¯ÙŠØ« Ù„Ù„Ø¹Ù…Ù„Ø§Ø¡ ØªÙ„Ù‚Ø§Ø¦ÙŠÙ‹Ø§ Ø¹Ø¨Ø± ÙˆØ§ØªØ³Ø§Ø¨." },
+                { title: "Ø³ÙŠØ± Ø¹Ù…Ù„ Ø¨Ù†Ù‚Ø±Ø© ÙˆØ§Ø­Ø¯Ø©", desc: "ØªÙ†ÙÙŠØ° Ø§Ù„Ù…Ù‡Ø§Ù… Ø§Ù„ØªØ´ØºÙŠÙ„ÙŠØ© Ø§Ù„Ù…ØªÙƒØ±Ø±Ø© Ø¨Ù†Ù‚Ø±Ø© ÙˆØ§Ø­Ø¯Ø© Ù„ØªØ³Ø±ÙŠØ¹ Ø§Ù„Ø¹Ù…Ù„." }
             ]
         },
         accounting: {
-            title: "نظام تحليل البيانات والمحاسبة المتكامل",
-            type: "تطبيق مكتبي",
+            title: "Ù†Ø¸Ø§Ù… ØªØ­Ù„ÙŠÙ„ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª ÙˆØ§Ù„Ù…Ø­Ø§Ø³Ø¨Ø© Ø§Ù„Ù…ØªÙƒØ§Ù…Ù„",
+            type: "ØªØ·Ø¨ÙŠÙ‚ Ù…ÙƒØªØ¨ÙŠ",
             image: "img/data-accounting-system.png",
-            desc: "نظام أعمال مكتبي يجمع بين تحليل البيانات والمعاملات المحاسبية والتسويات المالية والتقارير وإدارة البيانات التشغيلية في تطبيق واحد.",
-            technologies: ["Python", "تطبيق مكتبي", "تحليل البيانات", "محاسبة مالية", "Excel", "قواعد بيانات", "تقارير"],
+            desc: "Ù†Ø¸Ø§Ù… Ø£Ø¹Ù…Ø§Ù„ Ù…ÙƒØªØ¨ÙŠ ÙŠØ¬Ù…Ø¹ Ø¨ÙŠÙ† ØªØ­Ù„ÙŠÙ„ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª ÙˆØ§Ù„Ù…Ø¹Ø§Ù…Ù„Ø§Øª Ø§Ù„Ù…Ø­Ø§Ø³Ø¨ÙŠØ© ÙˆØ§Ù„ØªØ³ÙˆÙŠØ§Øª Ø§Ù„Ù…Ø§Ù„ÙŠØ© ÙˆØ§Ù„ØªÙ‚Ø§Ø±ÙŠØ± ÙˆØ¥Ø¯Ø§Ø±Ø© Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ù„ØªØ´ØºÙŠÙ„ÙŠØ© ÙÙŠ ØªØ·Ø¨ÙŠÙ‚ ÙˆØ§Ø­Ø¯.",
+            technologies: ["Python", "ØªØ·Ø¨ÙŠÙ‚ Ù…ÙƒØªØ¨ÙŠ", "ØªØ­Ù„ÙŠÙ„ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª", "Ù…Ø­Ø§Ø³Ø¨Ø© Ù…Ø§Ù„ÙŠØ©", "Excel", "Ù‚ÙˆØ§Ø¹Ø¯ Ø¨ÙŠØ§Ù†Ø§Øª", "ØªÙ‚Ø§Ø±ÙŠØ±"],
             features: [
-                { title: "تحليل البيانات", desc: "تحليل البيانات التشغيلية والمالية واستخراج المؤشرات." },
-                { title: "المحاسبة المالية", desc: "إدارة العمليات المحاسبية والسجلات المالية بدقة." },
-                { title: "المطابقة والتسوية", desc: "مطابقة السجلات المالية والتشغيلية واكتشاف الفروقات." },
-                { title: "إعداد التقارير", desc: "إعداد التقارير المالية والتشغيلية التفصيلية للإدارة." },
-                { title: "معالجة ملفات Excel", desc: "معالجة وإدارة واستيراد/تصدير البيانات المعتمدة على إكسيل." },
-                { title: "سير عمل متكامل", desc: "ربط التحليل والمحاسبة والمعالجة والتقارير داخل نظام واحد متكامل." }
+                { title: "ØªØ­Ù„ÙŠÙ„ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª", desc: "ØªØ­Ù„ÙŠÙ„ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ù„ØªØ´ØºÙŠÙ„ÙŠØ© ÙˆØ§Ù„Ù…Ø§Ù„ÙŠØ© ÙˆØ§Ø³ØªØ®Ø±Ø§Ø¬ Ø§Ù„Ù…Ø¤Ø´Ø±Ø§Øª." },
+                { title: "Ø§Ù„Ù…Ø­Ø§Ø³Ø¨Ø© Ø§Ù„Ù…Ø§Ù„ÙŠØ©", desc: "Ø¥Ø¯Ø§Ø±Ø© Ø§Ù„Ø¹Ù…Ù„ÙŠØ§Øª Ø§Ù„Ù…Ø­Ø§Ø³Ø¨ÙŠØ© ÙˆØ§Ù„Ø³Ø¬Ù„Ø§Øª Ø§Ù„Ù…Ø§Ù„ÙŠØ© Ø¨Ø¯Ù‚Ø©." },
+                { title: "Ø§Ù„Ù…Ø·Ø§Ø¨Ù‚Ø© ÙˆØ§Ù„ØªØ³ÙˆÙŠØ©", desc: "Ù…Ø·Ø§Ø¨Ù‚Ø© Ø§Ù„Ø³Ø¬Ù„Ø§Øª Ø§Ù„Ù…Ø§Ù„ÙŠØ© ÙˆØ§Ù„ØªØ´ØºÙŠÙ„ÙŠØ© ÙˆØ§ÙƒØªØ´Ø§Ù Ø§Ù„ÙØ±ÙˆÙ‚Ø§Øª." },
+                { title: "Ø¥Ø¹Ø¯Ø§Ø¯ Ø§Ù„ØªÙ‚Ø§Ø±ÙŠØ±", desc: "Ø¥Ø¹Ø¯Ø§Ø¯ Ø§Ù„ØªÙ‚Ø§Ø±ÙŠØ± Ø§Ù„Ù…Ø§Ù„ÙŠØ© ÙˆØ§Ù„ØªØ´ØºÙŠÙ„ÙŠØ© Ø§Ù„ØªÙØµÙŠÙ„ÙŠØ© Ù„Ù„Ø¥Ø¯Ø§Ø±Ø©." },
+                { title: "Ù…Ø¹Ø§Ù„Ø¬Ø© Ù…Ù„ÙØ§Øª Excel", desc: "Ù…Ø¹Ø§Ù„Ø¬Ø© ÙˆØ¥Ø¯Ø§Ø±Ø© ÙˆØ§Ø³ØªÙŠØ±Ø§Ø¯/ØªØµØ¯ÙŠØ± Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª Ø§Ù„Ù…Ø¹ØªÙ…Ø¯Ø© Ø¹Ù„Ù‰ Ø¥ÙƒØ³ÙŠÙ„." },
+                { title: "Ø³ÙŠØ± Ø¹Ù…Ù„ Ù…ØªÙƒØ§Ù…Ù„", desc: "Ø±Ø¨Ø· Ø§Ù„ØªØ­Ù„ÙŠÙ„ ÙˆØ§Ù„Ù…Ø­Ø§Ø³Ø¨Ø© ÙˆØ§Ù„Ù…Ø¹Ø§Ù„Ø¬Ø© ÙˆØ§Ù„ØªÙ‚Ø§Ø±ÙŠØ± Ø¯Ø§Ø®Ù„ Ù†Ø¸Ø§Ù… ÙˆØ§Ø­Ø¯ Ù…ØªÙƒØ§Ù…Ù„." }
             ]
         }
     }
@@ -1920,7 +2152,7 @@ function initWhatsAppWidget() {
         // Reset states for dynamic typing sequence
         const currentLang = document.documentElement.getAttribute('lang') || 'en';
         if (statusText) {
-            statusText.innerText = currentLang === 'ar' ? 'يكتب الآن...' : 'typing...';
+            statusText.innerText = currentLang === 'ar' ? 'ÙŠÙƒØªØ¨ Ø§Ù„Ø¢Ù†...' : 'typing...';
         }
         
         if (typingIndicator) {
@@ -1951,7 +2183,7 @@ function initWhatsAppWidget() {
                 typingIndicator.style.display = 'none';
             }
             if (statusText) {
-                statusText.innerText = currentLang === 'ar' ? 'يرد عادةً خلال دقائق' : 'Typically replies in minutes';
+                statusText.innerText = currentLang === 'ar' ? 'ÙŠØ±Ø¯ Ø¹Ø§Ø¯Ø©Ù‹ Ø®Ù„Ø§Ù„ Ø¯Ù‚Ø§Ø¦Ù‚' : 'Typically replies in minutes';
             }
             if (msgBubble) {
                 msgBubble.style.display = 'flex';

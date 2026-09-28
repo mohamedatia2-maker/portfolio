@@ -805,6 +805,7 @@ body.dark-mode .role-scope-badge {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 24px;
+    align-items: start;
 }
 
 @media (max-width: 1200px) {
@@ -827,6 +828,8 @@ body.dark-mode .role-scope-badge {
     box-shadow: var(--shadow-sm);
     display: flex;
     flex-direction: column;
+    height: 320px;
+    box-sizing: border-box;
     transition: transform var(--transition-speed), box-shadow var(--transition-speed), border-color var(--transition-speed), background-color var(--transition-speed);
 }
 
@@ -839,11 +842,13 @@ body.dark-mode .role-scope-badge {
 .skill-category-title {
     font-size: 1.05rem;
     font-weight: 700;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 10px;
     color: var(--text-color);
+    min-height: 48px;
+    line-height: 1.35;
 }
 
 .skill-category-icon {
@@ -852,6 +857,7 @@ body.dark-mode .role-scope-badge {
     justify-content: center;
     color: var(--accent-primary);
     flex-shrink: 0;
+    margin-top: 2px;
 }
 
 .technical-skill-card:nth-child(even) .skill-category-icon {
@@ -868,6 +874,56 @@ body.dark-mode .role-scope-badge {
     flex-wrap: wrap;
     gap: 8px;
     align-content: flex-start;
+    flex: 1;
+    min-height: 0;
+    overflow-y: hidden;
+    padding-right: 4px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(16, 185, 129, 0.35) transparent;
+}
+
+[dir="rtl"] .skill-chips-wrap {
+    padding-right: 0;
+    padding-left: 4px;
+}
+
+.technical-skill-card.is-expanded {
+    height: auto;
+    min-height: 320px;
+}
+
+.technical-skill-card.is-expanded .skill-chips-wrap {
+    overflow-y: visible;
+}
+
+/* Custom Sleek Scrollbar for Expanded Chips */
+.skill-chips-wrap::-webkit-scrollbar {
+    width: 4px;
+}
+
+.skill-chips-wrap::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.skill-chips-wrap::-webkit-scrollbar-thumb {
+    background: rgba(16, 185, 129, 0.35);
+    border-radius: 4px;
+}
+
+.skill-chips-wrap::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-primary);
+}
+
+.technical-skill-card:nth-child(even) .skill-chips-wrap {
+    scrollbar-color: rgba(13, 110, 253, 0.35) transparent;
+}
+
+.technical-skill-card:nth-child(even) .skill-chips-wrap::-webkit-scrollbar-thumb {
+    background: rgba(13, 110, 253, 0.35);
+}
+
+.technical-skill-card:nth-child(even) .skill-chips-wrap::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-secondary);
 }
 
 .skill-chip {
@@ -895,6 +951,77 @@ body.dark-mode .role-scope-badge {
     border-color: var(--accent-secondary);
     color: var(--accent-secondary);
     background-color: rgba(13, 110, 253, 0.1);
+}
+
+/* Skill Toggle Button */
+.skill-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: auto;
+    align-self: flex-start;
+    padding: 5px 12px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    font-family: inherit;
+    color: var(--accent-primary);
+    background-color: var(--accent-primary-light);
+    border: 1px solid rgba(16, 185, 129, 0.25);
+    border-radius: var(--border-radius-pill);
+    cursor: pointer;
+    transition: all var(--transition-speed);
+}
+
+.skill-toggle-btn:hover {
+    background-color: var(--accent-primary);
+    color: #ffffff;
+    border-color: var(--accent-primary);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(16, 185, 129, 0.25);
+}
+
+.technical-skill-card:nth-child(even) .skill-toggle-btn {
+    color: var(--accent-secondary);
+    background-color: rgba(13, 110, 253, 0.08);
+    border-color: rgba(13, 110, 253, 0.25);
+}
+
+.technical-skill-card:nth-child(even) .skill-toggle-btn:hover {
+    background-color: var(--accent-secondary);
+    color: #ffffff;
+    border-color: var(--accent-secondary);
+    box-shadow: 0 4px 10px rgba(13, 110, 253, 0.25);
+}
+
+.skill-toggle-icon {
+    display: inline-block;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    flex-shrink: 0;
+}
+
+.technical-skill-card.is-expanded .skill-toggle-icon {
+    transform: rotate(180deg);
+}
+
+/* Extra Skill Chips Hide/Show */
+.skill-chip.skill-chip-extra {
+    display: none;
+}
+
+.technical-skill-card.is-expanded .skill-chip.skill-chip-extra {
+    display: inline-flex;
+    animation: skillChipFadeIn 0.25s ease forwards;
+}
+
+@keyframes skillChipFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Skills Cards */
