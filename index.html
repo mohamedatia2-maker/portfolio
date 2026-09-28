@@ -187,16 +187,22 @@
                         </div>
                     </div>
                 </div>
-                <!-- Right: Interactive 3D Gear Model Viewport -->
+                <!-- Right: Interactive 3D Mechatronics Model Viewport -->
                 <div class="hero-visual">
                     <div class="canvas-card">
                         <div class="canvas-header">
-                            <span class="canvas-title" data-translate="cad-title">Engineering Systems Simulator</span>
+                            <div class="canvas-header-left">
+                                <span class="canvas-title" data-translate="cad-title">Engineering Systems Simulator</span>
+                                <div class="cad-model-selector">
+                                    <button type="button" class="cad-model-btn active" data-model="arm" data-translate="cad-model-arm">Robotic Arm</button>
+                                    <button type="button" class="cad-model-btn" data-model="gear" data-translate="cad-model-gear">Gear Train</button>
+                                </div>
+                            </div>
                             <div class="canvas-controls">
-                                <button class="cad-btn active" data-view="iso">ISO</button>
-                                <button class="cad-btn" data-view="front">FRONT</button>
-                                <button class="cad-btn" data-view="top">TOP</button>
-                                <button class="cad-btn" data-view="side">SIDE</button>
+                                <button type="button" class="cad-btn active" data-view="iso">ISO</button>
+                                <button type="button" class="cad-btn" data-view="front">FRONT</button>
+                                <button type="button" class="cad-btn" data-view="top">TOP</button>
+                                <button type="button" class="cad-btn" data-view="side">SIDE</button>
                             </div>
                         </div>
                         <div class="canvas-body">

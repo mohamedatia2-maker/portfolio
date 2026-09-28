@@ -458,7 +458,23 @@ body.dark-mode .control-icon-btn:hover {
     border-radius: var(--border-radius-sm);
 }
 
-/* CAD assembly Visualizer Card */
+/* CAD Assembly & Mechatronics Visualizer Card */
+.about-section .grid-2 {
+    align-items: stretch;
+}
+
+.about-section .hero-visual {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.about-section .canvas-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
 .canvas-card {
     background-color: var(--surface-color);
     border: 1px solid var(--border-color);
@@ -473,17 +489,60 @@ body.dark-mode .control-icon-btn:hover {
 .canvas-header {
     background-color: var(--surface-color-dim);
     border-bottom: 1px solid var(--border-color);
-    padding: 12px 20px;
+    padding: 12px 18px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
     transition: background-color var(--transition-speed), border-color var(--transition-speed);
 }
 
+.canvas-header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
 .canvas-title {
-    font-size: 0.8rem;
-    font-weight: 600;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--text-color);
+    letter-spacing: -0.2px;
+}
+
+.cad-model-selector {
+    display: inline-flex;
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    padding: 2px;
+    gap: 2px;
+}
+
+.cad-model-btn {
+    background: transparent;
+    border: none;
     color: var(--text-muted);
+    font-family: var(--font-sans);
+    font-size: 0.68rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.cad-model-btn:hover {
+    color: var(--text-color);
+}
+
+.cad-model-btn.active {
+    background-color: var(--accent-primary);
+    color: #ffffff;
+    box-shadow: 0 1px 4px var(--accent-primary-light);
 }
 
 .canvas-controls {
@@ -516,7 +575,9 @@ body.dark-mode .control-icon-btn:hover {
 }
 
 .canvas-body {
-    height: 320px;
+    height: 440px;
+    min-height: 420px;
+    flex: 1;
     position: relative;
     background-color: var(--surface-color);
     display: flex;
@@ -527,15 +588,45 @@ body.dark-mode .control-icon-btn:hover {
     flex-grow: 1;
     width: 100%;
     height: 100%;
+    cursor: grab;
+    touch-action: none;
+}
+
+#cadCanvas:active {
+    cursor: grabbing;
 }
 
 .canvas-telemetry {
-    padding: 8px 20px;
+    padding: 8px 18px;
     background-color: var(--surface-color-dim);
     border-top: 1px solid var(--border-color);
     font-family: var(--font-mono);
     font-size: 0.7rem;
     color: var(--text-dim);
+}
+
+@media (max-width: 992px) {
+    .about-section .grid-2 {
+        align-items: center;
+    }
+    .canvas-body {
+        height: 380px;
+        min-height: 360px;
+    }
+}
+
+@media (max-width: 576px) {
+    .canvas-header {
+        padding: 10px 12px;
+    }
+    .canvas-header-left {
+        width: 100%;
+        justify-content: space-between;
+    }
+    .canvas-controls {
+        width: 100%;
+        justify-content: flex-end;
+    }
 }
 
 /* About Card */

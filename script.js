@@ -101,6 +101,8 @@ function initLanguageToggle() {
             "hero-btn-contact": "Contact Me",
             
             "cad-title": "Engineering Systems Simulator",
+            "cad-model-arm": "Robotic Arm",
+            "cad-model-gear": "Gear Train",
             "cad-telemetry": "Rotation Angles: X:<span id=\"cad-x\">0°</span> Y:<span id=\"cad-y\">0°</span> Z:<span id=\"cad-z\">0°</span>",
             
             "about-title": "Engineering Systems. Building Solutions.",
@@ -395,6 +397,8 @@ function initLanguageToggle() {
             "hero-btn-contact": "تواصل معي",
             
             "cad-title": "محاكي الأنظمة الهندسية",
+            "cad-model-arm": "ذراع روبوتية",
+            "cad-model-gear": "ترس ميكانيكي",
             "cad-telemetry": "زوايا الدوران: X:<span id=\"cad-x\">0°</span> Y:<span id=\"cad-y\">0°</span> Z:<span id=\"cad-z\">0°</span>",
             
             "about-title": "هندسة الأنظمة. وبناء الحلول.",
@@ -1033,81 +1037,321 @@ function initCanvasBackground() {
 }
 
 /* ==========================================
-   3. 3D INTERACTIVE CAD ROTATING GEAR
+   3. 3D INTERACTIVE MECHATRONICS CAD SIMULATOR
    ========================================== */
 function initCADVisualizer() {
     const canvas = document.getElementById('cadCanvas');
     if (!canvas) return;
 
     const ctx = canvas.getContext('2d');
-    let width = canvas.width = canvas.clientWidth;
-    let height = canvas.height = canvas.clientHeight;
+    let width = canvas.width = canvas.clientWidth || 460;
+    let height = canvas.height = canvas.clientHeight || 440;
 
-    window.addEventListener('resize', () => {
-        width = canvas.width = canvas.clientWidth;
-        height = canvas.height = canvas.clientHeight;
-    });
-
-    const vertices = [];
-    const edges = [];
-
-    const numPoints = 12;
-    const innerRadius = 35;
-    const outerRadius = 60;
-    const thickness = 30;
-
-    // Generate Vertices (Front & Back)
-    for (let f = 0; f < 2; f++) {
-        const zVal = f === 0 ? -thickness / 2 : thickness / 2;
-        
-        for (let i = 0; i < numPoints; i++) {
-            const angle = (i / numPoints) * Math.PI * 2;
-            
-            const ix = Math.cos(angle) * innerRadius;
-            const iy = Math.sin(angle) * innerRadius;
-            vertices.push({ x: ix, y: iy, z: zVal });
-
-            const radius = (i % 2 === 0) ? outerRadius : outerRadius - 15;
-            const ox = Math.cos(angle) * radius;
-            const oy = Math.sin(angle) * radius;
-            vertices.push({ x: ox, y: oy, z: zVal });
+    function resize() {
+        const rect = canvas.getBoundingClientRect();
+        if (rect.width > 0 && rect.height > 0) {
+            width = canvas.width = rect.width;
+            height = canvas.height = rect.height;
         }
     }
 
-    const faceOffset = numPoints * 2;
+    window.addEventListener('resize', resize);
 
-    // Generate Edges
-    for (let i = 0; i < faceOffset; i += 2) {
-        const next = (i + 2) % faceOffset;
-        const nextOuter = (i + 3) % faceOffset;
+    // ==========================================
+    // 3D GEOMETRY GENERATORS (MECHATRONICS)
+    // ==========================================
+    function generateRobotArm() {
+        const vertices = [];
+        const edges = [];
+        const joints = [];
 
-        edges.push([i, next]);
-        edges.push([i + 1, nextOuter]);
-        edges.push([i, i + 1]);
+        function v(x, y, z) {
+            const idx = vertices.length;
+            vertices.push({ x: Math.round(x * 10) / 10, y: Math.round(y * 10) / 10, z: Math.round(z * 10) / 10 });
+            return idx;
+        }
 
-        edges.push([i + faceOffset, next + faceOffset]);
-        edges.push([i + 1 + faceOffset, nextOuter + faceOffset]);
-        edges.push([i + faceOffset, i + 1 + faceOffset]);
+        function e(i, j) {
+            edges.push([i, j]);
+        }
 
-        edges.push([i, i + faceOffset]);
-        edges.push([i + 1, i + 1 + faceOffset]);
+        function ring(radius, yLevel, count, zScale = 1.0) {
+            const rIndices = [];
+            for (let i = 0; i < count; i++) {
+                const ang = (i / count) * Math.PI * 2;
+                const rx = Math.cos(ang) * radius;
+                const rz = Math.sin(ang) * radius * zScale;
+                rIndices.push(v(rx, yLevel, rz));
+            }
+            for (let i = 0; i < count; i++) {
+                e(rIndices[i], rIndices[(i + 1) % count]);
+            }
+            return rIndices;
+        }
+
+        // 1. Heavy Industrial Base Mounting Flange (Bottom Y = 115)
+        const r1 = ring(60, 115, 8);
+        const r2 = ring(50, 95, 8);
+        for (let i = 0; i < 8; i++) {
+            e(r1[i], r2[i]);
+        }
+
+        // 2. Turntable Swivel Base (J1 Joint)
+        const r3 = ring(36, 95, 8);
+        const r4 = ring(36, 75, 8);
+        for (let i = 0; i < 8; i++) {
+            e(r2[i], r3[i]);
+            e(r3[i], r4[i]);
+        }
+        const ttCenter = v(0, 75, 0);
+        joints.push(ttCenter);
+        for (let i = 0; i < 8; i += 2) {
+            e(ttCenter, r4[i]);
+        }
+
+        // 3. Shoulder Pivot Joint (J2 Joint - horizontal cylinder along Z)
+        const shY = 50;
+        const shZW = 24;
+        const shR = 18;
+        const shL = [];
+        const shR_ring = [];
+        for (let i = 0; i < 8; i++) {
+            const ang = (i / 8) * Math.PI * 2;
+            shL.push(v(Math.cos(ang) * shR, shY + Math.sin(ang) * shR, -shZW));
+            shR_ring.push(v(Math.cos(ang) * shR, shY + Math.sin(ang) * shR, shZW));
+        }
+        for (let i = 0; i < 8; i++) {
+            const nxt = (i + 1) % 8;
+            e(shL[i], shL[nxt]);
+            e(shR_ring[i], shR_ring[nxt]);
+            e(shL[i], shR_ring[i]);
+        }
+        e(r4[0], shL[2]);
+        e(r4[4], shL[6]);
+        e(r4[2], shR_ring[2]);
+        e(r4[6], shR_ring[6]);
+        joints.push(v(0, shY, 0));
+
+        // 4. Primary Boom Link (Dual-spar truss reaching up & backward to J3 elbow)
+        const elbX = -35;
+        const elbY = -30;
+        const elbZW = 16;
+        const elbR = 14;
+        const elbL = [];
+        const elbR_ring = [];
+        for (let i = 0; i < 8; i++) {
+            const ang = (i / 8) * Math.PI * 2;
+            elbL.push(v(elbX + Math.cos(ang) * elbR, elbY + Math.sin(ang) * elbR, -elbZW));
+            elbR_ring.push(v(elbX + Math.cos(ang) * elbR, elbY + Math.sin(ang) * elbR, elbZW));
+        }
+        for (let i = 0; i < 8; i++) {
+            const nxt = (i + 1) % 8;
+            e(elbL[i], elbL[nxt]);
+            e(elbR_ring[i], elbR_ring[nxt]);
+            e(elbL[i], elbR_ring[i]);
+        }
+
+        e(shL[0], elbL[0]); e(shL[2], elbL[2]); e(shL[4], elbL[4]); e(shL[6], elbL[6]);
+        e(shR_ring[0], elbR_ring[0]); e(shR_ring[2], elbR_ring[2]); e(shR_ring[4], elbR_ring[4]); e(shR_ring[6], elbR_ring[6]);
+        e(shL[1], elbL[5]); e(shR_ring[1], elbR_ring[5]);
+        joints.push(v(elbX, elbY, 0));
+
+        // Hydraulic piston actuator
+        const pBase = v(15, 52, 0);
+        const pRod = v(elbX + 10, elbY + 16, 0);
+        e(pBase, pRod);
+        e(shL[0], pBase);
+        e(shR_ring[0], pBase);
+
+        // 5. Forearm Link extending up & forward from elbow towards wrist
+        const wrX = 35;
+        const wrY = -85;
+        const wrZW = 10;
+        const wrR = 10;
+        const wrL = [];
+        const wrR_ring = [];
+        for (let i = 0; i < 6; i++) {
+            const ang = (i / 6) * Math.PI * 2;
+            wrL.push(v(wrX + Math.cos(ang) * wrR, wrY + Math.sin(ang) * wrR, -wrZW));
+            wrR_ring.push(v(wrX + Math.cos(ang) * wrR, wrY + Math.sin(ang) * wrR, wrZW));
+        }
+        for (let i = 0; i < 6; i++) {
+            const nxt = (i + 1) % 6;
+            e(wrL[i], wrL[nxt]);
+            e(wrR_ring[i], wrR_ring[nxt]);
+            e(wrL[i], wrR_ring[i]);
+        }
+        e(elbL[2], wrL[1]); e(elbL[4], wrL[3]); e(elbL[6], wrL[5]);
+        e(elbR_ring[2], wrR_ring[1]); e(elbR_ring[4], wrR_ring[3]); e(elbR_ring[6], wrR_ring[5]);
+        joints.push(v(wrX, wrY, 0));
+
+        // 6. Articulated Robotic Gripper (End-Effector)
+        const gBase = v(wrX + 15, wrY - 5, 0);
+        const gL = v(wrX + 15, wrY - 5, -12);
+        const gR = v(wrX + 15, wrY - 5, 12);
+        e(gL, gR);
+        e(gBase, gL);
+        e(gBase, gR);
+        e(wrL[0], gL);
+        e(wrR_ring[0], gR);
+
+        // Left & Right fingers
+        const f1A = v(wrX + 28, wrY - 14, -12);
+        const f1Tip = v(wrX + 38, wrY - 18, -4);
+        e(gL, f1A);
+        e(f1A, f1Tip);
+
+        const f2A = v(wrX + 28, wrY - 14, 12);
+        const f2Tip = v(wrX + 38, wrY - 18, 4);
+        e(gR, f2A);
+        e(f2A, f2Tip);
+
+        // Proximity sensor line
+        e(gBase, f1A);
+        e(gBase, f2A);
+        joints.push(f1Tip);
+        joints.push(f2Tip);
+
+        // Center vertically so it's perfectly balanced inside the viewport
+        let minY = Infinity, maxY = -Infinity;
+        for (const pt of vertices) {
+            if (pt.y < minY) minY = pt.y;
+            if (pt.y > maxY) maxY = pt.y;
+        }
+        const midY = (minY + maxY) / 2;
+        for (const pt of vertices) {
+            pt.y = Math.round((pt.y - midY) * 10) / 10;
+        }
+
+        return {
+            vertices,
+            edges,
+            joints,
+            baseScale: 1.45,
+            name: 'Robotic Arm'
+        };
     }
 
-    let angleX = -0.6;
-    let angleY = 0.5;
-    let angleZ = 0.2;
+    function generateSpurGear() {
+        const vertices = [];
+        const edges = [];
+        const joints = [];
+
+        function v(x, y, z) {
+            const idx = vertices.length;
+            vertices.push({ x: Math.round(x * 10) / 10, y: Math.round(y * 10) / 10, z: Math.round(z * 10) / 10 });
+            return idx;
+        }
+
+        function e(i, j) {
+            edges.push([i, j]);
+        }
+
+        const numTeeth = 16;
+        const rRoot = 54;
+        const rTip = 75;
+        const rBore = 20;
+        const thickness = 26;
+
+        for (const zSide of [-thickness / 2, thickness / 2]) {
+            const toothPts = [];
+            for (let t = 0; t < numTeeth; t++) {
+                const baseAngle = (t / numTeeth) * Math.PI * 2;
+                const step = (Math.PI * 2) / (numTeeth * 4);
+
+                const a1 = baseAngle;
+                toothPts.push(v(Math.cos(a1) * rRoot, Math.sin(a1) * rRoot, zSide));
+
+                const a2 = baseAngle + step * 1.2;
+                toothPts.push(v(Math.cos(a2) * rTip, Math.sin(a2) * rTip, zSide));
+
+                const a3 = baseAngle + step * 2.2;
+                toothPts.push(v(Math.cos(a3) * rTip, Math.sin(a3) * rTip, zSide));
+
+                const a4 = baseAngle + step * 3.4;
+                toothPts.push(v(Math.cos(a4) * rRoot, Math.sin(a4) * rRoot, zSide));
+            }
+
+            const totalTeethPts = toothPts.length;
+            for (let i = 0; i < totalTeethPts; i++) {
+                e(toothPts[i], toothPts[(i + 1) % totalTeethPts]);
+            }
+
+            // Bore with Keyway
+            const borePts = [];
+            const boreSegs = 12;
+            for (let i = 0; i < boreSegs; i++) {
+                const a = (i / boreSegs) * Math.PI * 2;
+                if (Math.abs(a - (3 * Math.PI / 2)) < 0.35) {
+                    borePts.push(v(Math.cos(a) * (rBore + 7), Math.sin(a) * (rBore + 7), zSide));
+                } else {
+                    borePts.push(v(Math.cos(a) * rBore, Math.sin(a) * rBore, zSide));
+                }
+            }
+            for (let i = 0; i < boreSegs; i++) {
+                e(borePts[i], borePts[(i + 1) % boreSegs]);
+            }
+
+            // 4 Spoke Cutouts
+            for (let s = 0; s < 4; s++) {
+                const spokeAngle = (s / 4) * Math.PI * 2 + (Math.PI / 4);
+                const spokeCx = Math.cos(spokeAngle) * 36;
+                const spokeCy = Math.sin(spokeAngle) * 36;
+                const spokePts = [];
+                for (let sp = 0; sp < 6; sp++) {
+                    const spa = (sp / 6) * Math.PI * 2;
+                    spokePts.push(v(spokeCx + Math.cos(spa) * 8, spokeCy + Math.sin(spa) * 8, zSide));
+                }
+                for (let sp = 0; sp < 6; sp++) {
+                    e(spokePts[sp], spokePts[(sp + 1) % 6]);
+                }
+            }
+        }
+
+        const half = vertices.length / 2;
+        for (let i = 0; i < numTeeth * 4; i++) {
+            e(i, i + half);
+        }
+        const boreStart = numTeeth * 4;
+        for (let i = 0; i < 12; i++) {
+            e(boreStart + i, boreStart + i + half);
+        }
+
+        joints.push(v(0, 0, 0));
+
+        return {
+            vertices,
+            edges,
+            joints,
+            baseScale: 1.65,
+            name: 'Gear Train'
+        };
+    }
+
+    const models = {
+        arm: generateRobotArm(),
+        gear: generateSpurGear()
+    };
+
+    let currentModelKey = 'arm';
+    let currentModel = models[currentModelKey];
+
+    let angleX = 0.35;
+    let angleY = -0.65;
+    let angleZ = 0;
     let isAutoRotating = true;
     let currentView = 'iso';
 
+    // Interactive Dragging (Mouse & Touch)
     let isDragging = false;
-    let prevMouseX = 0;
-    let prevMouseY = 0;
+    let prevPointerX = 0;
+    let prevPointerY = 0;
 
     canvas.addEventListener('mousedown', (e) => {
         isDragging = true;
         isAutoRotating = false;
-        prevMouseX = e.clientX;
-        prevMouseY = e.clientY;
+        prevPointerX = e.clientX;
+        prevPointerY = e.clientY;
     });
 
     window.addEventListener('mouseup', () => {
@@ -1116,21 +1360,45 @@ function initCADVisualizer() {
 
     canvas.addEventListener('mousemove', (e) => {
         if (!isDragging) return;
-
-        const deltaX = e.clientX - prevMouseX;
-        const deltaY = e.clientY - prevMouseY;
-
+        const deltaX = e.clientX - prevPointerX;
+        const deltaY = e.clientY - prevPointerY;
         angleY += deltaX * 0.007;
         angleX += deltaY * 0.007;
-
-        prevMouseX = e.clientX;
-        prevMouseY = e.clientY;
-
+        prevPointerX = e.clientX;
+        prevPointerY = e.clientY;
         if (currentView !== 'iso') {
             setViewMode('iso');
         }
     });
 
+    // Touch support for mobile devices
+    canvas.addEventListener('touchstart', (e) => {
+        if (e.touches.length === 1) {
+            isDragging = true;
+            isAutoRotating = false;
+            prevPointerX = e.touches[0].clientX;
+            prevPointerY = e.touches[0].clientY;
+        }
+    }, { passive: true });
+
+    window.addEventListener('touchend', () => {
+        isDragging = false;
+    });
+
+    canvas.addEventListener('touchmove', (e) => {
+        if (!isDragging || e.touches.length !== 1) return;
+        const deltaX = e.touches[0].clientX - prevPointerX;
+        const deltaY = e.touches[0].clientY - prevPointerY;
+        angleY += deltaX * 0.007;
+        angleX += deltaY * 0.007;
+        prevPointerX = e.touches[0].clientX;
+        prevPointerY = e.touches[0].clientY;
+        if (currentView !== 'iso') {
+            setViewMode('iso');
+        }
+    }, { passive: true });
+
+    // View Control Buttons
     const viewButtons = document.querySelectorAll('.cad-btn');
     viewButtons.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -1143,101 +1411,211 @@ function initCADVisualizer() {
         currentView = view;
         isAutoRotating = (view === 'iso');
 
-        viewButtons.forEach(b => b.classList.remove('active'));
-        document.querySelector(`.cad-btn[data-view="${view}"]`).classList.add('active');
+        viewButtons.forEach(b => {
+            if (b.classList) {
+                b.classList.toggle('active', b.getAttribute('data-view') === view);
+            }
+        });
 
         if (view === 'front') {
             angleX = 0; angleY = 0; angleZ = 0;
         } else if (view === 'top') {
-            angleX = Math.PI / 2; angleY = 0; angleZ = 0;
+            angleX = currentModelKey === 'arm' ? -Math.PI / 2 : Math.PI / 2;
+            angleY = 0; angleZ = 0;
         } else if (view === 'side') {
             angleX = 0; angleY = Math.PI / 2; angleZ = 0;
         } else if (view === 'iso') {
-            angleX = -0.6; angleY = 0.5; angleZ = 0.2;
+            angleX = currentModelKey === 'arm' ? 0.35 : -0.55;
+            angleY = currentModelKey === 'arm' ? -0.65 : 0.5;
+            angleZ = currentModelKey === 'arm' ? 0 : 0.15;
         }
     }
+
+    // Model Selector Buttons (Robot Arm / Gear Train)
+    const modelButtons = document.querySelectorAll('.cad-model-btn');
+    modelButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const modKey = btn.getAttribute('data-model');
+            if (models[modKey]) {
+                currentModelKey = modKey;
+                currentModel = models[modKey];
+                modelButtons.forEach(b => {
+                    if (b.classList) {
+                        b.classList.toggle('active', b.getAttribute('data-model') === modKey);
+                    }
+                });
+                if (currentView === 'iso') {
+                    setViewMode('iso');
+                }
+            }
+        });
+    });
 
     function renderCADPart() {
         ctx.clearRect(0, 0, width, height);
 
         const centerX = width / 2;
         const centerY = height / 2;
-
         const isDark = document.body.classList.contains('dark-mode');
-        
-        // Draw axes lines (faint)
-        ctx.strokeStyle = isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.04)';
+
+        // Engineering Coordinate Grid / Blueprint lines
+        ctx.strokeStyle = isDark ? 'rgba(255, 255, 255, 0.04)' : 'rgba(0, 0, 0, 0.03)';
         ctx.lineWidth = 1;
+        const gridSize = 30;
+        ctx.beginPath();
+        for (let x = centerX % gridSize; x < width; x += gridSize) {
+            ctx.moveTo(x, 0); ctx.lineTo(x, height);
+        }
+        for (let y = centerY % gridSize; y < height; y += gridSize) {
+            ctx.moveTo(0, y); ctx.lineTo(width, y);
+        }
+        ctx.stroke();
+
+        // Origin Crosshairs
+        ctx.strokeStyle = isDark ? 'rgba(255, 255, 255, 0.08)' : 'rgba(0, 0, 0, 0.06)';
         ctx.beginPath();
         ctx.moveTo(0, centerY); ctx.lineTo(width, centerY);
         ctx.moveTo(centerX, 0); ctx.lineTo(centerX, height);
         ctx.stroke();
 
-        // Project rotated vertices
-        const rotated = vertices.map(v => {
+        // Responsive Scaling to gracefully adapt to viewport size
+        const minDim = Math.min(width, height);
+        const responsiveScale = currentModel.baseScale * Math.min(1.15, Math.max(0.72, minDim / 420));
+
+        // 3D Projection Matrix (Euler Angles)
+        const cosX = Math.cos(angleX), sinX = Math.sin(angleX);
+        const cosY = Math.cos(angleY), sinY = Math.sin(angleY);
+        const cosZ = Math.cos(angleZ), sinZ = Math.sin(angleZ);
+
+        const projected = currentModel.vertices.map(v => {
             // X-rotation
-            let y1 = v.y * Math.cos(angleX) - v.z * Math.sin(angleX);
-            let z1 = v.y * Math.sin(angleX) + v.z * Math.cos(angleX);
-            
+            const y1 = v.y * cosX - v.z * sinX;
+            const z1 = v.y * sinX + v.z * cosX;
             // Y-rotation
-            let x2 = v.x * Math.cos(angleY) + z1 * Math.sin(angleY);
-            let z2 = -v.x * Math.sin(angleY) + z1 * Math.cos(angleY);
-            
+            const x2 = v.x * cosY + z1 * sinY;
+            const z2 = -v.x * sinY + z1 * cosY;
             // Z-rotation
-            let x3 = x2 * Math.cos(angleZ) - y1 * Math.sin(angleZ);
-            let y3 = x2 * Math.sin(angleZ) + y1 * Math.cos(angleZ);
+            const x3 = x2 * cosZ - y1 * sinZ;
+            const y3 = x2 * sinZ + y1 * cosZ;
 
-            return { x: x3, y: y3, z: z2 };
-        });
-
-        const projected = rotated.map(r => {
-            const scale = 1.35;
             return {
-                x: centerX + r.x * scale,
-                y: centerY + r.y * scale
+                x: centerX + x3 * responsiveScale,
+                y: centerY + y3 * responsiveScale,
+                z: z2
             };
         });
 
-        // Draw Edges
-        ctx.strokeStyle = isDark ? '#10b981' : '#1b8354';
-        ctx.lineWidth = 1.2;
+        // Draw Wireframe Edges
+        const primaryColor = isDark ? '#10b981' : '#1b8354';
+        const accentBlue = isDark ? '#60a5fa' : '#0d6efd';
 
-        edges.forEach(edge => {
+        ctx.strokeStyle = primaryColor;
+        ctx.lineWidth = 1.25;
+        ctx.beginPath();
+        currentModel.edges.forEach(edge => {
             const p1 = projected[edge[0]];
             const p2 = projected[edge[1]];
-            ctx.beginPath();
-            ctx.moveTo(p1.x, p1.y);
-            ctx.lineTo(p2.x, p2.y);
-            ctx.stroke();
+            if (p1 && p2) {
+                ctx.moveTo(p1.x, p1.y);
+                ctx.lineTo(p2.x, p2.y);
+            }
         });
+        ctx.stroke();
 
-        // Extra Dimension lines
-        if (currentView === 'front') {
-            ctx.strokeStyle = isDark ? '#60a5fa' : '#0d6efd';
-            ctx.fillStyle = isDark ? '#60a5fa' : '#0d6efd';
-            ctx.lineWidth = 1;
-            ctx.font = '9px "Fira Code", monospace';
-            
-            const dimY = centerY + outerRadius + 15;
-            ctx.beginPath();
-            ctx.moveTo(centerX - outerRadius, dimY);
-            ctx.lineTo(centerX + outerRadius, dimY);
-            ctx.moveTo(centerX - outerRadius, dimY - 4); ctx.lineTo(centerX - outerRadius, dimY + 4);
-            ctx.moveTo(centerX + outerRadius, dimY - 4); ctx.lineTo(centerX + outerRadius, dimY + 4);
-            ctx.stroke();
-            ctx.fillText('Ø 120.00 mm', centerX - 28, dimY - 4);
+        // Kinematic Nodes / Joint Pivots
+        if (currentModel.joints && currentModel.joints.length > 0) {
+            ctx.fillStyle = accentBlue;
+            currentModel.joints.forEach(jIdx => {
+                const pj = projected[jIdx];
+                if (pj) {
+                    ctx.beginPath();
+                    ctx.arc(pj.x, pj.y, 2.5, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            });
         }
 
-        // Update telemetry numbers
-        document.getElementById('cad-x').innerText = `${Math.round(angleX * 180 / Math.PI)}°`;
-        document.getElementById('cad-y').innerText = `${Math.round(angleY * 180 / Math.PI)}°`;
-        document.getElementById('cad-z').innerText = `${Math.round(angleZ * 180 / Math.PI)}°`;
+        // CAD Blueprint Dimension Lines & Annotations (Front / Top / Side Views)
+        if (currentView === 'front') {
+            ctx.strokeStyle = accentBlue;
+            ctx.fillStyle = accentBlue;
+            ctx.lineWidth = 1;
+            ctx.font = '10px "Fira Code", monospace';
+
+            if (currentModelKey === 'arm') {
+                const rightX = Math.min(width - 24, centerX + 115 * (responsiveScale / 1.35));
+                const topY = centerY - 145 * (responsiveScale / 1.35);
+                const botY = centerY + 145 * (responsiveScale / 1.35);
+
+                ctx.beginPath();
+                ctx.moveTo(rightX, topY); ctx.lineTo(rightX, botY);
+                ctx.moveTo(rightX - 5, topY); ctx.lineTo(rightX + 5, topY);
+                ctx.moveTo(rightX - 5, botY); ctx.lineTo(rightX + 5, botY);
+                ctx.stroke();
+
+                ctx.save();
+                ctx.translate(rightX + 13, (topY + botY) / 2);
+                ctx.rotate(Math.PI / 2);
+                ctx.textAlign = 'center';
+                ctx.fillText('REACH: 480 mm', 0, 0);
+                ctx.restore();
+
+                const baseDimY = centerY + 155 * (responsiveScale / 1.35);
+                const bR = 64 * responsiveScale;
+                ctx.beginPath();
+                ctx.moveTo(centerX - bR, baseDimY); ctx.lineTo(centerX + bR, baseDimY);
+                ctx.moveTo(centerX - bR, baseDimY - 4); ctx.lineTo(centerX - bR, baseDimY + 4);
+                ctx.moveTo(centerX + bR, baseDimY - 4); ctx.lineTo(centerX + bR, baseDimY + 4);
+                ctx.stroke();
+
+                ctx.textAlign = 'center';
+                ctx.fillText('BASE Ø: 128 mm', centerX, baseDimY + 13);
+
+                ctx.textAlign = 'left';
+                ctx.fillText('• 6-DOF ARTICULATED ROBOT ARM', 14, height - 14);
+            } else {
+                const rOuter = 75 * responsiveScale;
+                const dimY = centerY + rOuter + 14;
+
+                ctx.beginPath();
+                ctx.moveTo(centerX - rOuter, dimY); ctx.lineTo(centerX + rOuter, dimY);
+                ctx.moveTo(centerX - rOuter, dimY - 4); ctx.lineTo(centerX - rOuter, dimY + 4);
+                ctx.moveTo(centerX + rOuter, dimY - 4); ctx.lineTo(centerX + rOuter, dimY + 4);
+                ctx.stroke();
+
+                ctx.textAlign = 'center';
+                ctx.fillText('TIP Ø: 150.00 mm', centerX, dimY + 13);
+
+                ctx.textAlign = 'left';
+                ctx.fillText('• INVOLUTE SPUR GEAR (m=8, z=16)', 14, height - 14);
+            }
+        } else if (currentView === 'top') {
+            ctx.fillStyle = accentBlue;
+            ctx.font = '10px "Fira Code", monospace';
+            ctx.textAlign = 'left';
+            ctx.fillText(currentModelKey === 'arm' ? '• PLAN VIEW / ENVELOPE' : '• AXIAL VIEW (BORE Ø: 40 mm)', 14, height - 14);
+        } else if (currentView === 'side') {
+            ctx.fillStyle = accentBlue;
+            ctx.font = '10px "Fira Code", monospace';
+            ctx.textAlign = 'left';
+            ctx.fillText(currentModelKey === 'arm' ? '• LATERAL PROFILE' : '• FACE WIDTH: 26 mm', 14, height - 14);
+        }
+
+        // Telemetry readout
+        const elX = document.getElementById('cad-x');
+        const elY = document.getElementById('cad-y');
+        const elZ = document.getElementById('cad-z');
+        if (elX) elX.innerText = `${Math.round(angleX * 180 / Math.PI)}°`;
+        if (elY) elY.innerText = `${Math.round(angleY * 180 / Math.PI)}°`;
+        if (elZ) elZ.innerText = `${Math.round(angleZ * 180 / Math.PI)}°`;
     }
 
     function animate() {
         if (isAutoRotating) {
             angleY += 0.005;
-            angleX += 0.003;
+            if (currentModelKey === 'gear') {
+                angleX += 0.001;
+            }
         }
         renderCADPart();
         requestAnimationFrame(animate);
