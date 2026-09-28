@@ -214,6 +214,7 @@ function initLanguageToggle() {
             "badge-web-platform": "WEB PLATFORM",
             "badge-desktop-app": "DESKTOP APPLICATION",
             "badge-academic-platform": "ACADEMIC PLATFORM",
+            "badge-interactive-exp": "INTERACTIVE WEB EXPERIENCE",
             "proj-action-visit": "Visit Project",
             "proj-action-details": "View Details",
             "project-modal-close": "Close",
@@ -237,6 +238,12 @@ function initLanguageToggle() {
             
             "proj-6-title": "ZNU Assistant",
             "proj-6-desc": "A digital assistant and information platform for the Mechatronics Engineering department, designed to organize academic information and make university resources easier to access.",
+            
+            "proj-7-title": "Motivera HR Website",
+            "proj-7-desc": "A professional HR and recruitment company website designed to present the company, its services, capabilities, and digital presence through a modern responsive web experience.",
+            
+            "proj-8-title": "Wedding Invitation Website",
+            "proj-8-desc": "A modern and interactive digital wedding invitation designed as a complete web experience, combining elegant visual design, animations, event information, and a personalized invitation journey.",
             
             "projects-p1-tag": "Educational Platforms",
             "projects-p1-title": "Comprehensive Academic Portal",
@@ -410,6 +417,7 @@ function initLanguageToggle() {
             "badge-web-platform": "منصة ويب",
             "badge-desktop-app": "تطبيق مكتبي",
             "badge-academic-platform": "منصة أكاديمية",
+            "badge-interactive-exp": "تجربة ويب تفاعلية",
             "proj-action-visit": "زيارة المشروع",
             "proj-action-details": "عرض التفاصيل",
             "project-modal-close": "إغلاق",
@@ -433,6 +441,12 @@ function initLanguageToggle() {
             
             "proj-6-title": "مساعد ZNU الأكاديمي",
             "proj-6-desc": "مساعد رقمي ومنصة معلومات لقسم هندسة الميكاترونكس، مصممة لتنظيم المعلومات الأكاديمية وتسهيل الوصول إلى الموارد الجامعية.",
+            
+            "proj-7-title": "موقع شركة Motivera للموارد البشرية",
+            "proj-7-desc": "موقع تعريفي احترافي لشركة توظيف وموارد بشرية، صُمم لعرض خدمات الشركة وقدراتها وهويتها الرقمية من خلال تجربة ويب عصرية وتفاعلية متجاوبة.",
+            
+            "proj-8-title": "موقع دعوة الزفاف التفاعلية (Wedding Invitation)",
+            "proj-8-desc": "دعوة زفاف رقمية تفاعلية مصممة كتجربة ويب متكاملة، تجمع بين التصميم الجمالي الأنيق والمؤثرات الحركية ومعلومات الحفل وتجربة دعوة شخصية فريدة.",
             
             "projects-p1-tag": "منصات تعليمية",
             "projects-p1-title": "منصة جامعية شاملة",
@@ -1465,6 +1479,95 @@ const archivedProjects = [
     { id: 'archived-assistance', name: 'Student Support & Assistance Website', url: 'https://znuassistant.netlify.app/#home', img: 'img/project-assistance.jpg', tag: 'Student Support' },
     { id: 'archived-hr', name: 'HR Company Website', url: 'https://deft-cheesecake-4100df.netlify.app/', img: 'img/project-hr.jpg', tag: 'Corporate Websites' },
     { id: 'archived-wedding', name: 'Digital Wedding Invitation', url: 'https://abdullah-dina-wedding.netlify.app/', img: 'img/project-wedding.png', tag: 'Event Invitations' }
+];
+
+// Preserved specifications for active portfolio projects
+const portfolioProjectsMetadata = [
+    {
+        id: "znue-portal",
+        number: "01",
+        name: "ZNUE Portal",
+        type: "WEB PLATFORM",
+        url: "https://znue-portal.me/en/",
+        image: "img/znue-portal.png"
+    },
+    {
+        id: "ship-gate",
+        number: "02",
+        name: "Ship-Gate",
+        type: "WEB PLATFORM",
+        url: "https://ship-gate.net/",
+        image: "img/ship-gate.png"
+    },
+    {
+        id: "crm-branch-automation",
+        number: "03",
+        name: "CRM & Branch Automation System",
+        type: "DESKTOP APPLICATION",
+        image: "img/crm-branch-automation.png"
+    },
+    {
+        id: "taskflow",
+        number: "04",
+        name: "TaskFlow",
+        type: "WEB PLATFORM",
+        url: "https://lightskyblue-chough-519825.hostingersite.com",
+        image: "img/taskflow.png"
+    },
+    {
+        id: "data-accounting-system",
+        number: "05",
+        name: "Integrated Data Analysis & Accounting System",
+        type: "DESKTOP APPLICATION",
+        image: "img/data-accounting-system.png"
+    },
+    {
+        id: "znu-assistant",
+        number: "06",
+        name: "ZNU Assistant",
+        type: "ACADEMIC PLATFORM",
+        url: "https://mechatronics-data.vercel.app/",
+        image: "img/znu-assistant.png"
+    },
+    {
+        id: "motivera-hr",
+        number: "07",
+        name: "Motivera HR Website",
+        type: "WEB PLATFORM",
+        url: "https://motivera-hr.vercel.app/",
+        image: "img/motivera-hr.png",
+        technologies: "Web Development • Responsive UI • Frontend Development • Modern Web Design",
+        features: [
+            "Professional Company Website",
+            "HR / Recruitment Presentation",
+            "Services Sections",
+            "Responsive Design",
+            "Modern UI",
+            "Company Information",
+            "Service Presentation",
+            "Contact / Business Information"
+        ]
+    },
+    {
+        id: "wedding-invitation",
+        number: "08",
+        name: "Wedding Invitation Website",
+        type: "INTERACTIVE WEB EXPERIENCE",
+        url: "https://wedding-invitation-mohamed-atia.vercel.app/",
+        image: "img/wedding-invitation.png",
+        technologies: "HTML/CSS/JavaScript • Responsive Web Design • Interactive UI • Animations",
+        features: [
+            "Interactive Wedding Invitation",
+            "Modern Visual Design",
+            "Responsive Layout",
+            "Animated Sections",
+            "Event Information",
+            "Wedding Details",
+            "Personalized Experience",
+            "Mobile-Friendly Design",
+            "Interactive User Experience"
+        ]
+    }
 ];
 
 const desktopProjectDetails = {

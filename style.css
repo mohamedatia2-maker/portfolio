@@ -1368,6 +1368,10 @@ html[dir="rtl"] .step:not(:last-child)::after {
     background-color: #7c3aed; /* Purple for Academic Platform */
 }
 
+.badge-interactive {
+    background-color: #0891b2; /* Cyan/Teal for Interactive Web Experience */
+}
+
 .project-card-body {
     padding: 22px;
     display: flex;
