@@ -1931,8 +1931,7 @@ const desktopProjectDetails = {
             ]
         }
     }
-}; }
-};
+}
 
 function initProjectModal() {
     const modal = document.getElementById('projectModal');
