@@ -2783,6 +2783,19 @@ html[dir="rtl"] .cert-modal-topics-list li::before {
     position: relative;
     padding: 12px 4px;
     margin: -12px -4px;
+    touch-action: pan-y;
+    user-select: none;
+    -webkit-user-select: none;
+    cursor: grab;
+}
+
+.carousel-viewport:active {
+    cursor: grabbing;
+}
+
+.carousel-viewport img {
+    -webkit-user-drag: none;
+    user-drag: none;
 }
 
 .carousel-track {

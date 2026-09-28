@@ -2444,7 +2444,7 @@ function initCarousel(viewportId, trackId, prevBtnId, nextBtnId) {
     
     let currentIndex = 0;
     
-    function updateCarousel() {
+    function updateCarousel(withAnimation = true) {
         const cards = track.children;
         if (cards.length === 0) return;
         
@@ -2464,6 +2464,7 @@ function initCarousel(viewportId, trackId, prevBtnId, nextBtnId) {
         const isRtl = document.documentElement.getAttribute('dir') === 'rtl';
         const multiplier = isRtl ? 1 : -1;
         
+        track.style.transition = withAnimation ? 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'none';
         track.style.transform = `translateX(${multiplier * translateOffset}px)`;
         
         // Update navigation states
@@ -2493,7 +2494,220 @@ function initCarousel(viewportId, trackId, prevBtnId, nextBtnId) {
             setTimeout(updateCarousel, 100);
         });
     }
-    
+
+    // ==========================================
+    // TOUCH & MOBILE SWIPE GESTURE HANDLER
+    // ==========================================
+    let startX = 0;
+    let startY = 0;
+    let currentX = 0;
+    let currentY = 0;
+    let isDragging = false;
+    let isHorizontal = null;
+    let startTime = 0;
+    let baseTranslate = 0;
+    let wasSwiping = false;
+
+    function onTouchStart(e) {
+        if (!e.touches || e.touches.length !== 1) return;
+        const touch = e.touches[0];
+        startX = currentX = touch.clientX;
+        startY = currentY = touch.clientY;
+        startTime = Date.now();
+        isDragging = true;
+        isHorizontal = null;
+        wasSwiping = false;
+
+        const cards = track.children;
+        if (cards.length === 0) return;
+        const cardWidth = cards[0].getBoundingClientRect().width;
+        const gap = parseFloat(window.getComputedStyle(track).gap) || 0;
+        const isRtl = document.documentElement.getAttribute('dir') === 'rtl';
+        const multiplier = isRtl ? 1 : -1;
+        baseTranslate = multiplier * currentIndex * (cardWidth + gap);
+    }
+
+    function onTouchMove(e) {
+        if (!isDragging || !e.touches || e.touches.length !== 1) return;
+        const touch = e.touches[0];
+        currentX = touch.clientX;
+        currentY = touch.clientY;
+        const diffX = currentX - startX;
+        const diffY = currentY - startY;
+
+        // Determine gesture direction on first significant movement
+        if (isHorizontal === null) {
+            const absX = Math.abs(diffX);
+            const absY = Math.abs(diffY);
+            if (absX > 8 || absY > 8) {
+                isHorizontal = absX > absY;
+            }
+        }
+
+        // If swiping horizontally, lock vertical scroll and drag the track smoothly
+        if (isHorizontal === true) {
+            if (e.cancelable) {
+                e.preventDefault();
+            }
+            if (Math.abs(diffX) > 10) {
+                wasSwiping = true;
+            }
+            track.style.transition = 'none';
+
+            const isRtl = document.documentElement.getAttribute('dir') === 'rtl';
+            const cards = track.children;
+            const cardWidth = cards[0].getBoundingClientRect().width;
+            const gap = parseFloat(window.getComputedStyle(track).gap) || 0;
+            const viewportWidth = viewport.getBoundingClientRect().width;
+            const visibleItems = Math.round((viewportWidth + gap) / (cardWidth + gap)) || 1;
+            const maxIndex = Math.max(0, cards.length - visibleItems);
+
+            let dragOffset = diffX;
+            // Elastic boundary resistance when dragging past ends
+            if ((currentIndex === 0 && (isRtl ? diffX < 0 : diffX > 0)) ||
+                (currentIndex === maxIndex && (isRtl ? diffX > 0 : diffX < 0))) {
+                dragOffset = diffX * 0.3;
+            }
+
+            track.style.transform = `translateX(${baseTranslate + dragOffset}px)`;
+        }
+    }
+
+    function onTouchEnd() {
+        if (!isDragging) return;
+        isDragging = false;
+
+        if (isHorizontal === true) {
+            const diffX = currentX - startX;
+            const elapsed = Date.now() - startTime;
+            const velocity = Math.abs(diffX) / Math.max(1, elapsed); // px/ms
+            const isRtl = document.documentElement.getAttribute('dir') === 'rtl';
+
+            // Advance if moved past threshold (> 40px) or flicked with sufficient velocity
+            const isFlick = velocity > 0.25 && Math.abs(diffX) > 20;
+            const isFarEnough = Math.abs(diffX) > 40;
+
+            if (isFlick || isFarEnough) {
+                // In LTR: dragging left (diffX < 0) advances to next card
+                // In RTL: dragging right (diffX > 0) advances to next card
+                const forward = isRtl ? (diffX > 0) : (diffX < 0);
+                if (forward) {
+                    currentIndex++;
+                } else {
+                    currentIndex--;
+                }
+            }
+
+            track.style.transition = 'transform 0.38s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            updateCarousel();
+        }
+
+        isHorizontal = null;
+
+        // If user performed a swipe gesture, suppress accidental card/modal clicks
+        if (wasSwiping) {
+            const captureClick = (e) => {
+                e.stopPropagation();
+                e.preventDefault();
+            };
+            window.addEventListener('click', captureClick, { capture: true, once: true });
+            setTimeout(() => {
+                window.removeEventListener('click', captureClick, { capture: true });
+            }, 100);
+        }
+    }
+
+    viewport.addEventListener('touchstart', onTouchStart, { passive: true });
+    viewport.addEventListener('touchmove', onTouchMove, { passive: false });
+    viewport.addEventListener('touchend', onTouchEnd, { passive: true });
+    viewport.addEventListener('touchcancel', onTouchEnd, { passive: true });
+
+    // Desktop Mouse Drag Support
+    let isMouseDown = false;
+
+    viewport.addEventListener('mousedown', (e) => {
+        if (e.button !== 0) return;
+        if (e.target.closest('button') || e.target.closest('a')) return;
+        
+        startX = currentX = e.clientX;
+        startY = currentY = e.clientY;
+        startTime = Date.now();
+        isMouseDown = true;
+        wasSwiping = false;
+
+        const cards = track.children;
+        if (cards.length === 0) return;
+        const cardWidth = cards[0].getBoundingClientRect().width;
+        const gap = parseFloat(window.getComputedStyle(track).gap) || 0;
+        const isRtl = document.documentElement.getAttribute('dir') === 'rtl';
+        const multiplier = isRtl ? 1 : -1;
+        baseTranslate = multiplier * currentIndex * (cardWidth + gap);
+    });
+
+    window.addEventListener('mousemove', (e) => {
+        if (!isMouseDown) return;
+        currentX = e.clientX;
+        currentY = e.clientY;
+        const diffX = currentX - startX;
+
+        if (Math.abs(diffX) > 8) {
+            wasSwiping = true;
+            track.style.transition = 'none';
+
+            const isRtl = document.documentElement.getAttribute('dir') === 'rtl';
+            const cards = track.children;
+            const cardWidth = cards[0].getBoundingClientRect().width;
+            const gap = parseFloat(window.getComputedStyle(track).gap) || 0;
+            const viewportWidth = viewport.getBoundingClientRect().width;
+            const visibleItems = Math.round((viewportWidth + gap) / (cardWidth + gap)) || 1;
+            const maxIndex = Math.max(0, cards.length - visibleItems);
+
+            let dragOffset = diffX;
+            if ((currentIndex === 0 && (isRtl ? diffX < 0 : diffX > 0)) ||
+                (currentIndex === maxIndex && (isRtl ? diffX > 0 : diffX < 0))) {
+                dragOffset = diffX * 0.3;
+            }
+
+            track.style.transform = `translateX(${baseTranslate + dragOffset}px)`;
+        }
+    });
+
+    window.addEventListener('mouseup', () => {
+        if (!isMouseDown) return;
+        isMouseDown = false;
+
+        const diffX = currentX - startX;
+        const elapsed = Date.now() - startTime;
+        const velocity = Math.abs(diffX) / Math.max(1, elapsed);
+        const isRtl = document.documentElement.getAttribute('dir') === 'rtl';
+
+        const isFlick = velocity > 0.25 && Math.abs(diffX) > 20;
+        const isFarEnough = Math.abs(diffX) > 40;
+
+        if (isFlick || isFarEnough) {
+            const forward = isRtl ? (diffX > 0) : (diffX < 0);
+            if (forward) {
+                currentIndex++;
+            } else {
+                currentIndex--;
+            }
+        }
+
+        track.style.transition = 'transform 0.38s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        updateCarousel();
+
+        if (wasSwiping) {
+            const captureClick = (e) => {
+                e.stopPropagation();
+                e.preventDefault();
+            };
+            window.addEventListener('click', captureClick, { capture: true, once: true });
+            setTimeout(() => {
+                window.removeEventListener('click', captureClick, { capture: true });
+            }, 100);
+        }
+    });
+
     // Initial calculation
     updateCarousel();
 }
